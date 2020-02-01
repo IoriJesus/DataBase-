@@ -1,0 +1,38 @@
+SQL> PROMPT DESPLIEGA A LOS EMPLEADOS CON SALARIO ENTRE 4000 Y 7000
+DESPLIEGA A LOS EMPLEADOS CON SALARIO ENTRE 4000 Y 7000
+SQL> COLUMN EMP_NO FORMAT 9999
+SQL> COLUMN FIRST_NAME FORMAT A10
+SQL> COLUMN APELLIDO FORMAT A12 JUSTIFY CENTER
+SQL> COLUMN Jefe FORMAT 99999
+SQL> COLUMN SALARY FORMAT $99,9999.00
+SQL> SELECT EMPLOYEE_ID EMP_NO, FIRST_NAME, LAST_NAME APELLIDO, MANAGER_ID "Jefe", SALARY
+  2  	     FROM EMPLOYEES
+  3  	     WHERE SALARY BETWEEN 4000 AND 7000
+  4  	     ORDER BY 3;
+EMP_NO*FIRST_NAME*  APELLIDO  *  Jefe*      SALARY                                                                                                    
+======*==========*============*======*============                                                                                                    
+   166*Sundar    *Ande        *   147*    $6400.00                                                                                                    
+   105*David     *Austin      *   103*    $4800.00                                                                                                    
+   167*Amit      *Banda       *   147*    $6200.00                                                                                                    
+   192*Sarah     *Bell        *   123*    $4000.00                                                                                                    
+   185*Alexis    *Bull        *   121*    $4100.00                                                                                                    
+   104*Bruce     *Ernst       *   103*    $6000.00                                                                                                    
+   202*Pat       *Fay         *   201*    $6000.00                                                                                                    
+   178*Kimberely *Grant       *   149*    $7000.00                                                                                                    
+   179*Charles   *Johnson     *   149*    $6200.00                                                                                                    
+   173*Sundita   *Kumar       *   148*    $6100.00                                                                                                    
+   165*David     *Lee         *   147*    $6800.00                                                                                                    
+   107*Diana     *Lorentz     *   103*    $4200.00                                                                                                    
+   203*Susan     *Mavris      *   101*    $6500.00                                                                                                    
+   124*Kevin     *Mourgos     *   100*    $5800.00                                                                                                    
+   106*Valli     *Pataballa   *   103*    $4800.00                                                                                                    
+   113*Luis      *Popp        *   108*    $6900.00                                                                                                    
+   184*Nandita   *Sarchand    *   121*    $4200.00                                                                                                    
+   161*Sarath    *Sewall      *   146*    $7000.00                                                                                                    
+   155*Oliver    *Tuvault     *   145*    $7000.00                                                                                                    
+   123*Shanta    *Vollman     *   100*    $6500.00                                                                                                    
+   200*Jennifer  *Whalen      *   101*    $4400.00                                                                                                    
+
+21 rows selected.
+
+SQL> spool off

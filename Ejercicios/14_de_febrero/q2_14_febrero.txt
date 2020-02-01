@@ -1,0 +1,165 @@
+SQL> PROMPT DESPLIEGA LOS OBJETOS TIPO TABLA E NDEX EN PARA EL USUARIO HR
+DESPLIEGA LOS OBJETOS TIPO TABLA E NDEX EN PARA EL USUARIO HR
+SQL> COLUMN OWNER	     FORMAT A10 JUS	     CENTER
+SQL> COLUMN OBJECT_NAME      FORMAT A25 JUSTIFY      CENTER
+SQL> COLUMN Tipo		     FORMAT A10 JUS	     CENTER
+SQL> SELECT OWNER,OBJECT_NAME,OBJECT_TYPE "Tipo"
+  2  	     FROM ALL_OBJECTS
+  3  	     WHERE OWNER ='HR'
+  4  	     AND OBJECT_TYPE = 'TABLE'
+  5  	     OR OBJECT_TYPE = 'INDEX'
+  6  	     ORDER BY 3,2;
+  OWNER   *       OBJECT_NAME       *   Tipo                                                                                                          
+==========*=========================*==========                                                                                                       
+SYS       *AWCREATE10G_I$           *INDEX                                                                                                            
+SYS       *AWCREATE_I$              *INDEX                                                                                                            
+SYS       *AWMD_I$                  *INDEX                                                                                                            
+SYS       *AWREPORT_I$              *INDEX                                                                                                            
+SYS       *AWXML_I$                 *INDEX                                                                                                            
+MDSYS     *COORDINATE_SYSTEM_PRIM   *INDEX                                                                                                            
+MDSYS     *COORD_AXIS_NAME_PRIM     *INDEX                                                                                                            
+MDSYS     *COORD_AXIS_PRIM          *INDEX                                                                                                            
+MDSYS     *COORD_OP_METHOD_PRIM     *INDEX                                                                                                            
+MDSYS     *COORD_OP_NAME_UNIQUE     *INDEX                                                                                                            
+MDSYS     *COORD_OP_PARA_PRIM       *INDEX                                                                                                            
+MDSYS     *COORD_OP_PARA_USE_PRIM   *INDEX                                                                                                            
+MDSYS     *COORD_OP_PARA_VAL_PRIM   *INDEX                                                                                                            
+MDSYS     *COORD_OP_PRIM            *INDEX                                                                                                            
+MDSYS     *COORD_REF_SYSTEM_PRIM    *INDEX                                                                                                            
+HR        *COUNTRY_C_ID_PK          *INDEX                                                                                                            
+MDSYS     *DATUM_PRIM               *INDEX                                                                                                            
+HR        *DEPT_ID_PK               *INDEX                                                                                                            
+HR        *DEPT_LOCATION_IX         *INDEX                                                                                                            
+CTXSYS    *DRC$OAT_KEY              *INDEX                                                                                                            
+CTXSYS    *DRC$OAT_NAME             *INDEX                                                                                                            
+CTXSYS    *DR_THS_RINGID            *INDEX                                                                                                            
+CTXSYS    *DR_UNIQ_THS_PHRASE       *INDEX                                                                                                            
+MDSYS     *ELLIPSOID_PRIM           *INDEX                                                                                                            
+HR        *EMP_DEPARTMENT_IX        *INDEX                                                                                                            
+HR        *EMP_EMAIL_UK             *INDEX                                                                                                            
+HR        *EMP_EMP_ID_PK            *INDEX                                                                                                            
+HR        *EMP_JOB_IX               *INDEX                                                                                                            
+HR        *EMP_MANAGER_IX           *INDEX                                                                                                            
+HR        *EMP_NAME_IX              *INDEX                                                                                                            
+SYS       *EXPRESS_I$               *INDEX                                                                                                            
+SYSTEM    *HELP_TOPIC_SEQ           *INDEX                                                                                                            
+SYS       *HS_PARALLEL_METADATA_PK  *INDEX                                                                                                            
+SYS       *IMPDP_STATS              *INDEX                                                                                                            
+SYS       *I_AUDIT_ACTIONS          *INDEX                                                                                                            
+SYS       *I_STMT_AUDIT_OPTION_MAP  *INDEX                                                                                                            
+SYS       *I_SYSTEM_PRIVILEGE_MAP   *INDEX                                                                                                            
+SYS       *I_TABLE_PRIVILEGE_MAP    *INDEX                                                                                                            
+SYS       *I_UNIFIED_AUDIT_ACTIONS  *INDEX                                                                                                            
+SYS       *I_USER_PRIVILEGE_MAP     *INDEX                                                                                                            
+HR        *JHIST_DEPARTMENT_IX      *INDEX                                                                                                            
+HR        *JHIST_EMPLOYEE_IX        *INDEX                                                                                                            
+HR        *JHIST_EMP_ID_ST_DATE_PK  *INDEX                                                                                                            
+HR        *JHIST_JOB_IX             *INDEX                                                                                                            
+HR        *JOB_ID_PK                *INDEX                                                                                                            
+SYS       *KU$XKTFBUE_I             *INDEX                                                                                                            
+HR        *LOC_CITY_IX              *INDEX                                                                                                            
+HR        *LOC_COUNTRY_IX           *INDEX                                                                                                            
+HR        *LOC_ID_PK                *INDEX                                                                                                            
+HR        *LOC_STATE_PROVINCE_IX    *INDEX                                                                                                            
+MDSYS     *NTV2_XML_DATA_PK         *INDEX                                                                                                            
+SYSTEM    *OL$HNT_NUM               *INDEX                                                                                                            
+SYSTEM    *OL$NAME                  *INDEX                                                                                                            
+SYSTEM    *OL$SIGNATURE             *INDEX                                                                                                            
+MDSYS     *PK_SRID                  *INDEX                                                                                                            
+MDSYS     *PREFERRED_OPS_SYS_PRIM   *INDEX                                                                                                            
+MDSYS     *PREFERRED_OPS_USE_PRIM   *INDEX                                                                                                            
+MDSYS     *PRIME_MERIDIAN_PRIM      *INDEX                                                                                                            
+MDSYS     *RDF_PARAMETER_KEY        *INDEX                                                                                                            
+HR        *REG_ID_PK                *INDEX                                                                                                            
+MDSYS     *SDO_COORD_OPS_COORD_OP_TY*INDEX                                                                                                            
+          *PE                       *                                                                                                                 
+                                                                                                                                                      
+MDSYS     *SDO_COORD_REF_SYS_KIND   *INDEX                                                                                                            
+MDSYS     *SDO_COORD_SYS_COORD_SYS_T*INDEX                                                                                                            
+          *YPE                      *                                                                                                                 
+                                                                                                                                                      
+MDSYS     *SDO_DATUMS_DATUM_TYPE    *INDEX                                                                                                            
+MDSYS     *SDO_GEOR_CB_IDX          *INDEX                                                                                                            
+MDSYS     *SDO_GR_RDT_1_PK          *INDEX                                                                                                            
+MDSYS     *SDO_GR_RDT_2_PK          *INDEX                                                                                                            
+MDSYS     *SDO_INDEX_HISTOGRAM_TABLE*INDEX                                                                                                            
+          *_IDX                     *                                                                                                                 
+                                                                                                                                                      
+MDSYS     *SDO_PK_SEQ_TIN_PC        *INDEX                                                                                                            
+MDSYS     *SDO_PK_TIN_PC            *INDEX                                                                                                            
+MDSYS     *SDO_TIN_PC_IDX           *INDEX                                                                                                            
+MDSYS     *SDO_TXN_JOURNAL_REG_IDX  *INDEX                                                                                                            
+MDSYS     *SDO_UNQ_PCATTR_TIN_PC    *INDEX                                                                                                            
+MDSYS     *SDO_WS_CONF_PART_PK      *INDEX                                                                                                            
+MDSYS     *SDO_WS_CONF_PK           *INDEX                                                                                                            
+MDSYS     *SDO_WS_CONF_RES__PK      *INDEX                                                                                                            
+SYS       *SYS_C005063              *INDEX                                                                                                            
+SYS       *SYS_C005064              *INDEX                                                                                                            
+XDB       *SYS_C005522              *INDEX                                                                                                            
+XDB       *SYS_C005523              *INDEX                                                                                                            
+XDB       *SYS_C005524              *INDEX                                                                                                            
+XDB       *SYS_C005525              *INDEX                                                                                                            
+XDB       *SYS_C005526              *INDEX                                                                                                            
+XDB       *SYS_C005527              *INDEX                                                                                                            
+XDB       *SYS_C005528              *INDEX                                                                                                            
+XDB       *SYS_C005529              *INDEX                                                                                                            
+XDB       *SYS_C005530              *INDEX                                                                                                            
+XDB       *SYS_C005531              *INDEX                                                                                                            
+XDB       *SYS_C005532              *INDEX                                                                                                            
+XDB       *SYS_C005533              *INDEX                                                                                                            
+XDB       *SYS_C005534              *INDEX                                                                                                            
+  OWNER   *       OBJECT_NAME       *   Tipo                                                                                                          
+==========*=========================*==========                                                                                                       
+XDB       *SYS_C005535              *INDEX                                                                                                            
+XDB       *SYS_C005540              *INDEX                                                                                                            
+XDB       *SYS_C005541              *INDEX                                                                                                            
+CTXSYS    *SYS_C005857              *INDEX                                                                                                            
+CTXSYS    *SYS_C005858              *INDEX                                                                                                            
+CTXSYS    *SYS_C005860              *INDEX                                                                                                            
+MDSYS     *SYS_C006420              *INDEX                                                                                                            
+MDSYS     *SYS_C006428              *INDEX                                                                                                            
+MDSYS     *SYS_C006441              *INDEX                                                                                                            
+MDSYS     *SYS_C006443              *INDEX                                                                                                            
+MDSYS     *SYS_C006481              *INDEX                                                                                                            
+MDSYS     *SYS_C006482              *INDEX                                                                                                            
+MDSYS     *SYS_C006694              *INDEX                                                                                                            
+MDSYS     *SYS_C006712              *INDEX                                                                                                            
+MDSYS     *SYS_C006808              *INDEX                                                                                                            
+MDSYS     *SYS_C006819              *INDEX                                                                                                            
+MDSYS     *SYS_C006822              *INDEX                                                                                                            
+MDSYS     *SYS_C006888              *INDEX                                                                                                            
+MDSYS     *SYS_C006889              *INDEX                                                                                                            
+MDSYS     *SYS_C006893              *INDEX                                                                                                            
+MDSYS     *SYS_C006896              *INDEX                                                                                                            
+MDSYS     *SYS_C006897              *INDEX                                                                                                            
+MDSYS     *SYS_C006898              *INDEX                                                                                                            
+MDSYS     *SYS_C006899              *INDEX                                                                                                            
+SYS       *SYS_FK0000020116N00017$  *INDEX                                                                                                            
+SYS       *SYS_FK0000020116N00019$  *INDEX                                                                                                            
+MDSYS     *UNIT_OF_MEASURE_PRIM     *INDEX                                                                                                            
+MDSYS     *UOM_UNIQUE1              *INDEX                                                                                                            
+MDSYS     *UOM_UNIQUE_SHORT_NAME    *INDEX                                                                                                            
+SYS       *WRR$_REPLAY_CALL_FILTER_P*INDEX                                                                                                            
+          *K                        *                                                                                                                 
+                                                                                                                                                      
+XDB       *XDB$COMPLEX_TYPE_AK      *INDEX                                                                                                            
+XDB       *XDB$COMPLEX_TYPE_CK      *INDEX                                                                                                            
+XDB       *XDB$COMPLEX_TYPE_SK      *INDEX                                                                                                            
+XDB       *XDB$ELEMENT_HER          *INDEX                                                                                                            
+XDB       *XDB$ELEMENT_PR           *INDEX                                                                                                            
+XDB       *XDB$ELEMENT_PROPNAME     *INDEX                                                                                                            
+XDB       *XDB$ELEMENT_PROPNUMBER   *INDEX                                                                                                            
+XDB       *XDB$ELEMENT_PS           *INDEX                                                                                                            
+XDB       *XDB$ELEMENT_TR           *INDEX                                                                                                            
+XDB       *XDB$SCHEMA_URL           *INDEX                                                                                                            
+HR        *COUNTRIES                *TABLE                                                                                                            
+HR        *DEPARTMENTS              *TABLE                                                                                                            
+HR        *EMPLOYEES                *TABLE                                                                                                            
+HR        *JOBS                     *TABLE                                                                                                            
+HR        *JOB_HISTORY              *TABLE                                                                                                            
+HR        *LOCATIONS                *TABLE                                                                                                            
+HR        *REGIONS                  *TABLE                                                                                                            
+
+138 rows selected.
+
+SQL> spool off

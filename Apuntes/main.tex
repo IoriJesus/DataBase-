@@ -1,0 +1,523 @@
+% run the command ' lualatex -shell-escape Reference.tex ' twice in the terminal to visualize table of contents
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{minted}
+\usepackage{python}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{needspace}
+\usepackage{sectsty}
+\usepackage{array}
+\usepackage{multirow} 
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{afterpage}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[inline]{enumitem}
+
+
+\newcommand{\wdir}[1]{/home/san/Algorithms/Reference/#1}
+\geometry{letterpaper, portrait, left=0.5cm, right=0.5cm, top=1.8cm, bottom=1cm}
+
+\sectionfont{\Huge\bfseries\sffamily}
+
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{prussianblue}{rgb}{0.0, 0.19, 0.33}
+\definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
+\definecolor{lapislazuli}{rgb}{0.15, 0.38, 0.61}
+\definecolor{mediumelectricblue}{rgb}{0.01, 0.31, 0.59}
+\definecolor{smalt(darkpowderblue)}{rgb}{0.0, 0.2, 0.6}
+\definecolor{yaleblue}{rgb}{0.06, 0.3, 0.57}
+\definecolor{skobeloff}{rgb}{0.0, 0.48, 0.45}
+\definecolor{pinegreen}{rgb}{0.0, 0.47, 0.44}
+
+\setminted{
+    style=tango,
+    breaklines=true,
+    bgcolor=LightGray
+}
+
+\setlength{\headsep}{0.5cm}
+\setlength{\columnsep}{0.5cm}
+\setlength{\columnseprule}{0.01cm}
+\renewcommand{\columnseprulecolor}{\color{gray}}
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LO,RE]{\textsf{First, solve the problem. Then, write the code.}}
+\fancyhead[LE,RO]{\textsf{\leftmark}}
+\fancyfoot[LE,RO]{\textbf{\textsf{\thepage}}}
+ 
+\renewcommand{\headrulewidth}{0.01cm}
+\renewcommand{\footrulewidth}{0.01cm}
+
+\setlength{\parindent}{0em}
+% column space
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+% upper and lower padding
+\renewcommand{\arraystretch}{1.5} % Default value: 1
+
+\begin{document}
+\null
+\thispagestyle{empty}
+\newpage
+\fontfamily{lmss}
+\selectfont
+\tableofcontents
+\newpage
+\cleardoublepage
+\section{Introduccion a las bases de datos}
+\section{Conceptos de sistemas y arquitectura de bases de datos}
+\subsection{DDL Data Definition Language}
+Involves:
+\begin{itemize}
+	\item create table
+	\item drop table
+\end{itemize}
+
+\subsection{DML Data Manipulation Language}
+Involves:
+\begin{itemize}
+	\item insert into
+	\item delete
+	\item select
+	\item update
+\end{itemize}
+\section{Algebra relacional y SQL standar}
+\textbf{DEF.} Una expresion en el algebra relacional se construye a partir de subexpresiones.\\
+
+Sean $E_1$ \& $E_2$ expresiones del algebra relacional. Las siguientes son todas expresiones \textbf{binarias} del algebra relaional.\\
+
+\begin{itemize}
+  \item \textbf{Union:} $E_1 \cup E_2$ (Se requiere que el numero de columnas sea el mismo entre tablas asi como los nombres de columnas.)
+  \item \textbf{Diferencia:} $E_1 - E_2$
+  \item \textbf{Producto Cartesiano:} $E_1 \times E_2$
+\end{itemize}
+
+Y las siguientes son operaciones \textbf{unarias:}\\
+
+\begin{itemize}
+  \item \textbf{Seleccion:} $\sigma_p(E_1)$ donde $p$ es un predicado de atributos de $E_1$. (Trabaja con renglones completos)\\
+  \item \textbf{Proyeccion:} $\Pi_s(E_1)$ donde $s$ es un conjunto de atributos de $E_1$. (Trabaja con columnas completas)\\
+  \item \textbf{Renombramiento:} $P_x(E_1)$ donde $E_x$ es un nuevo nombre de la relacion $E_1$.
+\end{itemize}
+
+\newpage
+
+Sean $R$, $S$ y $T$ entidades ejemplificaremos las operaciones mencionadas anteriormente:\\
+\begin{center}
+\begin{tabular}{ccc}
+\multicolumn{3}{c}{\textbf{Entidades}}
+\tabularnewline
+\begin{minipage}{.25\linewidth}
+\begin{tabular}{| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}|}
+\hline
+\multicolumn{3}{|c|}{\textbf{R}}
+\tabularnewline \hline
+\textbf{A}
+&
+\textbf{B}
+&
+\textbf{C}
+\tabularnewline \hline
+a & 1 & a
+\tabularnewline \hline
+b & 1 & b
+\tabularnewline \hline
+a & 1 & d
+\tabularnewline \hline
+b & 2 & f
+\tabularnewline \hline
+\end{tabular}
+\end{minipage}
+&
+\begin{minipage}{.25\linewidth}
+\begin{tabular}{| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}|}
+\hline
+\multicolumn{3}{|c|}{\textbf{S}}
+\tabularnewline \hline
+\textbf{A}
+&
+\textbf{B}
+&
+\textbf{C}
+\tabularnewline \hline
+a & 1 & a
+\tabularnewline \hline
+a & 3 & f
+\tabularnewline \hline
+\end{tabular}
+\end{minipage}
+&
+\begin{minipage}{.25\linewidth}
+\begin{tabular}{| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}|}
+\hline
+\multicolumn{3}{|c|}{\textbf{T}}
+\tabularnewline \hline
+\textbf{B}
+&
+\textbf{C}
+&
+\textbf{D}
+\tabularnewline \hline
+a & 1 & a
+\tabularnewline \hline
+3 & b & 1
+\tabularnewline \hline
+3 & c & 2
+\tabularnewline \hline
+1 & d & 4
+\tabularnewline \hline
+2 & a & 3
+\tabularnewline \hline
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{ccc}
+\multicolumn{2}{c}{\textbf{Seleccion}}
+\tabularnewline
+$SL_{A=a}(R) = \sigma_{A=a}(R)$ \Rightarrow
+&
+\begin{minipage}{.25\linewidth}
+\begin{tabular}{| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Resultado}}
+\tabularnewline \hline
+\textbf{A}
+&
+\textbf{B}
+&
+\textbf{C}
+\tabularnewline \hline
+a & 1 & a
+\tabularnewline \hline
+a & 1 & d
+\tabularnewline \hline
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ccc}
+\multicolumn{2}{c}{\textbf{Proyeccion}}
+\tabularnewline
+$PJ_{A,B}(R) = \Pi_{A,B}(R)$ \Rightarrow
+&
+\begin{minipage}{.25\linewidth}
+\begin{tabular}{| >{\centering}m{1cm}| >{\centering}m{1cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Resultado}}
+\tabularnewline \hline
+\textbf{A}
+&
+\textbf{B}
+\tabularnewline \hline
+a & 1
+\tabularnewline \hline
+b & 1
+\tabularnewline \hline
+a & 1
+\tabularnewline \hline
+b & 2
+\tabularnewline \hline
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ccc}
+\multicolumn{2}{c}{\textbf{Union}}
+\tabularnewline
+$Union(R, S) = R \cup S$ \Rightarrow
+&
+\begin{minipage}{.25\linewidth}
+\begin{tabular}{| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Resultado}}
+\tabularnewline \hline
+\textbf{A}
+&
+\textbf{B}
+&
+\textbf{C}
+\tabularnewline \hline
+a & 1 & a
+\tabularnewline \hline
+b & 1 & b
+\tabularnewline \hline
+a & 1 & d
+\tabularnewline \hline
+b & 2 & f
+\tabularnewline \hline
+a & 3 & f
+\tabularnewline \hline
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ccc}
+\multicolumn{2}{c}{\textbf{Diferencia}}
+\tabularnewline
+$Dif(R, S) = R - S$ \Rightarrow
+&
+\begin{minipage}{.25\linewidth}
+\begin{tabular}{| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Resultado}}
+\tabularnewline \hline
+\textbf{A}
+&
+\textbf{B}
+&
+\textbf{C}
+\tabularnewline \hline
+b & 1 & b
+\tabularnewline \hline
+a & 1 & d
+\tabularnewline \hline
+b & 2 & f
+\tabularnewline \hline
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ccc}
+\multicolumn{2}{c}{\textbf{Producto Cartesiano}}
+\tabularnewline
+$PC(R, S) = R \times S$ \Rightarrow
+&
+\begin{minipage}{.25\linewidth}
+\begin{tabular}{| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}|}
+\hline
+\multicolumn{6}{|c|}{\textbf{Resultado}}
+\tabularnewline \hline
+\textbf{R.A}
+&
+\textbf{R.B}
+&
+\textbf{R.C}
+&
+\textbf{S.A}
+&
+\textbf{S.B}
+&
+\textbf{S.C}
+\tabularnewline \hline
+a & 1 & a & a & 1 & a
+\tabularnewline \hline
+b & 1 & b & a & 1 & a
+\tabularnewline \hline
+a & 1 & d & a & 1 & a
+\tabularnewline \hline
+b & 2 & f & a & 1 & a
+\tabularnewline \hline
+a & 1 & a & a & 3 & f
+\tabularnewline \hline
+b & 1 & b & a & 3 & f
+\tabularnewline \hline
+a & 1 & d & a & 3 & f
+\tabularnewline \hline
+b & 2 & f & a & 3 & f
+\tabularnewline \hline
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ccc}
+\multicolumn{2}{c}{\textbf{Producto Cartesiano}}
+\tabularnewline
+$PC(R, T) = R \times T$ \Rightarrow
+&
+\begin{minipage}{.25\linewidth}
+\begin{tabular}{| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}|}
+\hline
+\multicolumn{6}{|c|}{\textbf{Resultado}}
+\tabularnewline \hline
+\textbf{R.A}
+&
+\textbf{R.B}
+&
+\textbf{T.B}
+&
+\textbf{R.C}
+&
+\textbf{T.C}
+&
+\textbf{T.D}
+\tabularnewline \hline
+a & 1 & 1 & a & a & 1
+\tabularnewline \hline
+b & 1 & 1 & b & a & 1
+\tabularnewline \hline
+a & 1 & 1 & d & a & 1
+\tabularnewline \hline
+b & 2 & 1 & f & a & 1
+\tabularnewline \hline
+a & 1 & 3 & a & b & 1
+\tabularnewline \hline
+b & 1 & 3 & b & b & 1
+\tabularnewline \hline
+a & 1 & 3 & d & b & 1
+\tabularnewline \hline
+b & 2 & 3 & f & b & 1
+\tabularnewline \hline
+a & 1 & 3 & a & c & 2
+\tabularnewline \hline
+b & 1 & 3 & b & c & 2
+\tabularnewline \hline
+a & 1 & 3 & d & c & 2
+\tabularnewline \hline
+b & 2 & 3 & f & c & 2
+\tabularnewline \hline
+a & 1 & 1 & a & d & 4
+\tabularnewline \hline
+b & 1 & 1 & b & d & 4
+\tabularnewline \hline
+a & 1 & 1 & d & d & 4
+\tabularnewline \hline
+b & 2 & 1 & f & d & 4
+\tabularnewline \hline
+a & 1 & 2 & a & a & 3
+\tabularnewline \hline
+b & 1 & 2 & b & a & 3
+\tabularnewline \hline
+a & 1 & 2 & d & a & 3
+\tabularnewline \hline
+b & 2 & 2 & f & a & 3
+\tabularnewline \hline
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ccc}
+\multicolumn{2}{c}{\textbf{JOIN}}
+\tabularnewline
+$JOIN(R, T)_{R.C = T.C}$ \Rightarrow
+&
+\begin{minipage}{.25\linewidth}
+\begin{tabular}{| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}| >{\centering}m{1cm}|}
+\hline
+\multicolumn{6}{|c|}{\textbf{Resultado}}
+\tabularnewline \hline
+\textbf{R.A}
+&
+\textbf{R.B}
+&
+\textbf{R.C}
+&
+\textbf{T.B}
+&
+\textbf{T.C}
+&
+\textbf{T.D}
+\tabularnewline \hline
+a & 1 & a & 1 & a & 1
+\tabularnewline \hline
+b & 1 & b & 3 & b & 1
+\tabularnewline \hline
+a & 1 & d & 1 & d & 4
+\tabularnewline \hline
+a & 1 & a & 2 & a & 3
+\tabularnewline \hline
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+\section{Analisis de una base de datos}
+\section{Diseno de una base de datos}
+
+
+\section{Oracle DB Commands}
+
+\subsection{Start Oracle DB}
+
+\begin{minted}{console}
+[root@localhost ~]# . ./setupXEvars
+\end{minted}
+The contents of this script are the following:
+
+\begin{minted}{bash}
+export ORACLE_SID=XE
+export ORAENV_ASK=NO
+. /opt/oracle/product/18c/dbhomeXE/bin/oraenv
+/sbin/service oracle-xe-18c start
+\end{minted}
+
+\subsection{Login as sysdba (root)}
+\begin{minted}{console}
+[root@localhost ~]# sqlplus sys as sysdba
+\end{minted}
+\subsection{Alter Oracle Date Language}
+\begin{minted}{sql}
+alter session set nls_session_parameters
+alter session set nls_date_language='english'
+select * from nls_session_parameters;
+\end{minted}
+\subsection{Create User}
+Our username will be "sergio" and our password will be also "sergio"; \\
+Login as sysdba and enter the following commands.
+\begin{minted}{sql}
+alter session set "_ORACLE_SCRIPT"=true;
+create user sergio identified by sergio default tablespace users temporary tablespace temp;
+grant connect, resource to sergio;
+alter user sergio quota unlimited on users;
+alter user sergio quota unlimited on temp;
+\end{minted}
+\subsection{Create Student Database from script}
+\begin{minted}{sql}
+SQL> @dbs/O11/createStudent.sql
+\end{minted}
+\subsection{SPOOL Command}
+\begin{minted}{sql}
+Saves all the output of the inserted commands into the given file (mylog.txt)
+SQL> spool mylog.txt
+\end{minted}
+\subsection{TO\_DATE() Function}
+\begin{minted}{sql}
+to_date('05-apr-2003 20:14:33', 'dd-mon-yyyy hh24:mm:ss');
+\end{minted}
+
+\subsection{ROWNUM Column}
+\textbf{ROWNUM: } Is a column appended to every table which corresponds to the index of every row in the table.
+\subsection{Install Sample Database}
+Login as sysdba and run the following commands.
+\begin{minted}{sql}
+alter session set "_ORACLE_SCRIPT"=true;
+@?/demo/schema/human_resources/hr_main.sql
+\end{minted}
+\section{Bibliografia}
+
+SQL by Example
+
+\section{Tareas}
+\subsection{Investigar que es SQL [Done]}
+SQL stands for "Structure Query Language" and is a language used to perform queries in databases managers.
+\subsection{Investigar que es "SPOOL" [Done]}
+Is a command used to save the ouput of the commands we insert into the sqlplus console.
+\section{Student Database Schema}
+\includepdf{AppendixD.pdf}
+
+\end{document}

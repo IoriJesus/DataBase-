@@ -1,0 +1,30 @@
+SQL> -- DESC ALL_TAB_COLUMNS
+SQL> PROMPT DESPLIEGA ATRIBUTOS DE LA TABLA ALL_TAB_COLUMNS
+DESPLIEGA ATRIBUTOS DE LA TABLA ALL_TAB_COLUMNS
+SQL> COLUMN OWNER FORMAT A6
+SQL> COLUMN TABLE_NAME FORMAT A25
+SQL> COLUMN COLUMN_NAME FORMAT A18
+SQL> COLUMN DATA_TYPE FORMAT A10
+SQL> COLUMN Tipo FORMAT A10  JUS     CENTER
+SQL> SELECT OWNER,TABLE_NAME,COLUMN_NAME,DATA_TYPE  "Tipo"
+  2  	     FROM ALL_TAB_COLUMNS
+  3  	     WHERE OWNER = 'HR'
+  4  	     AND TABLE_NAME = 'EMPLOYEES'
+  5  	     ORDER BY 2,3;
+OWNER *TABLE_NAME               *COLUMN_NAME       *   Tipo                                                                                           
+======*=========================*==================*==========                                                                                        
+HR    *EMPLOYEES                *COMMISSION_PCT    *NUMBER                                                                                            
+HR    *EMPLOYEES                *DEPARTMENT_ID     *NUMBER                                                                                            
+HR    *EMPLOYEES                *EMAIL             *VARCHAR2                                                                                          
+HR    *EMPLOYEES                *EMPLOYEE_ID       *NUMBER                                                                                            
+HR    *EMPLOYEES                *FIRST_NAME        *VARCHAR2                                                                                          
+HR    *EMPLOYEES                *HIRE_DATE         *DATE                                                                                              
+HR    *EMPLOYEES                *JOB_ID            *VARCHAR2                                                                                          
+HR    *EMPLOYEES                *LAST_NAME         *VARCHAR2                                                                                          
+HR    *EMPLOYEES                *MANAGER_ID        *NUMBER                                                                                            
+HR    *EMPLOYEES                *PHONE_NUMBER      *VARCHAR2                                                                                          
+HR    *EMPLOYEES                *SALARY            *NUMBER                                                                                            
+
+11 rows selected.
+
+SQL> spool off
