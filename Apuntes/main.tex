@@ -67,9 +67,6 @@
 \renewcommand{\arraystretch}{1.5} % Default value: 1
 
 \begin{document}
-\null
-\thispagestyle{empty}
-\newpage
 \fontfamily{lmss}
 \selectfont
 \tableofcontents
@@ -326,7 +323,7 @@ Describe como la informacion es almacenada en la BD.
     \item \textbf{Control de concurrencia:}
     \begin{itemize}
       \item Manejo de transacciones
-      \item Propiedades ACID
+      \item Propiedades ACID [Atomicity, Consistency, Isolation, Durability]
       \item Estados de una $t_i$ [Activa, Parcialmente confirmado, Confirmada (Commit al repositorio de datos)]
       \item \textbf{Bloqueos}
       \begin{itemize}
@@ -361,7 +358,7 @@ Describe como la informacion es almacenada en la BD.
 \end{enumerate}
 
 \begin{figure}[htb]
-  \includegraphics[width=1\linewidth]{arqsgbd.jpg}
+  \includegraphics[width=\linewidth]{arqsgbd.jpg}
   \caption{Arquitectura de un SGBD}
 \end{figure}
 
