@@ -318,12 +318,39 @@ Describe como la informacion es almacenada en la BD.
   \begin{enumerate}
     \item Motor de evaluacion de consultas
     \begin{enumerate}
-      \item Analizador
-      \item Evaluador de Operadores
-      \item Optimizador
-      \item Ejecutor de planes
+      \item \textbf{Analizador o Compilador DDL/DML:} Realiza el analisis lexico (Gramatica SQL) y sintactico (formulacion correcta), ademas de validar los objetos descritos en la consulta con los objetos definidos en los metadatos.
+      \item \textbf{Evaluador de Operadores:} Verifica los operadores de algebra relacional que incluye consultas.
+      \item \textbf{Optimizador:} Representa la consulta en un ''Arbol canonico'' y un ''Arbol de consulta''. Reduce la cardinalidad (# de tuplas) y el grado (# de atributos).
+      \item \textbf{Ejecutor de planes:} Elige el mejor orden (estrategia) para ejecutar las consultas.
     \end{enumerate}
-    \item Control de concurrencia
+    \item \textbf{Control de concurrencia:}
+    \begin{itemize}
+      \item Manejo de transacciones
+      \item Propiedades ACID
+      \item Estados de una $t_i$ [Activa, Parcialmente confirmado, Confirmada (Commit al repositorio de datos)]
+      \item \textbf{Bloqueos}
+      \begin{itemize}
+        \item Binario
+        \item Bloqueo de multiples niveles. [Bloqueo de lectura, Bloqueo de escritura, Desbloqueo].
+      \end{itemize}
+      \item \textbf{Marcas de tiempo}
+      \begin{itemize}
+        \item Semaforo
+        \item Tiempo de ejecucion
+      \end{itemize}
+    \item \textbf{Gestor de transacciones}
+    \begin{itemize}
+      \item Gestiona las $t_i$
+      \item \textbf{Bitacoras de las $t_i$}
+      \begin{enumerate}
+        \item inicia
+        \item read, x
+        \item write, x, valor previo, nuevo valor
+        \item abort, x
+        \item commit, x
+      \end{enumerate}
+    \end{itemize}
+    \end{itemize}
     \item Archivos
     \begin{itemize}
       \item Catalogo del sistema
@@ -333,12 +360,19 @@ Describe como la informacion es almacenada en la BD.
   \end{enumerate}
 \end{enumerate}
 
-\begin{figure}[~htb]
-  \includegraphics[width=\linewidth]{arqsgbd.jpg}
+\begin{figure}[htb]
+  \includegraphics[width=1\linewidth]{arqsgbd.jpg}
   \caption{Arquitectura de un SGBD}
 \end{figure}
 
 \clearpage
+
+
+\subsection{Arquitectura Cliente/Servidor para los SGBD}
+
+
+
+\subsection{Arquitectura Centralizada para los SGBD}
 
 \subsection{DDL Data Definition Language}
 Involves:
