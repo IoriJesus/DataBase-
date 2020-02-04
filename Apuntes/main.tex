@@ -1,7 +1,7 @@
 % run the command ' lualatex -shell-escape Reference.tex ' twice in the terminal to visualize table of contents
 \documentclass[twoside]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
+\usepackage[spanish]{babel}
 \usepackage{geometry}
 \usepackage{multicol}
 \usepackage{minted}
@@ -20,6 +20,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage[inline]{enumitem}
+\usepackage{graphicx}
 
 
 \newcommand{\wdir}[1]{/home/san/Algorithms/Reference/#1}
@@ -75,7 +76,270 @@
 \newpage
 \cleardoublepage
 \section{Introduccion a las bases de datos}
+
 \section{Conceptos de sistemas y arquitectura de bases de datos}
+
+\subsection{Concepto de Base de datos}
+
+Una base de datos se puede definir como un conjunto de datos ''ordenados'', definidos por un modelo de datos, los cuales se almacenan en dispositivos de almacenamiento.\\
+
+Su finalidad es: Manipular, controlar, consultar, preservar los datos de la misma.
+
+\subsection{Sistemas de Base de Datos} % **********************PENDIENTE DE PREGUNTAR A QUE SE REFIERE*************************
+\subsection{Aplicaciones de los Sistemas de BD}
+
+\subsection{Proposito de los sistemas de BD}
+
+Los sistemas de bases de datos tienen como intencion solucionar los problemas que se derivan de utilizar un sistema meramente de archivos.
+Algunos de estos problemas son:
+
+\begin{itemize}
+  \item Los datos aparecen de manera redundante.
+  \item Los datos son inconsistentes.
+  \item Los datos se encuentran totalmente aislados.
+  \item No es posible el acceso concurrente
+\end{itemize}
+
+En cambio, los Sistemas de Bases de Datos cumplen con las siguientes caracteristicas:
+
+\begin{itemize}
+  \item Minimizan la redundancia en los datos.
+  \item Eliminan inconsistencias en los datos.
+  \item Permiten la comunicacion con distintos repositorios de datos.
+  \item Mantiene un control de concurrencia en las transacciones.
+\end{itemize}
+
+[Nota]\\
+Una transaccion es una operacion que afecta al Repositorio de datos, pueden ser de diferentes tipos como:\\
+\begin{itemize}
+  \item Insercion
+  \item Actualizacion
+  \item Eliminacion
+  \item Consulta
+\end{itemize}
+
+
+\subsection{Usuarios de la BD}
+
+\subsubsection{Administrador de BD}
+
+Encargado de:
+
+\begin{itemize}
+  \item Monitarear el performance.
+  \item Define tiempos de respaldo.
+  \item Proceso de tunning \rightarrow afinacion / reorganizacion fisica.
+  \item Llevar a cabo las tecnicas de recuperacion.
+  \item Administra herramientas [Objetos accedidos, Matriz de autorizacion: creacion de cuentas de usuarios]
+\end{itemize}
+
+\subsubsection{Diseñadores de la BD}
+
+\begin{itemize}
+  \item Genera propios modelos de datos [conceptuales (E/R), logicos (Relacionales), fisicos (Indices)]
+  \item Genera esquema de BD: [Medicas, Administrativas, Puntos de esquema]
+\end{itemize}
+
+----------Inserte aqui diagramas de ejemplo para modelos conceptuales y logicos.---------------
+
+\subsubsection{Programadores de aplicaciones}
+
+\begin{itemize}
+  \item Interfaces de los usuarios finales (Dashboards) (facilita el acceso a "ciertos" objetos de la BD)
+  \item Interfaces para la gestion de aplicaciones.
+  \begin{itemize}
+    \item IDE's (java / .NET)
+    \item Lenguajes scripts
+    \item Conectividad con el servidor de datos (APIs)
+    \item Programacion Orienteada a Objetos
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Usuarios Finales}
+
+\begin{itemize}
+  \item Usuarios casuales (nivel gerencia)
+  \begin{itemize}
+    \item Inteligencia (Big Data)
+    \item Negocios
+    \item Reportes (Toma de decisiones)
+  \end{itemize}
+  \item Principales o parametricos
+  \begin{itemize}
+    \item Puntos de ventas
+  \end{itemize}
+  \item Sofisticados
+  \begin{itemize}
+    \item Desarrolladores de apps
+    \item DBAs (Admins de Bases de Datos)
+    \item Investigadores
+  \end{itemize}
+  \item Independientes (Stand Alone)
+  \begin{itemize}
+    \item Proyectos Escolares
+    \item No hay conectividad con otros "nodos" a la internet
+  \end{itemize}
+\end{itemize}
+
+\subsection{Ciclo de vida de una BD}
+
+\begin{enumerate}
+  \item Planificacion
+  \begin{itemize}
+    \item Viabilidad de la implementacion
+    \item Supervisores, dueños, gerentes
+    \item Contexto, ¿ Para que ?, citas, control, etc.
+    \item Tiempos de entrega
+  \end{itemize}
+  \item Analisis y Formulacion de Requerimientos (Acciones que debe hacer nuestro sistema)
+  \begin{itemize}
+    \item Contexto
+    \item Requerimientos [Basicos, Funcionales, No Funcionales]
+    \item Reglas del negocio (Proceso) \rightarrow restricciones (IDE's)
+  \end{itemize}
+  \item {Diseño}
+  \begin{itemize}
+    \item Generar los modelos de datos [logicos, conceptuales y fisicos] orientados a objetos relacionales, multidimensionales.
+    \item Aplicaciones de usuarios finales (Diseñar GUI) \rightarrow HCI (Human Computer Interaction)
+  \end{itemize}
+  \item Implementacion
+  \begin{itemize}
+    \item Construir el repositorio de datos
+    \item Conectar al servidor
+  \end{itemize}
+  \item Operacion y Mantenimiento
+  \begin{itemize}
+    \item Crecimiento de usuarios y datos
+    \item Posibles cambios que se deban realizar
+    \item Errores y Correcciones
+    \item Monitoreo
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Modelos de de datos}
+
+
+
+\subsubsection{Conceptual}
+
+\begin{itemize}
+  \item Permiten definir el ambito / context de la BD
+  \item Lenguaje natural (idioma nativo)
+  \item Comprendido por cualquier persona
+  \item Proceso de analisis de requerimientos
+  \item Diagrama Entidad / Relacion o Entidad / Asociacion
+\end{itemize}
+
+--------------------Inserte ejemplo de Esquema Conceptual-------------------
+
+\subsubsection{Logico}
+
+\begin{itemize}
+  \item Definen el esquema de base de datos en terminos de relacion
+  \item Tablas:
+  \begin{itemize}
+    \item Filas (tuplas)
+    \item Columnas (nombre \rightarrow atributo)
+    \item claves relacionales [Primary Key, Foreign Key, Candidate key]
+    \item Tipos de datos
+    \item Constraints (restricciones)
+  \end{itemize}
+  \item Puedes construir la BD fisicamente
+  \begin{itemize}
+    \item Manual
+    \item Automatica (Herramientas CASE)
+  \end{itemize}
+\end{itemize}
+
+------------------Inserte ejemplo de Esquema Logico--------------------
+
+\subsubsection{Fisico}
+
+Depende del Sistema Operativo
+
+\begin{itemize}
+  \item Define las estructuras de almacenamiento de datos.
+  \item Define los indices(index) para acceder a los archivos fisicos del repositorio de datos.
+\end{itemize}
+
+-----------------Inserte ejemplo de Esquema Fisico----------------------
+
+
+\subsection{Arquitectura de 3 niveles}
+
+\subsubsection{Nivel externo}
+
+Describe una parte de la BD que es relevante a un usuario en particular, excluye datos irrelevantes asi como informacion a la que el usuario
+no se le tiene permitido el acceso.
+
+Los usuarios finales son quienes visualizan este nivel por medio de GUIs.
+
+\subsubsection{Nivel conceptual}
+
+Describe:
+
+\begin{itemize}
+  \item Que datos se almacenan.
+  \item Como se relacionan los datos entre ellos.
+\end{itemize}
+
+Algunas de sus caracteristicas son:
+
+\begin{itemize}
+  \item El DBA trabaja en este nivel.
+  \item Describe la estructura de todos los usuarios.
+  \item Solo el DBA define este nivel.
+  \item Da una vista global de la BD.
+  \item Es independiente del software y hardware.
+\end{itemize}
+
+\subsubsection{Nivel interno}
+
+Describe como la informacion es almacenada en la BD.
+
+\begin{itemize}
+  \item Define las estructuras de almacenamiento (depende del S.O.)
+  \item Define la construccion
+\end{itemize}
+
+\subsection{Independencia de datos}
+
+\begin{itemize}
+  \item \textbf{Independencia Logica:} Capacidad de modificar el esquema conceptual sin tener que alterar los esquemas externos ni los programas de aplicacion.
+  \item \textbf{Independencia Fisica:} Capacidad de modificar el esquema interno sin tener que alterar el esquema conceptual (o los externos).
+\end{itemize}
+
+\subsection{Arquitectura de los SGBD}
+
+\begin{enumerate}
+  \item Aplicaciones de usuarios finales
+  \item Comandos SQL
+  \item SGBD
+  \begin{enumerate}
+    \item Motor de evaluacion de consultas
+    \begin{enumerate}
+      \item Analizador
+      \item Evaluador de Operadores
+      \item Optimizador
+      \item Ejecutor de planes
+    \end{enumerate}
+    \item Control de concurrencia
+    \item Archivos
+    \begin{itemize}
+      \item Catalogo del sistema
+      \item Archivo de indices
+      \item Archivos de datos
+    \end{itemize}
+  \end{enumerate}
+\end{enumerate}
+
+\begin{figure}[~htb]
+  \includegraphics[width=\linewidth]{arqsgbd.jpg}
+  \caption{Arquitectura de un SGBD}
+\end{figure}
+
+\clearpage
+
 \subsection{DDL Data Definition Language}
 Involves:
 \begin{itemize}
