@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Saves} \PYG{k}{all} \PYG{n}{the} \PYG{k}{output} \PYG{k}{of} \PYG{n}{the} \PYG{n}{inserted} \PYG{n}{commands} \PYG{k}{into} \PYG{n}{the} \PYG{n}{given} \PYG{n}{file} \PYG{p}{(}\PYG{n}{mylog}\PYG{p}{.}\PYG{n}{txt}\PYG{p}{)}
+\PYG{k}{SQL}\PYG{o}{\PYGZgt{}} \PYG{n}{spool} \PYG{n}{mylog}\PYG{p}{.}\PYG{n}{txt}
+\end{Verbatim}

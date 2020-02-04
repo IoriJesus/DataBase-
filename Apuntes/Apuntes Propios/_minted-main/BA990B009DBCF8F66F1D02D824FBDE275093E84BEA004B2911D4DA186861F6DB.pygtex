@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{export} \PYG{n+nv}{ORACLE\PYGZus{}SID}\PYG{o}{=}XE
+\PYG{n+nb}{export} \PYG{n+nv}{ORAENV\PYGZus{}ASK}\PYG{o}{=}NO
+. /opt/oracle/product/18c/dbhomeXE/bin/oraenv
+/sbin/service oracle\PYGZhy{}xe\PYGZhy{}18c start
+\end{Verbatim}

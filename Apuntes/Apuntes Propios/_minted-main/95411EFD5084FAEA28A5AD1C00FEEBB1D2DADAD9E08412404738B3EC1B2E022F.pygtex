@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{[root@localhost \PYGZti{}]\PYGZsh{}} sqlplus sys as sysdba
+\end{Verbatim}
