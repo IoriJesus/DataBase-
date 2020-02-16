@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{alter} \PYG{k}{session} \PYG{k}{set} \PYG{l+s+ss}{\PYGZdq{}\PYGZus{}ORACLE\PYGZus{}SCRIPT\PYGZdq{}}\PYG{o}{=}\PYG{k}{true}\PYG{p}{;}
+\PYG{k}{drop} \PYG{k}{user} \PYG{n}{sergio} \PYG{k}{cascade}\PYG{p}{;}
+\end{Verbatim}

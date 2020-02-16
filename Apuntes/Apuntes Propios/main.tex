@@ -752,7 +752,7 @@ a & 1 & a & 2 & a & 3
 \section{Diseno de una base de datos}
 
 
-\section{Oracle DB Commands}
+\section{Oracle DB Setup Commands}
 
 \subsection{Start Oracle DB}
 
@@ -778,6 +778,7 @@ alter session set nls_session_parameters
 alter session set nls_date_language='english'
 select * from nls_session_parameters;
 \end{minted}
+
 \subsection{Create User}
 Our username will be "sergio" and our password will be also "sergio"; \\
 Login as sysdba and enter the following commands.
@@ -786,30 +787,81 @@ alter session set "_ORACLE_SCRIPT"=true;
 create user sergio identified by sergio default tablespace users temporary tablespace temp;
 grant connect, resource to sergio;
 alter user sergio quota unlimited on users;
-alter user sergio quota unlimited on temp;
 \end{minted}
+
 \subsection{Create Student Database from script}
 \begin{minted}{sql}
 SQL> @dbs/O11/createStudent.sql
 \end{minted}
-\subsection{SPOOL Command}
+
+\subsection{Install Sample Database}
+Create folder hr\_main in current directory and create file hr\_main.log inside hr\_main, then
+login as sysdba and run the following commands.
 \begin{minted}{sql}
+alter session set "_ORACLE_SCRIPT"=true;
+@?/demo/schema/human_resources/hr_main.sql
+\end{minted}
+
+\begin{minted}{text}
+specify password for HR as parameter 1:
+Enter value for 1: HR
+
+specify default tablespeace for HR as parameter 2:
+Enter value for 2: users
+
+specify temporary tablespace for HR as parameter 3:
+Enter value for 3: temp
+
+specify log path as parameter 4:
+Enter value for 4: hr_main
+\end{minted}
+
+\subsection{List Schemas}
+
+\begin{minted}{sql}
+select username as schema_name from sys.all_users order by username;
+\end{minted}
+
+\subsection{Drop Schema}
+To delete the Schema built for the user "hr": Login as sysdba and execute the following commands.
+\begin{minted}{sql}
+alter session set "_ORACLE_SCRIPT"=true;
+drop user hr cascade;
+\end{minted}
+
+\subsection{Show Schema Tables}
+\begin{minted}{sql}
+select table_name from user_tables;
+\end{minted}
+
+\subsection{Show All Schema Objects}
+\begin{minted}{sql}
+select object_name, object_type from user_objects;
+\end{minted}
+
+\subsection{Show Users}
+\begin{minted}{sql}
+select * from all_users;
+\end{minted}
+
+\section{Oracle DB Commands}
+
+\subsection{SPOOL Command}
 Saves all the output of the inserted commands into the given file (mylog.txt)
+\begin{minted}{sql}
 SQL> spool mylog.txt
 \end{minted}
+
 \subsection{TO\_DATE() Function}
 \begin{minted}{sql}
 to_date('05-apr-2003 20:14:33', 'dd-mon-yyyy hh24:mm:ss');
 \end{minted}
 
-\subsection{ROWNUM Column}
+\section{Oracle DB Particularities}
+
+\subsection{ROWNUM Column in Oracle DB}
 \textbf{ROWNUM: } Is a column appended to every table which corresponds to the index of every row in the table.
-\subsection{Install Sample Database}
-Login as sysdba and run the following commands.
-\begin{minted}{sql}
-alter session set "_ORACLE_SCRIPT"=true;
-@?/demo/schema/human_resources/hr_main.sql
-\end{minted}
+
 \section{Bibliografia}
 
 SQL by Example
