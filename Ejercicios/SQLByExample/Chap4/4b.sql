@@ -1,5 +1,5 @@
 prompt
-prompt Show the student records that were modified on or before January 22, 2003. Display the date the record was modified
+prompt B) Show the student records that were modified on or before January 22, 2003. Display the date the record was modified
 prompt and each students first and last name concatenated in one column.
 
 SELECT first_name||' '||last_name fullname,
