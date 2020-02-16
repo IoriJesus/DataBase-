@@ -1,4 +1,5 @@
 clear screen
+set linesize 1000
 connect sergio/sergio
 prompt starting scripts execution
 @@/root/DataBase-/Ejercicios/SQLByExample/Chap4/4a.sql
