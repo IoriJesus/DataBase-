@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{alter} \PYG{k}{session} \PYG{k}{set} \PYG{l+s+ss}{\PYGZdq{}\PYGZus{}ORACLE\PYGZus{}SCRIPT\PYGZdq{}}\PYG{o}{=}\PYG{k}{true}\PYG{p}{;}
-\PYG{k}{create} \PYG{k}{user} \PYG{n}{sergio} \PYG{n}{identified} \PYG{k}{by} \PYG{n}{sergio} \PYG{k}{default} \PYG{n}{tablespace} \PYG{n}{users} \PYG{k}{temporary} \PYG{n}{tablespace} \PYG{n}{temp}\PYG{p}{;}
-\PYG{k}{grant} \PYG{k}{connect}\PYG{p}{,} \PYG{n}{resource} \PYG{k}{to} \PYG{n}{sergio}\PYG{p}{;}
-\PYG{k}{alter} \PYG{k}{user} \PYG{n}{sergio} \PYG{n}{quota} \PYG{n}{unlimited} \PYG{k}{on} \PYG{n}{users}\PYG{p}{;}
-\PYG{k}{alter} \PYG{k}{user} \PYG{n}{sergio} \PYG{n}{quota} \PYG{n}{unlimited} \PYG{k}{on} \PYG{n}{temp}\PYG{p}{;}
-\end{Verbatim}

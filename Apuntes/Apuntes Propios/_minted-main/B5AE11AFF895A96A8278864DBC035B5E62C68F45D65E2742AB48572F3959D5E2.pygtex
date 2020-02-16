@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n}{to\PYGZus{}date}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}05\PYGZhy{}apr\PYGZhy{}2003 20:14:33\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}dd\PYGZhy{}mon\PYGZhy{}yyyy hh24:mm:ss\PYGZsq{}}\PYG{p}{);}
-\end{Verbatim}

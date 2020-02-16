@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{SQL}\PYG{o}{\PYGZgt{}} \PYG{n}{spool} \PYG{n}{mylog}\PYG{p}{.}\PYG{n}{txt}
-\end{Verbatim}

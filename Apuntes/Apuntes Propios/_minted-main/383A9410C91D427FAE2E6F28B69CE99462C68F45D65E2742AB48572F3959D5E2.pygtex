@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{alter} \PYG{k}{session} \PYG{k}{set} \PYG{n}{nls\PYGZus{}session\PYGZus{}parameters}
-\PYG{k}{alter} \PYG{k}{session} \PYG{k}{set} \PYG{n}{nls\PYGZus{}date\PYGZus{}language}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}english\PYGZsq{}}
-\PYG{k}{select} \PYG{o}{*} \PYG{k}{from} \PYG{n}{nls\PYGZus{}session\PYGZus{}parameters}\PYG{p}{;}
-\end{Verbatim}

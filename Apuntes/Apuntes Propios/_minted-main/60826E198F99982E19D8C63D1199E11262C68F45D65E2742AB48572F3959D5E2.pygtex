@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{select} \PYG{n}{username} \PYG{k}{as} \PYG{k}{schema\PYGZus{}name} \PYG{k}{from} \PYG{n}{sys}\PYG{p}{.}\PYG{n}{all\PYGZus{}users} \PYG{k}{order} \PYG{k}{by} \PYG{n}{username}\PYG{p}{;}
-\end{Verbatim}

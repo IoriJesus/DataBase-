@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{select} \PYG{n}{object\PYGZus{}name}\PYG{p}{,} \PYG{n}{object\PYGZus{}type} \PYG{k}{from} \PYG{n}{user\PYGZus{}objects}\PYG{p}{;}
-\end{Verbatim}
