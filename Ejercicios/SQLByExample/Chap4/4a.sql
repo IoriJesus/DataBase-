@@ -1,3 +1,4 @@
+prompt Display the course number, section id and starting date and time for sections that were taught on May 4, 2003
 SELECT course_no, section_id,
 TO_CHAR(start_date_time, 'DD-MON-YYYY HH24:MI')
 FROM section
