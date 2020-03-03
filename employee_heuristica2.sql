@@ -45,7 +45,7 @@ insert into project values('ProductY',2,'Sugarland',5);
 insert into project values('ProductZ',3,'Houston',5);
 insert into project values('Computerization',10,'Stafford',5);
 insert into project values('Reorganization',20,'Houston',5);
-insert into project values('Newbenefits',1,'Stafford',5);--
+insert into project values('Newbenefits',1,'Stafford',5);
 
 drop table EMPLOYEE;
 CREATE TABLE EMPLOYEE (
@@ -99,32 +99,32 @@ col ssn      format 99999999999
 rem desplegar los atributos deproducto cartesiano de employee y trabaja en
 select essn, ssn  
 	from employee, works_on
-	where bdate > '31/12/1957';
+	where bdate > to_date('31/12/1957', 'dd-mm-yyyy');
 	
 REM contar el numero de tuplas a partrir de un subquery
 select count(*) from (select essn, ssn 
 	from employee, works_on
-	where bdate > '31/12/1957');	
+	where bdate > to_date('31/12/1957', 'dd-mm-yyyy'));	
 	
 REM contar el numero de tuplas que se repiten al formar grupos por 
 rem       	ESSN y  SSN    
 select essn, ssn, count (*)
 	from employee, works_on
-	where bdate > '31/12/1957'
+	where bdate > to_date('31/12/1957', 'dd-mm-yyyy')
 	group by essn,ssn
 	order by 3 desc ,1,2;
 REM contar el numero de tuplas que se repiten al formar grupos por 
 rem       	ESSN     
 select essn, count (*)
 	from employee, works_on
-	where bdate > '31/12/1957'
+	where bdate > to_date('31/12/1957', 'dd-mm-yyyy')
 	group by essn
 	order by 2 desc ,1;
 REM contar el numero de tuplas que se repiten al formar grupos por 
 rem       	SSN     
 select ssn, count (*)
 	from employee, works_on
-	where bdate > '31/12/1957'
+	where bdate > to_date('31/12/1957', 'dd-mm-yyyy')
 	group by ssn
 	order by 2 desc ,1;	
 REM CREAR UNA VISTA DE LA CONSULTA 	
@@ -133,13 +133,13 @@ rem       	SSN
 DROP VIEW B0;
 CREATE VIEW VISTAB0 AS
 SELECT * FROM EMPLOYEE 
-	where bdate > '31/12/1957';
+	where bdate > to_date('31/12/1957', 'dd-mm-yyyy');
 SELECT * FROM VISTAB0;	
 DROP VISTA VISTAB1;
 CREATE VIEW VISTAB1 AS 
 (select ssn, count (*) CUENTA
 	from employee, works_on
-	where bdate > '31/12/1957'
+	where bdate > to_date('31/12/1957', 'dd-mm-yyyy')
 	group by ssn);
 REM PESPLEGAR LOS ATRIBUTOS DE LA VISTA VISTA1B	
 SELECT * FROM VISTAB1	
