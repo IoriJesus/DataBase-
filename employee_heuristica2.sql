@@ -130,12 +130,12 @@ select ssn, count (*)
 REM CREAR UNA VISTA DE LA CONSULTA 	
 REM contar el numero de tuplas que se repiten al formar grupos por 
 rem       	SSN  
-DROP VIEW B0;
+DROP VIEW VISTAB0;
 CREATE VIEW VISTAB0 AS
 SELECT * FROM EMPLOYEE 
 	where bdate > to_date('31/12/1957', 'dd-mm-yyyy');
 SELECT * FROM VISTAB0;	
-DROP VISTA VISTAB1;
+DROP VIEW VISTAB1;
 CREATE VIEW VISTAB1 AS 
 (select ssn, count (*) CUENTA
 	from employee, works_on
