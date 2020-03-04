@@ -11,7 +11,7 @@ WHERE
 AND
  c.prerequisite IS NULL
 ORDER
- BY c.course_no, s.section_no
+ BY c.course_no, s.section_no;
 
 prompt Answer: This query includes both a join condition and a condition that restricts the rows
 prompt to courses that have no prerequisite. The result is ordered by the course number and
