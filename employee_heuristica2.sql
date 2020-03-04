@@ -182,4 +182,3 @@ SELECT FNAME
 ,DNO     
 ,ssn   
 FROM EMPLOYEE;
-  
