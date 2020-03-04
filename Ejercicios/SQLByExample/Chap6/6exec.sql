@@ -12,7 +12,5 @@ pause press enter to continue to next exercise
 @@/root/DataBase-/Ejercicios/SQLByExample/Chap6/6d.sql
 pause press enter to continue to next exercise
 @@/root/DataBase-/Ejercicios/SQLByExample/Chap6/6e.sql
-pause press enter to continue to next exercise
-@@/root/DataBase-/Ejercicios/SQLByExample/Chap6/6f.sql
 pause end of execution
 spool off
