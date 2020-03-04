@@ -8,4 +8,4 @@ FROM enrollment e JOIN section s
 ON (e.section_id = s.section_id)
 WHERE s.course_no = 20
 AND e.enroll_date >= TO_DATE('01/30/2003','MM/DD/YYYY')
-AND e.enroll_date < TO_DATE('01/31/2003','MM/DD/YYYY')
+AND e.enroll_date < TO_DATE('01/31/2003','MM/DD/YYYY');
