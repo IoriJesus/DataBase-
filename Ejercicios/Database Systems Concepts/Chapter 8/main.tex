@@ -77,14 +77,21 @@
       \item Se genera una descomposición con pérdida ya que en las entidades generadas no hay un atributo que
             identifique a la otra entidad de manera única. La propuesta de tal atributo podría ser el nombre, sin embargo
             los nombres se pueden llegar a repetir por lo tanto ese atributo no nos sirve para relacionar ambas entidades generadas.
-      \item FALTA
+      \item Descripci\'on:
+            \begin{enumerate}
+                  \item Estudiantes e Instructores son identificados de manera unica por su ID.
+                  \item Cada estudiante e Instructor deben tener un solo nombre
+                  \item Cada instructor y estudiante esta asociado con un solo departamento.
+                  \item Cada departamento tiene un solo valor para su presupuesto.
+                  \item Cada departamento tiene asignado un solo edificio.
+            \end{enumerate}
       \item Una superclave es la encargada de identificar a un conjunto de atributos de manera única, mientras
             que una dependencia funcional es un concepto más general para indicar que la existencia de cierto conjunto
             de atributos depende de otro conjunto de atributos.
-      \item NO EXISTE
+      \item (INDICE NO EXISTENTE EN LA LISTA DE PREGUNTAS)
       \item Descomponer una entidad en otras entidades basado en las dependencias funcionales nos permite evitar redundancia
             en los datos y facilitar los procesos de insercion, eliminacion y actualizacion de algun registro en la base de datos.
-      \item NO EXISTE
+      \item (INDICE NO EXISTENTE EN LA LISTA DE PREGUNTAS)
       \item Corregir datos duplicados y anomalías en la base de datos. Evitar la creación y actualización de relaciones y dependencias
             no deseadas entre datos. Prevenir borrados indeseados de datos.Optimizar el espacio de almacenamiento.
             Reducir el tiempo y complejidad de revisión de las bases de datos cuando es necesario introducir nuevos tipos de datos.
@@ -130,7 +137,7 @@
                         \end{enumerate}
             \end{enumerate}
       \item Verificar la selección de una superclave, verificar las dependencias funcionales y calcular la cerradura de $F$.
-      \item NO EXISTE
+      \item (INDICE NO EXISTENTE EN LA LISTA DE PREGUNTAS)
       \item a cubierta canónica es el mínimo conjunto de dependencias funcionales equivalentes a $F$.
             Sin dependencias redundantes ni partes de dependencias redundantes.
 
@@ -438,7 +445,59 @@ Con $R_1 = (A, B, C)$ y $R_2 = (C, D, E)$\\
 Lo que hace evidente que $\Pi_{R_1}(r) \bowtie \Pi_{R_2}(r) \neq r$, por lo que es una descomposici\'on con perdida
 
 \subsubsection*{8.29}
-
+\begin{enumerate}
+      \item
+            \begin{enumerate}
+                  \item $B \rightarrow BD$ (tercera dependencia)
+                  \item $BD \rightarrow ABD$ (cuarta dependencia)
+                  \item $ABD \rightarrow ABCD$ (primer dependencia)
+                  \item $ABCD \rightarrow ABCDE$ (segunda dependencia)
+                  \item Por lo tanto $B^+ = ABCDE$
+            \end{enumerate}
+      \item
+            \begin{enumerate}
+                  \item Probar que AF es una superclave con los axiomas de Armstrong.
+                  \item $A \rightarrow BCD$
+                  \item $A \rightarrow ABCD$ (aumentación con $A$)
+                  \item $BC \rightarrow DE$
+                  \item $ABCD \rightarrow ABCDE$ (aumentación con $ABCD$)
+                  \item $A \rightarrow ABCDE$ (transitividad)
+                  \item $AF \rightarrow ABCDEF$ (aumentación con F)
+            \end{enumerate}
+      \item Observamos que $D$ es extraño en dep.1 y 2, debido a dep 3, eliminando estas 2 nos queda:
+            $$A \rightarrow BC$$
+            $$BC \rightarrow E$$
+            $$B \rightarrow D$$
+            $$D \rightarrow A$$
+            Ahora observamos que $B^+ = ABCDE$ y que particularmente la dependencia funcional $B \rightarrow E$ puede
+            ser determinada por este conjunto. Por lo tanto el atributo $C$ es extraño en la tercera dependencia.
+            Eliminando este atributo y combinandolo con la tercera dependencia funcional, obtenemos la cubierta canonica como:
+            $$A \rightarrow BC$$
+            $$B \rightarrow DE$$
+            $$D \rightarrow A$$
+      \item Observamos que en la cubierta canonica no existe una dependencia funcional tal que sus atributos sean un subconjunto de alguna otra
+            dependencia funcional. Por lo tanto, cada dependencia funcional implica una sola relaci\'on.
+            $$r_1(A, B, C)$$
+            $$r_2(B, D, E)$$
+            $$r_3(D, A)$$
+            Ahora el atributo $F$ es independiente de cualquier otro atributo, por lo que deber\'ia ser parte de todas las superclaves.
+            Adema\'as ninguna relaci\'on contiene a $F$ y por lo tanto ninguna la tiene como superclave. Esto nos lleva a la necesidad
+            de crear una nueva relaci\'on con esa superclave.
+            $$r_4(A, F)$$
+      \item Comenzamos con:
+            $$r(A, B, C, D, E, F)$$
+            Observamos que la relaci\'on no esta en BCNF debido a la primer dependencia. Por lo tanto lo descomponemos:
+            $$r_1(A, B, C, D)$$
+            $$r_2(A, E, F)$$
+            Y ahora observamos que $r_2$ no se encuentra en BCNF ya que $A \rightarrow E$ se encuentra en $F^+$, por lo que tenemos que descomponer
+            $r_2$ y el esquema queda asi:
+            $$r_1(A, B, C, D)$$
+            $$r_2(A, F)$$
+            $$r_3(A, E)$$
+            Hasta este punto ya tenemos un esquema en BCNF
+      \item Lo que podemos hacer para llegar a la misma descomposici\'on en BCNF a partir de la cubierta canonica lo que podriamos hacer es recuperar
+            las dependencias funcionales originales y entonces aplicar el mismo proceso.
+\end{enumerate}
 \subsubsection*{8.30}
 Listar 3 objetivos en el diseño de base de datos relacionales.\\
 \begin{enumerate}
