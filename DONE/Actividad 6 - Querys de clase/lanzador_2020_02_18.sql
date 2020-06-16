@@ -1,3 +1,4 @@
+spool log3.txt
 REM DESPLEGAR EL NUMERO DE TUPLAS DE COURSE
 REM DESPLEGAR EL NUMERO DE TUPLAS DE SECTION
 REM DESPLEGAR EL NUMERO DE TUPLAS DEL  PRODUCTO CARTESIANO
@@ -45,3 +46,5 @@ SELECT ROWNUM RN,c.course_no CC	, s.section_no SS	, c.description CD
 	, s.instructor_id SI
 FROM course c, section s
 WHERE c.course_no = s.course_no;
+spool off
+

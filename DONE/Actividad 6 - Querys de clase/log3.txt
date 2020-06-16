@@ -1,0 +1,290 @@
+SQL> REM DESPLEGAR EL NUMERO DE TUPLAS DE COURSE
+SQL> REM DESPLEGAR EL NUMERO DE TUPLAS DE SECTION
+SQL> REM DESPLEGAR EL NUMERO DE TUPLAS DEL  PRODUCTO CARTESIANO
+SQL> REM DESPLEAGR EL NUMERO DE ATRIBUTOS DE COURSE A PARTIR DEL DICCIONARIO DE DATOS
+SQL> REM DESPLEAGR EL NUMERO DE ATRIBUTOS DE COURSE A PARTIR DEL DICCIONARIO DE DATOS
+SQL> REM CONSULTANDO LA TABLA USER_OBJECTS
+SQL> REM CONSULTANDO LA TABLA USER_TAB_COLUMNS
+SQL> SELECT COUNT(*) FROM COURSE;
+
+  COUNT(*)                                                                                                                                            
+----------                                                                                                                                            
+        30                                                                                                                                            
+
+SQL> SELECT COUNT(*) FROM INSTRUCTOR;
+
+  COUNT(*)                                                                                                                                            
+----------                                                                                                                                            
+        10                                                                                                                                            
+
+SQL> SELECT COUNT(*) FROM COURSE, INSTRUCTOR;
+
+  COUNT(*)                                                                                                                                            
+----------                                                                                                                                            
+       300                                                                                                                                            
+
+SQL> DESC USER_OBJECTS;
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ OBJECT_NAME                                                                                  VARCHAR2(128)
+ SUBOBJECT_NAME                                                                               VARCHAR2(128)
+ OBJECT_ID                                                                                    NUMBER
+ DATA_OBJECT_ID                                                                               NUMBER
+ OBJECT_TYPE                                                                                  VARCHAR2(23)
+ CREATED                                                                                      DATE
+ LAST_DDL_TIME                                                                                DATE
+ TIMESTAMP                                                                                    VARCHAR2(19)
+ STATUS                                                                                       VARCHAR2(7)
+ TEMPORARY                                                                                    VARCHAR2(1)
+ GENERATED                                                                                    VARCHAR2(1)
+ SECONDARY                                                                                    VARCHAR2(1)
+ NAMESPACE                                                                                    NUMBER
+ EDITION_NAME                                                                                 VARCHAR2(128)
+ SHARING                                                                                      VARCHAR2(18)
+ EDITIONABLE                                                                                  VARCHAR2(1)
+ ORACLE_MAINTAINED                                                                            VARCHAR2(1)
+ APPLICATION                                                                                  VARCHAR2(1)
+ DEFAULT_COLLATION                                                                            VARCHAR2(100)
+ DUPLICATED                                                                                   VARCHAR2(1)
+ SHARDED                                                                                      VARCHAR2(1)
+ CREATED_APPID                                                                                NUMBER
+ CREATED_VSNID                                                                                NUMBER
+ MODIFIED_APPID                                                                               NUMBER
+ MODIFIED_VSNID                                                                               NUMBER
+
+SQL> DESC USER_TAB_COLUMNS
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ TABLE_NAME                                                                          NOT NULL VARCHAR2(128)
+ COLUMN_NAME                                                                         NOT NULL VARCHAR2(128)
+ DATA_TYPE                                                                                    VARCHAR2(128)
+ DATA_TYPE_MOD                                                                                VARCHAR2(3)
+ DATA_TYPE_OWNER                                                                              VARCHAR2(128)
+ DATA_LENGTH                                                                         NOT NULL NUMBER
+ DATA_PRECISION                                                                               NUMBER
+ DATA_SCALE                                                                                   NUMBER
+ NULLABLE                                                                                     VARCHAR2(1)
+ COLUMN_ID                                                                                    NUMBER
+ DEFAULT_LENGTH                                                                               NUMBER
+ DATA_DEFAULT                                                                                 LONG
+ NUM_DISTINCT                                                                                 NUMBER
+ LOW_VALUE                                                                                    RAW(2000)
+ HIGH_VALUE                                                                                   RAW(2000)
+ DENSITY                                                                                      NUMBER
+ NUM_NULLS                                                                                    NUMBER
+ NUM_BUCKETS                                                                                  NUMBER
+ LAST_ANALYZED                                                                                DATE
+ SAMPLE_SIZE                                                                                  NUMBER
+ CHARACTER_SET_NAME                                                                           VARCHAR2(44)
+ CHAR_COL_DECL_LENGTH                                                                         NUMBER
+ GLOBAL_STATS                                                                                 VARCHAR2(3)
+ USER_STATS                                                                                   VARCHAR2(3)
+ AVG_COL_LEN                                                                                  NUMBER
+ CHAR_LENGTH                                                                                  NUMBER
+ CHAR_USED                                                                                    VARCHAR2(1)
+ V80_FMT_IMAGE                                                                                VARCHAR2(3)
+ DATA_UPGRADED                                                                                VARCHAR2(3)
+ HISTOGRAM                                                                                    VARCHAR2(15)
+ DEFAULT_ON_NULL                                                                              VARCHAR2(3)
+ IDENTITY_COLUMN                                                                              VARCHAR2(3)
+ EVALUATION_EDITION                                                                           VARCHAR2(128)
+ UNUSABLE_BEFORE                                                                              VARCHAR2(128)
+ UNUSABLE_BEGINNING                                                                           VARCHAR2(128)
+ COLLATION                                                                                    VARCHAR2(100)
+
+SQL> SELECT DISTINCT OBJECT_TYPE FROM USER_OBJECTS;
+
+OBJECT_TYPE                                                                                                                                           
+-----------------------                                                                                                                               
+INDEX                                                                                                                                                 
+SEQUENCE                                                                                                                                              
+TABLE                                                                                                                                                 
+VIEW                                                                                                                                                  
+
+SQL> COL DT FORMAT A28
+SQL> SELECT DISTINCT DATA_TYPE DT FROM USER_TAB_COLUMNS;
+
+DT                                                                                                                                                    
+----------------------------                                                                                                                          
+DATE                                                                                                                                                  
+CHAR                                                                                                                                                  
+NUMBER                                                                                                                                                
+VARCHAR2                                                                                                                                              
+
+SQL> REM DESPLEGAR NOMBRE DE TABLA, NOMBRE DE COLUMNA, TIPO DE DATO LONG DE DATO Y PRECISION
+SQL> COL TN FORMAT A10
+SQL> COL CN FORMAT A18
+SQL> COL DT FORMAT A10
+SQL> COL DL FORMAT 999
+SQL> COL DP FORMAT 999
+SQL> COL NU FORMAT A10
+SQL> SELECT TABLE_NAME	  TN
+  2  	     , COLUMN_NAME    CN
+  3  	     , DATA_TYPE      DT
+  4  	     , DATA_LENGTH    DL
+  5  	     , DATA_PRECISION DP
+  6  	     , NULLABLE       NU
+  7  	     FROM USER_TAB_COLUMNS
+  8  	     WHERE TABLE_NAME = 'COURSE'
+  9  		     OR TABLE_NAME = 'INSTRUCTOR';
+
+TN         || CN                 || DT         ||   DL ||   DP || NU                                                                                  
+---------- || ------------------ || ---------- || ---- || ---- || ----------                                                                          
+COURSE     || COURSE_NO          || NUMBER     ||   22 ||    8 || N                                                                                   
+COURSE     || DESCRIPTION        || VARCHAR2   ||   50 ||      || N                                                                                   
+COURSE     || COST               || NUMBER     ||   22 ||    9 || Y                                                                                   
+COURSE     || PREREQUISITE       || NUMBER     ||   22 ||    8 || Y                                                                                   
+COURSE     || CREATED_BY         || VARCHAR2   ||   30 ||      || N                                                                                   
+COURSE     || CREATED_DATE       || DATE       ||    7 ||      || N                                                                                   
+COURSE     || MODIFIED_BY        || VARCHAR2   ||   30 ||      || N                                                                                   
+COURSE     || MODIFIED_DATE      || DATE       ||    7 ||      || N                                                                                   
+INSTRUCTOR || INSTRUCTOR_ID      || NUMBER     ||   22 ||    8 || N                                                                                   
+INSTRUCTOR || SALUTATION         || VARCHAR2   ||    5 ||      || Y                                                                                   
+INSTRUCTOR || FIRST_NAME         || VARCHAR2   ||   25 ||      || Y                                                                                   
+INSTRUCTOR || LAST_NAME          || VARCHAR2   ||   25 ||      || Y                                                                                   
+INSTRUCTOR || STREET_ADDRESS     || VARCHAR2   ||   50 ||      || Y                                                                                   
+INSTRUCTOR || ZIP                || VARCHAR2   ||    5 ||      || Y                                                                                   
+INSTRUCTOR || PHONE              || VARCHAR2   ||   15 ||      || Y                                                                                   
+INSTRUCTOR || CREATED_BY         || VARCHAR2   ||   30 ||      || N                                                                                   
+INSTRUCTOR || CREATED_DATE       || DATE       ||    7 ||      || N                                                                                   
+INSTRUCTOR || MODIFIED_BY        || VARCHAR2   ||   30 ||      || N                                                                                   
+INSTRUCTOR || MODIFIED_DATE      || DATE       ||    7 ||      || N                                                                                   
+
+19 rows selected.
+
+SQL> COLUMN TN FORMAT A28
+SQL> SELECT DISTINCT TABLE_NAME TN FROM USER_TAB_COLUMNS
+  2  	     ORDER BY 1;
+
+TN                                                                                                                                                    
+----------------------------                                                                                                                          
+COURSE                                                                                                                                                
+EMPLOYEE                                                                                                                                              
+ENROLLMENT                                                                                                                                            
+ESTUDIANTE                                                                                                                                            
+GRADE                                                                                                                                                 
+GRADE_CONVERSION                                                                                                                                      
+GRADE_TYPE                                                                                                                                            
+GRADE_TYPE_WEIGHT                                                                                                                                     
+INSTRUCTOR                                                                                                                                            
+PROJECT                                                                                                                                               
+SECTION                                                                                                                                               
+STUDENT                                                                                                                                               
+VISTAB0                                                                                                                                               
+VISTAB1                                                                                                                                               
+VISTAB11                                                                                                                                              
+VISTAB2                                                                                                                                               
+VISTAB3                                                                                                                                               
+WORKS_ON                                                                                                                                              
+ZIPCODE                                                                                                                                               
+
+19 rows selected.
+
+SQL> REM DESPLEGAR EL CURSO, LE GRUPO O SECCION LA DESCRIPCCION, LA SEDE  O LOCALIZACION
+SQL> REM Y EL IDENTIFICADOR DEL INSTRUCTOR
+SQL> COL RN FORMAT 999
+SQL> COL CC FORMAT 999
+SQL> COL SS FORMAT 999
+SQL> COL CD FORMAT A28
+SQL> COL SL FORMAT A10
+SQL> COL SI FORMAT 999
+SQL> SELECT ROWNUM RN,c.course_no CC , s.section_no SS	     , c.description CD
+  2  	     , s.location SL
+  3  	     , s.instructor_id SI
+  4  FROM course c, section s
+  5  WHERE c.course_no = s.course_no;
+
+  RN ||   CC ||   SS || CD                           || SL         ||   SI                                                                            
+---- || ---- || ---- || ---------------------------- || ---------- || ----                                                                            
+   1 ||   10 ||    2 || DP Overview                  || L214       ||  102                                                                            
+   2 ||   20 ||    2 || Intro to Computers           || L210       ||  103                                                                            
+   3 ||   20 ||    4 || Intro to Computers           || L214       ||  104                                                                            
+   4 ||   20 ||    7 || Intro to Computers           || L509       ||  105                                                                            
+   5 ||   20 ||    8 || Intro to Computers           || L210       ||  106                                                                            
+   6 ||   25 ||    1 || Intro to Programming         || M311       ||  107                                                                            
+   7 ||   25 ||    2 || Intro to Programming         || L210       ||  108                                                                            
+   8 ||   25 ||    3 || Intro to Programming         || L507       ||  101                                                                            
+   9 ||   25 ||    4 || Intro to Programming         || L214       ||  102                                                                            
+  10 ||   25 ||    5 || Intro to Programming         || L509       ||  103                                                                            
+  11 ||   25 ||    6 || Intro to Programming         || L509       ||  104                                                                            
+  12 ||   25 ||    7 || Intro to Programming         || L210       ||  105                                                                            
+  13 ||   25 ||    8 || Intro to Programming         || L509       ||  106                                                                            
+  14 ||   25 ||    9 || Intro to Programming         || L507       ||  107                                                                            
+  15 ||  100 ||    1 || Hands-On Windows             || L214       ||  102                                                                            
+  16 ||  100 ||    2 || Hands-On Windows             || L500       ||  103                                                                            
+  17 ||  100 ||    3 || Hands-On Windows             || L509       ||  104                                                                            
+  18 ||  100 ||    4 || Hands-On Windows             || L507       ||  105                                                                            
+  19 ||  100 ||    5 || Hands-On Windows             || L214       ||  106                                                                            
+  20 ||  120 ||    1 || Intro to Java Programming    || L507       ||  107                                                                            
+  21 ||  120 ||    2 || Intro to Java Programming    || L206       ||  108                                                                            
+  22 ||  120 ||    3 || Intro to Java Programming    || L509       ||  101                                                                            
+  23 ||  120 ||    4 || Intro to Java Programming    || L509       ||  102                                                                            
+  24 ||  120 ||    5 || Intro to Java Programming    || L210       ||  103                                                                            
+  25 ||  120 ||    7 || Intro to Java Programming    || L507       ||  104                                                                            
+  26 ||  122 ||    1 || Intermediate Java Programmin || M311       ||  105                                                                            
+     ||      ||      || g                            ||            ||                                                                                 
+                                                                                                                                                      
+  27 ||  122 ||    2 || Intermediate Java Programmin || L211       ||  106                                                                            
+     ||      ||      || g                            ||            ||                                                                                 
+                                                                                                                                                      
+  28 ||  122 ||    3 || Intermediate Java Programmin || L507       ||  107                                                                            
+     ||      ||      || g                            ||            ||                                                                                 
+                                                                                                                                                      
+  29 ||  122 ||    4 || Intermediate Java Programmin || L210       ||  108                                                                            
+     ||      ||      || g                            ||            ||                                                                                 
+                                                                                                                                                      
+  30 ||  122 ||    5 || Intermediate Java Programmin || L507       ||  101                                                                            
+     ||      ||      || g                            ||            ||                                                                                 
+                                                                                                                                                      
+  31 ||  124 ||    1 || Advanced Java Programming    || M500       ||  102                                                                            
+  32 ||  124 ||    2 || Advanced Java Programming    || H310       ||  103                                                                            
+  33 ||  124 ||    3 || Advanced Java Programming    || L214       ||  104                                                                            
+  34 ||  124 ||    4 || Advanced Java Programming    || L210       ||  105                                                                            
+  35 ||  125 ||    1 || JDeveloper                   || L509       ||  106                                                                            
+  36 ||  125 ||    2 || JDeveloper                   || L509       ||  107                                                                            
+  37 ||  125 ||    3 || JDeveloper                   || L214       ||  108                                                                            
+  38 ||  125 ||    4 || JDeveloper                   || L211       ||  101                                                                            
+  39 ||  125 ||    6 || JDeveloper                   || L507       ||  102                                                                            
+  40 ||  130 ||    1 || Intro to Unix                || L507       ||  103                                                                            
+  41 ||  130 ||    2 || Intro to Unix                || L214       ||  104                                                                            
+  42 ||  130 ||    3 || Intro to Unix                || L509       ||  105                                                                            
+  43 ||  130 ||    4 || Intro to Unix                || L509       ||  106                                                                            
+  44 ||  132 ||    1 || Basics of Unix Admin         || L509       ||  107                                                                            
+  45 ||  132 ||    3 || Basics of Unix Admin         || L509       ||  108                                                                            
+  46 ||  134 ||    2 || Advanced Unix Admin          || L509       ||  102                                                                            
+  47 ||  134 ||    3 || Advanced Unix Admin          || L509       ||  103                                                                            
+  48 ||  134 ||    1 || Advanced Unix Admin          || L509       ||  101                                                                            
+  49 ||  135 ||    1 || Unix Tips and Techniques     || L509       ||  104                                                                            
+  50 ||  135 ||    2 || Unix Tips and Techniques     || L214       ||  105                                                                            
+  51 ||  135 ||    3 || Unix Tips and Techniques     || L509       ||  106                                                                            
+  52 ||  135 ||    4 || Unix Tips and Techniques     || M200       ||  107                                                                            
+  53 ||  140 ||    1 || Structured Analysis          || L509       ||  108                                                                            
+  54 ||  140 ||    2 || Structured Analysis          || L210       ||  101                                                                            
+  55 ||  140 ||    3 || Structured Analysis          || L507       ||  102                                                                            
+  56 ||  142 ||    1 || Project Management           || L211       ||  103                                                                            
+  57 ||  142 ||    2 || Project Management           || L214       ||  104                                                                            
+  58 ||  142 ||    3 || Project Management           || L507       ||  105                                                                            
+  59 ||  144 ||    2 || Database Design              || L214       ||  106                                                                            
+  60 ||  145 ||    1 || Internet Protocols           || L214       ||  107                                                                            
+  61 ||  145 ||    3 || Internet Protocols           || L210       ||  108                                                                            
+  62 ||  146 ||    2 || Java for C/C++ Programmers   || L507       ||  102                                                                            
+  63 ||  146 ||    1 || Java for C/C++ Programmers   || L509       ||  101                                                                            
+  64 ||  147 ||    1 || GUI Programming              || L509       ||  103                                                                            
+  65 ||  204 ||    1 || Intro to SQL                 || L210       ||  104                                                                            
+  66 ||  210 ||    1 || Oracle Tools                 || L507       ||  105                                                                            
+  67 ||  220 ||    1 || PL/SQL Programming           || L509       ||  106                                                                            
+  68 ||  230 ||    1 || Intro to Internet            || L500       ||  107                                                                            
+  69 ||  230 ||    2 || Intro to Internet            || L214       ||  108                                                                            
+  70 ||  240 ||    1 || Intro to the Basic Language  || L509       ||  101                                                                            
+  71 ||  240 ||    2 || Intro to the Basic Language  || L214       ||  102                                                                            
+  72 ||  310 ||    1 || Operating Systems            || L507       ||  103                                                                            
+  73 ||  330 ||    1 || Network Administration       || L511       ||  104                                                                            
+  74 ||  350 ||    3 || JDeveloper Lab               || L509       ||  107                                                                            
+  75 ||  350 ||    1 || JDeveloper Lab               || L509       ||  105                                                                            
+  76 ||  350 ||    2 || JDeveloper Lab               || L214       ||  106                                                                            
+  77 ||  420 ||    1 || Database System Principles   || M311       ||  108                                                                            
+  78 ||  450 ||    1 || DB Programming in Java       || L507       ||  101                                                                            
+
+78 rows selected.
+
+SQL> spool off

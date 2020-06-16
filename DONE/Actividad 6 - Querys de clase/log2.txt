@@ -1,0 +1,1157 @@
+SQL> PROMPT CONFIGURAR INTERFASE
+CONFIGURAR INTERFASE
+SQL> SET COLSEP ' || '
+SQL> SET LINESIZE 150
+SQL> SET PAGESIZE 99
+SQL> prompt Cambiando idioma
+Cambiando idioma
+SQL> 
+SQL> 
+SQL> alter session set NLS_LANGUAGE = 'ENGLISH';
+
+Session altered.
+
+SQL> alter session set NLS_DATE_LANGUAGE = 'ENGLISH';
+
+Session altered.
+
+SQL> PROMPT DESPLEGAR LOS PARAMETROS DE CONFIGURACION DE LA SESSION
+DESPLEGAR LOS PARAMETROS DE CONFIGURACION DE LA SESSION
+SQL> 
+SQL> 
+SQL> COL PARAMETER FORMAT A30
+SQL> COL VALUE	   FORMAT A20
+SQL> 
+SQL> SELECT PARAMETER, VALUE FROM NLS_SESSION_PARAMETERS;
+
+PARAMETER                      || VALUE                                                                                                               
+------------------------------ || --------------------                                                                                                
+NLS_LANGUAGE                   || ENGLISH                                                                                                             
+NLS_TERRITORY                  || AMERICA                                                                                                             
+NLS_CURRENCY                   || $                                                                                                                   
+NLS_ISO_CURRENCY               || AMERICA                                                                                                             
+NLS_NUMERIC_CHARACTERS         || .,                                                                                                                  
+NLS_CALENDAR                   || GREGORIAN                                                                                                           
+NLS_DATE_FORMAT                || DD-MON-RR                                                                                                           
+NLS_DATE_LANGUAGE              || ENGLISH                                                                                                             
+NLS_SORT                       || BINARY                                                                                                              
+NLS_TIME_FORMAT                || HH.MI.SSXFF AM                                                                                                      
+NLS_TIMESTAMP_FORMAT           || DD-MON-RR HH.MI.SSXF                                                                                                
+                               || F AM                                                                                                                
+                                                                                                                                                      
+NLS_TIME_TZ_FORMAT             || HH.MI.SSXFF AM TZR                                                                                                  
+NLS_TIMESTAMP_TZ_FORMAT        || DD-MON-RR HH.MI.SSXF                                                                                                
+                               || F AM TZR                                                                                                            
+                                                                                                                                                      
+NLS_DUAL_CURRENCY              || $                                                                                                                   
+NLS_COMP                       || BINARY                                                                                                              
+NLS_LENGTH_SEMANTICS           || BYTE                                                                                                                
+NLS_NCHAR_CONV_EXCP            || FALSE                                                                                                               
+
+17 rows selected.
+
+SQL> prompt Idioma cambiado
+Idioma cambiado
+SQL> 
+SQL> prompt Regla Cero
+Regla Cero
+SQL> drop table EMPLOYEE CASCADE CONSTRAINTS;
+
+Table dropped.
+
+SQL> 
+SQL> prompt Empezando a crear tabla
+Empezando a crear tabla
+SQL> CREATE TABLE EMPLOYEE(
+  2  	     EMP_ID NUMBER(4) CONSTRAINT EMP_PK PRIMARY KEY,
+  3  	     FNAME VARCHAR2(15) NOT NULL,
+  4  	     LNAME VARCHAR2(15) NOT NULL,
+  5  	     DEPT_ID NUMBER(2) NOT NULL,
+  6  	     MANAGER_EMP_ID NUMBER (4)
+  7  		     CONSTRAINT EMP_FK REFERENCES EMPLOYEE(EMP_ID) deferrable,
+  8  	     SALARY NUMBER (7,2)NOT NULL,
+  9  	     HIRE_DATE DATE NOT NULL,
+ 10  	     JOB_ID NUMBER (3));
+
+Table created.
+
+SQL> 
+SQL> SELECT * FROM EMPLOYEE;
+
+no rows selected
+
+SQL> prompt Tabla creada
+Tabla creada
+SQL> prompt Poblando Tabla
+Poblando Tabla
+SQL> insert into employee
+  2  (EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+  3  select e.emp_id, e.fname, e.lname, e.dept_id, e.manager_emp_id, e.salary, e.hire_date, e.job_id
+  4  from
+  5  (
+  6  select 7369 emp_id, 'JOHN' fname, 'SMITH' lname, 20 dept_id, 7902 manager_emp_id, 800 salary, '17-DEC-80' hire_date, 667 job_id from dual union all
+  7  select 7499 emp_id, 'KEVIN' fname, 'ALLEN' lname, 30 dept_id, 7698 manager_emp_id, 1600 salary, '20-FEB-81' hire_date, 670 job_id from dual union all
+  8  select 7521 emp_id, 'CYNTHIA' fname, 'WARD' lname, 30 dept_id, 7698 manager_emp_id, 1250 salary, '22-FEB-81' hire_date, null job_id from dual union all
+  9  select 7566 emp_id, 'TERRY' fname, 'JONES' lname, 20 dept_id, 7839 manager_emp_id, 2000 salary, '02-APR-81' hire_date, 671 job_id from dual union all
+ 10  select 7654 emp_id, 'KENNETH' fname, 'MARTIN' lname, 30 dept_id, 7698 manager_emp_id, 1250 salary, '28-SEP-81' hire_date, 670 job_id from dual union all
+ 11  select 7698 emp_id, 'MARION' fname, 'BLAKE' lname, 30 dept_id, 7839 manager_emp_id, 2850 salary, '01-MAY-80' hire_date, 671 job_id from dual union all
+ 12  select 7782 emp_id, 'CAROL' fname, 'CLARK' lname, 10 dept_id, 7839 manager_emp_id, 2450 salary, '09-JUN-81' hire_date, 671 job_id from dual union all
+ 13  select 7788 emp_id, 'DONALD' fname, 'SCOTT' lname, 20 dept_id, 7566 manager_emp_id, 3000 salary, '19-APR-87' hire_date, 669 job_id from dual union all
+ 14  select 7839 emp_id, 'FRANCIS' fname, 'KING' lname, 10 dept_id, null manager_emp_id, 5000 salary, '17-NOV-81' hire_date, 672 job_id from dual union all
+ 15  select 7844 emp_id, 'MARY' fname, 'TURNER' lname, 30 dept_id, 7698 manager_emp_id, 1500 salary, '08-SEP-81' hire_date, 670 job_id from dual union all
+ 16  select 7876 emp_id, 'DIANE' fname, 'ADAMS' lname, 20 dept_id, 7788 manager_emp_id, 1100 salary, '23-MAY-87' hire_date, null job_id from dual union all
+ 17  select 7900 emp_id, 'FRED' fname, 'JAMES' lname, 30 dept_id, 7698 manager_emp_id, 950 salary, '03-DEC-81' hire_date, 667 job_id from dual union all
+ 18  select 7902 emp_id, 'JENNIFER' fname, 'FORD' lname, 20 dept_id, 7566 manager_emp_id, 3000 salary, '03-DEC-81' hire_date, 669 job_id from dual union all
+ 19  select 7934 emp_id, 'BARBARA' fname, 'MILLER' lname, 10 dept_id, 7782 manager_emp_id, 1300 salary, '23-JAN-82' hire_date, 667 job_id from dual
+ 20  ) e;
+
+14 rows created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> SELECT * FROM EMPLOYEE;
+
+    EMP_ID || FNAME           || LNAME           ||    DEPT_ID || MANAGER_EMP_ID ||     SALARY || HIRE_DATE ||     JOB_ID                             
+---------- || --------------- || --------------- || ---------- || -------------- || ---------- || --------- || ----------                             
+      7369 || JOHN            || SMITH           ||         20 ||           7902 ||        800 || 17-DEC-80 ||        667                             
+      7499 || KEVIN           || ALLEN           ||         30 ||           7698 ||       1600 || 20-FEB-81 ||        670                             
+      7521 || CYNTHIA         || WARD            ||         30 ||           7698 ||       1250 || 22-FEB-81 ||                                        
+      7566 || TERRY           || JONES           ||         20 ||           7839 ||       2000 || 02-APR-81 ||        671                             
+      7654 || KENNETH         || MARTIN          ||         30 ||           7698 ||       1250 || 28-SEP-81 ||        670                             
+      7698 || MARION          || BLAKE           ||         30 ||           7839 ||       2850 || 01-MAY-80 ||        671                             
+      7782 || CAROL           || CLARK           ||         10 ||           7839 ||       2450 || 09-JUN-81 ||        671                             
+      7788 || DONALD          || SCOTT           ||         20 ||           7566 ||       3000 || 19-APR-87 ||        669                             
+      7839 || FRANCIS         || KING            ||         10 ||                ||       5000 || 17-NOV-81 ||        672                             
+      7844 || MARY            || TURNER          ||         30 ||           7698 ||       1500 || 08-SEP-81 ||        670                             
+      7876 || DIANE           || ADAMS           ||         20 ||           7788 ||       1100 || 23-MAY-87 ||                                        
+      7900 || FRED            || JAMES           ||         30 ||           7698 ||        950 || 03-DEC-81 ||        667                             
+      7902 || JENNIFER        || FORD            ||         20 ||           7566 ||       3000 || 03-DEC-81 ||        669                             
+      7934 || BARBARA         || MILLER          ||         10 ||           7782 ||       1300 || 23-JAN-82 ||        667                             
+
+14 rows selected.
+
+SQL> PROMPT INTENTEMOS BORRAR EL EMPLEADO 7839 con LAST_NAME KING
+INTENTEMOS BORRAR EL EMPLEADO 7839 con LAST_NAME KING
+SQL> DELETE FROM EMPLOYEE WHERE EMP_ID = 7839;
+DELETE FROM EMPLOYEE WHERE EMP_ID = 7839
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (SERGIO.EMP_FK) violated - child record found 
+
+
+SQL> 
+SQL> col owner format a15
+SQL> select owner, constraint_name,table_name,
+  2  	     constraint_type,status,deferrable,deferred from user_constraints;
+
+OWNER           || CONSTRAINT_NAME                                                                                                                    
+--------------- || --------------------------------------------------------------------------------------------------------------------------------   
+TABLE_NAME                                                                                                                       || C || STATUS       
+-------------------------------------------------------------------------------------------------------------------------------- || - || --------     
+DEFERRABLE     || DEFERRED                                                                                                                            
+-------------- || ---------                                                                                                                           
+SERGIO          || SECT_INST_FK                                                                                                                       
+SECTION                                                                                                                          || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_GRTYP_FK                                                                                                                      
+GRADE_TYPE_WEIGHT                                                                                                                || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_GRTW_FK                                                                                                                         
+GRADE                                                                                                                            || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_SECT_FK                                                                                                                       
+GRADE_TYPE_WEIGHT                                                                                                                || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_SECT_FK                                                                                                                        
+ENROLLMENT                                                                                                                       || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_CRSE_FK                                                                                                                       
+SECTION                                                                                                                          || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_CRSE_FK                                                                                                                       
+COURSE                                                                                                                           || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_ENR_FK                                                                                                                          
+GRADE                                                                                                                            || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_STU_FK                                                                                                                         
+ENROLLMENT                                                                                                                       || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_ZIP_FK                                                                                                                        
+INSTRUCTOR                                                                                                                       || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_ZIP_FK                                                                                                                         
+STUDENT                                                                                                                          || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || EMP_FK                                                                                                                             
+EMPLOYEE                                                                                                                         || R || ENABLED      
+DEFERRABLE     || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_MODFIED_BY_NNULL                                                                                                              
+INSTRUCTOR                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_INSTRUCTOR_ID_NNULL                                                                                                           
+INSTRUCTOR                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_CREATED_BY_NNULL                                                                                                              
+INSTRUCTOR                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_CREATED_DATE_NNULL                                                                                                            
+INSTRUCTOR                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_MODIFIED_DATE_NNULL                                                                                                           
+INSTRUCTOR                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_CREATED_DATE_NNULL                                                                                                              
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_STUDENT_ID_NNULL                                                                                                                
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_SECTION_ID_NNULL                                                                                                                
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_GRADE_TYPE_CODE_NNULL                                                                                                           
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_MODIFIED_DATE_NNULL                                                                                                             
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_CREATED_BY_NNULL                                                                                                                
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+
+OWNER           || CONSTRAINT_NAME                                                                                                                    
+--------------- || --------------------------------------------------------------------------------------------------------------------------------   
+TABLE_NAME                                                                                                                       || C || STATUS       
+-------------------------------------------------------------------------------------------------------------------------------- || - || --------     
+DEFERRABLE     || DEFERRED                                                                                                                            
+-------------- || ---------                                                                                                                           
+SERGIO          || GR_GRADE_CODE_OCCURRENCE_NNULL                                                                                                     
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_MODIFIED_BY_NNULL                                                                                                               
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_NUMERIC_GRADE_NNULL                                                                                                             
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_DESCRIPTION_NNULL                                                                                                            
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_MODIFIED_BY_NNULL                                                                                                            
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_CREATED_BY_NNULL                                                                                                             
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_GRADE_TYPE_CODE_NNULL                                                                                                        
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_MODIFIED_DATE_NNULL                                                                                                          
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_CREATED_DATE_NNULL                                                                                                           
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_GRADE_TYPE_CODE_LENGTH                                                                                                       
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_MAX_GRADE_NNULL                                                                                                              
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_MODIFIED_DATE_NNULL                                                                                                          
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_CREATED_DATE_NNULL                                                                                                           
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_GRADE_POINT_NNULL                                                                                                            
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_MODIFIED_BY_NNULL                                                                                                            
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_LETTER_GRADE_NNULL                                                                                                           
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_MIN_GRADE_NNULL                                                                                                              
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_CREATED_BY_NNULL                                                                                                             
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_NUMBER_PER_SECTION_NNULL                                                                                                      
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_CREATED_DATE_NNULL                                                                                                            
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_PCT_OF_FINAL_GRADE_NNULL                                                                                                      
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_GRADE_TYPE_CODE_NNULL                                                                                                         
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_SECTION_ID_NNULL                                                                                                              
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+
+OWNER           || CONSTRAINT_NAME                                                                                                                    
+--------------- || --------------------------------------------------------------------------------------------------------------------------------   
+TABLE_NAME                                                                                                                       || C || STATUS       
+-------------------------------------------------------------------------------------------------------------------------------- || - || --------     
+DEFERRABLE     || DEFERRED                                                                                                                            
+-------------- || ---------                                                                                                                           
+SERGIO          || GRTW_MODIFIED_BY_NNULL                                                                                                             
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_CREATED_BY_NNULL                                                                                                              
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_DROP_LOWEST_NNULL                                                                                                             
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_MODIFIED_DATE_NNULL                                                                                                           
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_CREATED_DATE_NNULL                                                                                                            
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_MODIFIED_BY_NNULL                                                                                                             
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_SECTION_ID_NNULL                                                                                                              
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_SECTION_NO_NNULL                                                                                                              
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_CREATED_BY_NNULL                                                                                                              
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_INSTRUCTOR_ID_NNULL                                                                                                           
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_MODIFIED_DATE_NNULL                                                                                                           
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_COURSE_NO_NNULL                                                                                                               
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_CREATED_DATE_NNULL                                                                                                            
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_MODIFIED_BY_NNULL                                                                                                             
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_MODIFIED_DATE_NNULL                                                                                                           
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_DESCRIPTION_NNULL                                                                                                             
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_COURSE_NO_NNULL                                                                                                               
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_CREATED_BY_NNULL                                                                                                              
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_MODIFIED_DATE_NNULL                                                                                                            
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_STUDENT_ID_NNULL                                                                                                               
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_ENROLL_DATE_NNULL                                                                                                              
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_MODIFIED_BY_NNULL                                                                                                              
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_SECTION_ID_NNULL                                                                                                               
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+
+OWNER           || CONSTRAINT_NAME                                                                                                                    
+--------------- || --------------------------------------------------------------------------------------------------------------------------------   
+TABLE_NAME                                                                                                                       || C || STATUS       
+-------------------------------------------------------------------------------------------------------------------------------- || - || --------     
+DEFERRABLE     || DEFERRED                                                                                                                            
+-------------- || ---------                                                                                                                           
+SERGIO          || ENR_CREATED_BY_NNULL                                                                                                               
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_CREATED_DATE_NNULL                                                                                                             
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_REGISTRATION_DATE_NNULL                                                                                                        
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_CREATED_BY_NNULL                                                                                                               
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_ZIP_NNULL                                                                                                                      
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_LAST_NAME_NNULL                                                                                                                
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_MODIFIED_DATE_NNULL                                                                                                            
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_STUDENT_ID_NNULL                                                                                                               
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_MODIFIED_BY_NNULL                                                                                                              
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_CREATED_DATE_NNULL                                                                                                             
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_CREATED_BY_NNULL                                                                                                               
+ZIPCODE                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_MODIFIED_DATE_NNULL                                                                                                            
+ZIPCODE                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_CREATED_DATE_NNULL                                                                                                             
+ZIPCODE                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_ZIP_NNULL                                                                                                                      
+ZIPCODE                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_MODIFIED_BY_NNULL                                                                                                              
+ZIPCODE                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007861                                                                                                                        
+EMPLOYEE                                                                                                                         || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007862                                                                                                                        
+EMPLOYEE                                                                                                                         || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007863                                                                                                                        
+EMPLOYEE                                                                                                                         || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007864                                                                                                                        
+EMPLOYEE                                                                                                                         || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007865                                                                                                                        
+EMPLOYEE                                                                                                                         || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_PK                                                                                                                            
+INSTRUCTOR                                                                                                                       || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_PK                                                                                                                              
+GRADE                                                                                                                            || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_PK                                                                                                                           
+GRADE_TYPE                                                                                                                       || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+
+OWNER           || CONSTRAINT_NAME                                                                                                                    
+--------------- || --------------------------------------------------------------------------------------------------------------------------------   
+TABLE_NAME                                                                                                                       || C || STATUS       
+-------------------------------------------------------------------------------------------------------------------------------- || - || --------     
+DEFERRABLE     || DEFERRED                                                                                                                            
+-------------- || ---------                                                                                                                           
+SERGIO          || GRCON_PK                                                                                                                           
+GRADE_CONVERSION                                                                                                                 || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_PK                                                                                                                            
+GRADE_TYPE_WEIGHT                                                                                                                || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_PK                                                                                                                            
+SECTION                                                                                                                          || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_PK                                                                                                                            
+COURSE                                                                                                                           || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_PK                                                                                                                             
+ENROLLMENT                                                                                                                       || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_PK                                                                                                                             
+STUDENT                                                                                                                          || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_PK                                                                                                                             
+ZIPCODE                                                                                                                          || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_SECT2_UK                                                                                                                      
+SECTION                                                                                                                          || U || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || BIN$pqUdZp5/CBrgVQAAAAAAAQ==$0                                                                                                     
+BIN$pqUdZp6BCBrgVQAAAAAAAQ==$0                                                                                                   || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || BIN$pqUdZp6CCBrgVQAAAAAAAQ==$0                                                                                                     
+BIN$pqUdZp6ECBrgVQAAAAAAAQ==$0                                                                                                   || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || BIN$pqUdZp6FCBrgVQAAAAAAAQ==$0                                                                                                     
+BIN$pqUdZp6HCBrgVQAAAAAAAQ==$0                                                                                                   || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || BIN$pqaqjGVSIJTgVQAAAAAAAQ==$0                                                                                                     
+BIN$pqaqjGVUIJTgVQAAAAAAAQ==$0                                                                                                   || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || BIN$pqaqjGVVIJTgVQAAAAAAAQ==$0                                                                                                     
+BIN$pqaqjGVXIJTgVQAAAAAAAQ==$0                                                                                                   || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007860                                                                                                                        
+ESTUDIANTE                                                                                                                       || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || EMP_PK                                                                                                                             
+EMPLOYEE                                                                                                                         || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+
+107 rows selected.
+
+SQL> 
+SQL> alter table employee
+  2  disable constraint emp_fk;
+
+Table altered.
+
+SQL> PROMPT VERIFACANDO QUE SE CAMBIO EL STATUS DE  LA RESTRICCION DE LLAVE FORANEA
+VERIFACANDO QUE SE CAMBIO EL STATUS DE  LA RESTRICCION DE LLAVE FORANEA
+SQL> select owner, constraint_name,table_name,
+  2  	     constraint_type,status,deferrable,deferred from user_constraints;
+
+OWNER           || CONSTRAINT_NAME                                                                                                                    
+--------------- || --------------------------------------------------------------------------------------------------------------------------------   
+TABLE_NAME                                                                                                                       || C || STATUS       
+-------------------------------------------------------------------------------------------------------------------------------- || - || --------     
+DEFERRABLE     || DEFERRED                                                                                                                            
+-------------- || ---------                                                                                                                           
+SERGIO          || SECT_INST_FK                                                                                                                       
+SECTION                                                                                                                          || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_GRTYP_FK                                                                                                                      
+GRADE_TYPE_WEIGHT                                                                                                                || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_GRTW_FK                                                                                                                         
+GRADE                                                                                                                            || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_SECT_FK                                                                                                                       
+GRADE_TYPE_WEIGHT                                                                                                                || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_SECT_FK                                                                                                                        
+ENROLLMENT                                                                                                                       || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_CRSE_FK                                                                                                                       
+SECTION                                                                                                                          || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_CRSE_FK                                                                                                                       
+COURSE                                                                                                                           || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_ENR_FK                                                                                                                          
+GRADE                                                                                                                            || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_STU_FK                                                                                                                         
+ENROLLMENT                                                                                                                       || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_ZIP_FK                                                                                                                        
+INSTRUCTOR                                                                                                                       || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_ZIP_FK                                                                                                                         
+STUDENT                                                                                                                          || R || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_MODFIED_BY_NNULL                                                                                                              
+INSTRUCTOR                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_INSTRUCTOR_ID_NNULL                                                                                                           
+INSTRUCTOR                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_CREATED_BY_NNULL                                                                                                              
+INSTRUCTOR                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_CREATED_DATE_NNULL                                                                                                            
+INSTRUCTOR                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_MODIFIED_DATE_NNULL                                                                                                           
+INSTRUCTOR                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_CREATED_DATE_NNULL                                                                                                              
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_STUDENT_ID_NNULL                                                                                                                
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_SECTION_ID_NNULL                                                                                                                
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_GRADE_TYPE_CODE_NNULL                                                                                                           
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_MODIFIED_DATE_NNULL                                                                                                             
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_CREATED_BY_NNULL                                                                                                                
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_GRADE_CODE_OCCURRENCE_NNULL                                                                                                     
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+
+OWNER           || CONSTRAINT_NAME                                                                                                                    
+--------------- || --------------------------------------------------------------------------------------------------------------------------------   
+TABLE_NAME                                                                                                                       || C || STATUS       
+-------------------------------------------------------------------------------------------------------------------------------- || - || --------     
+DEFERRABLE     || DEFERRED                                                                                                                            
+-------------- || ---------                                                                                                                           
+SERGIO          || GR_MODIFIED_BY_NNULL                                                                                                               
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_NUMERIC_GRADE_NNULL                                                                                                             
+GRADE                                                                                                                            || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_DESCRIPTION_NNULL                                                                                                            
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_MODIFIED_BY_NNULL                                                                                                            
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_CREATED_BY_NNULL                                                                                                             
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_GRADE_TYPE_CODE_NNULL                                                                                                        
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_MODIFIED_DATE_NNULL                                                                                                          
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_CREATED_DATE_NNULL                                                                                                           
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_GRADE_TYPE_CODE_LENGTH                                                                                                       
+GRADE_TYPE                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_MAX_GRADE_NNULL                                                                                                              
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_MODIFIED_DATE_NNULL                                                                                                          
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_CREATED_DATE_NNULL                                                                                                           
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_GRADE_POINT_NNULL                                                                                                            
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_MODIFIED_BY_NNULL                                                                                                            
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_LETTER_GRADE_NNULL                                                                                                           
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_MIN_GRADE_NNULL                                                                                                              
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_CREATED_BY_NNULL                                                                                                             
+GRADE_CONVERSION                                                                                                                 || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_NUMBER_PER_SECTION_NNULL                                                                                                      
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_CREATED_DATE_NNULL                                                                                                            
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_PCT_OF_FINAL_GRADE_NNULL                                                                                                      
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_GRADE_TYPE_CODE_NNULL                                                                                                         
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_SECTION_ID_NNULL                                                                                                              
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_MODIFIED_BY_NNULL                                                                                                             
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+
+OWNER           || CONSTRAINT_NAME                                                                                                                    
+--------------- || --------------------------------------------------------------------------------------------------------------------------------   
+TABLE_NAME                                                                                                                       || C || STATUS       
+-------------------------------------------------------------------------------------------------------------------------------- || - || --------     
+DEFERRABLE     || DEFERRED                                                                                                                            
+-------------- || ---------                                                                                                                           
+SERGIO          || GRTW_CREATED_BY_NNULL                                                                                                              
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_DROP_LOWEST_NNULL                                                                                                             
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTW_MODIFIED_DATE_NNULL                                                                                                           
+GRADE_TYPE_WEIGHT                                                                                                                || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_CREATED_DATE_NNULL                                                                                                            
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_MODIFIED_BY_NNULL                                                                                                             
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_SECTION_ID_NNULL                                                                                                              
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_SECTION_NO_NNULL                                                                                                              
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_CREATED_BY_NNULL                                                                                                              
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_INSTRUCTOR_ID_NNULL                                                                                                           
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_MODIFIED_DATE_NNULL                                                                                                           
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_COURSE_NO_NNULL                                                                                                               
+SECTION                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_CREATED_DATE_NNULL                                                                                                            
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_MODIFIED_BY_NNULL                                                                                                             
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_MODIFIED_DATE_NNULL                                                                                                           
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_DESCRIPTION_NNULL                                                                                                             
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_COURSE_NO_NNULL                                                                                                               
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_CREATED_BY_NNULL                                                                                                              
+COURSE                                                                                                                           || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_MODIFIED_DATE_NNULL                                                                                                            
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_STUDENT_ID_NNULL                                                                                                               
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_ENROLL_DATE_NNULL                                                                                                              
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_MODIFIED_BY_NNULL                                                                                                              
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_SECTION_ID_NNULL                                                                                                               
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_CREATED_BY_NNULL                                                                                                               
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+
+OWNER           || CONSTRAINT_NAME                                                                                                                    
+--------------- || --------------------------------------------------------------------------------------------------------------------------------   
+TABLE_NAME                                                                                                                       || C || STATUS       
+-------------------------------------------------------------------------------------------------------------------------------- || - || --------     
+DEFERRABLE     || DEFERRED                                                                                                                            
+-------------- || ---------                                                                                                                           
+SERGIO          || ENR_CREATED_DATE_NNULL                                                                                                             
+ENROLLMENT                                                                                                                       || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_REGISTRATION_DATE_NNULL                                                                                                        
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_CREATED_BY_NNULL                                                                                                               
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_ZIP_NNULL                                                                                                                      
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_LAST_NAME_NNULL                                                                                                                
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_MODIFIED_DATE_NNULL                                                                                                            
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_STUDENT_ID_NNULL                                                                                                               
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_MODIFIED_BY_NNULL                                                                                                              
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_CREATED_DATE_NNULL                                                                                                             
+STUDENT                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_CREATED_BY_NNULL                                                                                                               
+ZIPCODE                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_MODIFIED_DATE_NNULL                                                                                                            
+ZIPCODE                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_CREATED_DATE_NNULL                                                                                                             
+ZIPCODE                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_ZIP_NNULL                                                                                                                      
+ZIPCODE                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_MODIFIED_BY_NNULL                                                                                                              
+ZIPCODE                                                                                                                          || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007861                                                                                                                        
+EMPLOYEE                                                                                                                         || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007862                                                                                                                        
+EMPLOYEE                                                                                                                         || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007863                                                                                                                        
+EMPLOYEE                                                                                                                         || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007864                                                                                                                        
+EMPLOYEE                                                                                                                         || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007865                                                                                                                        
+EMPLOYEE                                                                                                                         || C || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || INST_PK                                                                                                                            
+INSTRUCTOR                                                                                                                       || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GR_PK                                                                                                                              
+GRADE                                                                                                                            || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRTYP_PK                                                                                                                           
+GRADE_TYPE                                                                                                                       || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || GRCON_PK                                                                                                                           
+GRADE_CONVERSION                                                                                                                 || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+
+OWNER           || CONSTRAINT_NAME                                                                                                                    
+--------------- || --------------------------------------------------------------------------------------------------------------------------------   
+TABLE_NAME                                                                                                                       || C || STATUS       
+-------------------------------------------------------------------------------------------------------------------------------- || - || --------     
+DEFERRABLE     || DEFERRED                                                                                                                            
+-------------- || ---------                                                                                                                           
+SERGIO          || GRTW_PK                                                                                                                            
+GRADE_TYPE_WEIGHT                                                                                                                || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_PK                                                                                                                            
+SECTION                                                                                                                          || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || CRSE_PK                                                                                                                            
+COURSE                                                                                                                           || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ENR_PK                                                                                                                             
+ENROLLMENT                                                                                                                       || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || STU_PK                                                                                                                             
+STUDENT                                                                                                                          || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || ZIP_PK                                                                                                                             
+ZIPCODE                                                                                                                          || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SECT_SECT2_UK                                                                                                                      
+SECTION                                                                                                                          || U || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || BIN$pqUdZp5/CBrgVQAAAAAAAQ==$0                                                                                                     
+BIN$pqUdZp6BCBrgVQAAAAAAAQ==$0                                                                                                   || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || BIN$pqUdZp6CCBrgVQAAAAAAAQ==$0                                                                                                     
+BIN$pqUdZp6ECBrgVQAAAAAAAQ==$0                                                                                                   || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || BIN$pqUdZp6FCBrgVQAAAAAAAQ==$0                                                                                                     
+BIN$pqUdZp6HCBrgVQAAAAAAAQ==$0                                                                                                   || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || BIN$pqaqjGVSIJTgVQAAAAAAAQ==$0                                                                                                     
+BIN$pqaqjGVUIJTgVQAAAAAAAQ==$0                                                                                                   || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || BIN$pqaqjGVVIJTgVQAAAAAAAQ==$0                                                                                                     
+BIN$pqaqjGVXIJTgVQAAAAAAAQ==$0                                                                                                   || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || SYS_C007860                                                                                                                        
+ESTUDIANTE                                                                                                                       || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || EMP_PK                                                                                                                             
+EMPLOYEE                                                                                                                         || P || ENABLED      
+NOT DEFERRABLE || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+SERGIO          || EMP_FK                                                                                                                             
+EMPLOYEE                                                                                                                         || R || DISABLED     
+DEFERRABLE     || IMMEDIATE                                                                                                                           
+                                                                                                                                                      
+
+107 rows selected.
+
+SQL> PROMPT INTENTAMOS BORRAR EL EMPLEADO 7839 CON LAST_NAME KING
+INTENTAMOS BORRAR EL EMPLEADO 7839 CON LAST_NAME KING
+SQL> DELETE FROM EMPLOYEE WHERE EMP_ID = 7839;
+
+1 row deleted.
+
+SQL> SELECT * FROM EMPLOYEE;
+
+    EMP_ID || FNAME           || LNAME           ||    DEPT_ID || MANAGER_EMP_ID ||     SALARY || HIRE_DATE ||     JOB_ID                             
+---------- || --------------- || --------------- || ---------- || -------------- || ---------- || --------- || ----------                             
+      7369 || JOHN            || SMITH           ||         20 ||           7902 ||        800 || 17-DEC-80 ||        667                             
+      7499 || KEVIN           || ALLEN           ||         30 ||           7698 ||       1600 || 20-FEB-81 ||        670                             
+      7521 || CYNTHIA         || WARD            ||         30 ||           7698 ||       1250 || 22-FEB-81 ||                                        
+      7566 || TERRY           || JONES           ||         20 ||           7839 ||       2000 || 02-APR-81 ||        671                             
+      7654 || KENNETH         || MARTIN          ||         30 ||           7698 ||       1250 || 28-SEP-81 ||        670                             
+      7698 || MARION          || BLAKE           ||         30 ||           7839 ||       2850 || 01-MAY-80 ||        671                             
+      7782 || CAROL           || CLARK           ||         10 ||           7839 ||       2450 || 09-JUN-81 ||        671                             
+      7788 || DONALD          || SCOTT           ||         20 ||           7566 ||       3000 || 19-APR-87 ||        669                             
+      7844 || MARY            || TURNER          ||         30 ||           7698 ||       1500 || 08-SEP-81 ||        670                             
+      7876 || DIANE           || ADAMS           ||         20 ||           7788 ||       1100 || 23-MAY-87 ||                                        
+      7900 || FRED            || JAMES           ||         30 ||           7698 ||        950 || 03-DEC-81 ||        667                             
+      7902 || JENNIFER        || FORD            ||         20 ||           7566 ||       3000 || 03-DEC-81 ||        669                             
+      7934 || BARBARA         || MILLER          ||         10 ||           7782 ||       1300 || 23-JAN-82 ||        667                             
+
+13 rows selected.
+
+SQL> alter table employee
+  2  enable constraint emp_fk;
+enable constraint emp_fk
+                  *
+ERROR at line 2:
+ORA-02298: cannot validate (SERGIO.EMP_FK) - parent keys not found 
+
+
+SQL> 
+SQL> prompt Ahora insert nuevo jefe
+Ahora insert nuevo jefe
+SQL> insert into employee
+  2  (EMP_ID,FNAME,LNAME,DEPT_ID,MANAGER_EMP_ID,SALARY,HIRE_DATE,JOB_ID)
+  3  select e.emp_id, e.fname, e.lname, e.dept_id, e.manager_emp_id, e.salary, e.hire_date, e.job_id
+  4  from
+  5  (
+  6  select 7839 emp_id, 'FRANCISCO' fname, 'RANGEL' lname, 10 dept_id, null manager_emp_id, 5000 salary, '17-NOV-81' hire_date, 672 job_id from dual ) e;
+
+1 row created.
+
+SQL> SELECT * FROM EMPLOYEE;
+
+    EMP_ID || FNAME           || LNAME           ||    DEPT_ID || MANAGER_EMP_ID ||     SALARY || HIRE_DATE ||     JOB_ID                             
+---------- || --------------- || --------------- || ---------- || -------------- || ---------- || --------- || ----------                             
+      7369 || JOHN            || SMITH           ||         20 ||           7902 ||        800 || 17-DEC-80 ||        667                             
+      7499 || KEVIN           || ALLEN           ||         30 ||           7698 ||       1600 || 20-FEB-81 ||        670                             
+      7521 || CYNTHIA         || WARD            ||         30 ||           7698 ||       1250 || 22-FEB-81 ||                                        
+      7566 || TERRY           || JONES           ||         20 ||           7839 ||       2000 || 02-APR-81 ||        671                             
+      7654 || KENNETH         || MARTIN          ||         30 ||           7698 ||       1250 || 28-SEP-81 ||        670                             
+      7698 || MARION          || BLAKE           ||         30 ||           7839 ||       2850 || 01-MAY-80 ||        671                             
+      7782 || CAROL           || CLARK           ||         10 ||           7839 ||       2450 || 09-JUN-81 ||        671                             
+      7788 || DONALD          || SCOTT           ||         20 ||           7566 ||       3000 || 19-APR-87 ||        669                             
+      7844 || MARY            || TURNER          ||         30 ||           7698 ||       1500 || 08-SEP-81 ||        670                             
+      7876 || DIANE           || ADAMS           ||         20 ||           7788 ||       1100 || 23-MAY-87 ||                                        
+      7900 || FRED            || JAMES           ||         30 ||           7698 ||        950 || 03-DEC-81 ||        667                             
+      7902 || JENNIFER        || FORD            ||         20 ||           7566 ||       3000 || 03-DEC-81 ||        669                             
+      7934 || BARBARA         || MILLER          ||         10 ||           7782 ||       1300 || 23-JAN-82 ||        667                             
+      7839 || FRANCISCO       || RANGEL          ||         10 ||                ||       5000 || 17-NOV-81 ||        672                             
+
+14 rows selected.
+
+SQL> spool off

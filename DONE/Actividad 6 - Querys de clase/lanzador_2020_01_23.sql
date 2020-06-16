@@ -1,3 +1,4 @@
+spool log1.txt
 desc order
 set pagesize 99
 set linesize 150
@@ -116,3 +117,4 @@ select student_id,section_id, grade_type_code,
 	group by student_id, section_id, grade_type_code
 	having grade_type_code = 'MT'
 	order by 1,2,3;
+spool off
