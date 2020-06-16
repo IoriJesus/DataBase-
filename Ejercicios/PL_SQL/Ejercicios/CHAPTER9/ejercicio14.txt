@@ -1,0 +1,50 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL>
+SQL> BEGIN
+   4  BEGIN
+  5  dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER9\ejercicio11.sql 
+  6  ');
+  7  dbms_output.put_line('
+  8  Chapter 9 Numbers
+  9  ');
+ 10  dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 11  dbms_output.put_line('
+ 12   ');
+ 13  
+ 14   IF 0.95f = 0.95d
+ 15   THEN
+ 16   DBMS_OUTPUT.PUT_LINE('TRUE');
+ 17   ELSE
+ 18   DBMS_OUTPUT.PUT_LINE('FALSE');
+ 19   END IF;
+ 20   IF ABS(0.95f - 0.95d) < 0.000001d
+ 21   THEN
+ 22   DBMS_OUTPUT.PUT_LINE('TRUE');
+ 23   ELSE
+ 24   DBMS_OUTPUT.PUT_LINE('FALSE');
+ 25   END IF;
+ 26  END;
+ 27  /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER9\ejercicio11.sql                                                                 
+
+  Chapter 9 NUMBERS
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+
+
+                                                                  
+FALSE                                                                           
+TRUE                                                                            
+
+PL/SQL procedure successfully completed.
+SQL>SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 23:49:00.752000 -05:00    
+
+SQL>
+SQL>  spool off

@@ -1,0 +1,55 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL> /* From the "Is Fixed-Length Really Fixed?" sidebar.
+SQL>    Note! To match the sidebar output, you MUST run
+SQL>    this example on a system using UTF-8 as the
+SQL>    database character set. */
+SQL> DECLARE
+  2     x CHAR(3);
+  3  BEGIN
+  4     --Assign a single-byte character
+  5     x := 'a';
+  6    dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER8\ejercicio8.sql 
+  7     ');
+  8     dbms_output.put_line('
+  9     Chapter 8 Strings
+ 10     ');
+ 11     dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 12     dbms_output.put_line('
+ 13     ');
+ 14     
+ 15     DBMS_OUTPUT.PUT_LINE(LENGTHB(x));
+ 16  
+ 17     --and now a two-byte character
+ 18     x := '�';
+ 19     DBMS_OUTPUT.PUT_LINE(LENGTHB(x));
+ 20  
+ 21     --and now two characters for a total
+ 22     --of three bytes
+ 23     x := '�a';
+ 24     DBMS_OUTPUT.PUT_LINE(LENGTHB(x));
+ 25  END;
+ 26  /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER8\ejercicio8.sql                                                                 
+
+  Chapter 8 Strings
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+  
+                                                    
+3                                                                               
+3                                                                               
+3                                                                               
+
+PL/SQL procedure successfully completed.
+PL/SQL procedure successfully completed.
+SQL>SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 21:47:22.772080 -05:00 
+
+SQL> 
+SQL>  spool off

@@ -1,0 +1,107 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+
+SQL> 
+SQL> DECLARE
+  2  
+  3    start_period_number pls_integer := 1;
+  4    end_period_number pls_integer := 20;
+  5    current_period pls_integer := 20;
+  6  
+  7  BEGIN
+  8    dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER5\ejercicio2.sql');
+  9    dbms_output.put_line('
+ 10    Chapter 5 Iterative processing with loops
+ 11    ');
+ 12    dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 13    dbms_output.put_line('
+ 14    ');
+ 15    
+ 16    dbms_output.put_line('Ciclo For');
+ 17    FOR loop_counter IN 1 .. 10
+ 18    LOOP
+ 19  	 dbms_output.put_line(loop_counter);
+ 20  	 -- ... executable statements ...
+ 21    END LOOP;
+ 22  
+ 23    dbms_output.put_line('Ciclo en reversa (FOR)');
+ 24    FOR loop_counter IN REVERSE 1 .. 10
+ 25    LOOP
+ 26  	 dbms_output.put_line(loop_counter);
+ 27  	 -- ... executable statements ...
+ 28    END LOOP;
+ 29  
+ 30    dbms_output.put_line('no loop...');
+ 31    FOR loop_counter IN REVERSE 10 .. 1
+ 32    LOOP
+ 33  	 dbms_output.put_line('no loop: '||loop_counter);
+ 34  	 /* Este ciclo no se ejecutara ya que el valor de inicio es
+ 35  		     mayor que el de paro*/
+ 36    END LOOP;
+ 37  
+ 38    dbms_output.put_line('Variable delimitada por el numero');
+ 39    FOR calc_index IN  start_period_number ..
+ 40 			 LEAST (end_period_number, current_period)
+ 41    LOOP
+ 42    if mod(calc_index, 2)=0 then
+ 43  	 dbms_output.put_line(calc_index);
+ 44  	 -- ... executable statements ...
+ 45  	     end if;
+ 46    END LOOP;
+ 47  
+ 48  END;
+ 49  /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER5\ejercicio2.sql                                                                 
+
+  Chapter 5 Iterative processing with loops
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+
+
+                                                                                                   
+Ciclo For                                                                                                                         
+1                                                                                                                                 
+2                                                                                                                                 
+3                                                                                                                                 
+4                                                                                                                                 
+5                                                                                                                                 
+6                                                                                                                                 
+7                                                                                                                                 
+8                                                                                                                                 
+9                                                                                                                                 
+10                                                                                                                                
+Ciclo en reversa (FOR)                                                                                                            
+10                                                                                                                                
+9                                                                                                                                 
+8                                                                                                                                 
+7                                                                                                                                 
+6                                                                                                                                 
+5                                                                                                                                 
+4                                                                                                                                 
+3                                                                                                                                 
+2                                                                                                                                 
+1                                                                                                                                 
+no loop...                                                                                                                        
+Variable delimitada por el numero                                                                                                 
+2                                                                                                                                 
+4                                                                                                                                 
+6                                                                                                                                 
+8                                                                                                                                 
+10                                                                                                                                
+12                                                                                                                                
+14                                                                                                                                
+16                                                                                                                                
+18                                                                                                                                
+20                                                                                                                                
+
+PL/SQL procedure successfully completed.
+SQL>SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 21:42:45.342566 -05:00    
+
+
+SQL>  spool off

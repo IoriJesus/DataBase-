@@ -1,0 +1,154 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+
+SQL> 
+SQL> 
+SQL> BEGIN
+  2  dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER5\ejercicio3.sql');
+  3    dbms_output.put_line('
+  4    Chapter 5 Iterative processing with loops
+  5    ');
+  6    dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+  7    dbms_output.put_line('
+  8    ');
+  9    
+ 10    FOR loop_index IN 1 .. 100
+ 11    LOOP
+ 12  	 IF MOD (loop_index, 2) = 0
+ 13  	 THEN
+ 14  	   /* We have an even number, so perform calculation */
+ 15  	   calc_values (loop_index);
+ 16  	 END IF;
+ 17    END LOOP;
+ 18  
+ 19    dbms_output.put_line('---------------------');
+ 20 
+ 21    FOR even_number IN 1 .. 50
+ 22    LOOP
+ 23  	 calc_values (even_number*2);
+ 24    END LOOP;
+ 25  
+ 26  END;
+ 27  /
+      calc_values (loop_index);
+      
+
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER5\ejercicio3.sql                                                                 
+
+  Chapter 5 Iterative processing with loops
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+
+
+                                 
+calc_value: 2                                                                   
+calc_value: 4                                                                   
+calc_value: 6                                                                   
+calc_value: 8                                                                   
+calc_value: 10                                                                  
+calc_value: 12                                                                  
+calc_value: 14                                                                  
+calc_value: 16                                                                  
+calc_value: 18                                                                  
+calc_value: 20                                                                  
+calc_value: 22                                                                  
+calc_value: 24                                                                  
+calc_value: 26                                                                  
+calc_value: 28                                                                  
+calc_value: 30                                                                  
+calc_value: 32                                                                  
+calc_value: 34                                                                  
+calc_value: 36                                                                  
+calc_value: 38                                                                  
+calc_value: 40                                                                  
+calc_value: 42                                                                  
+calc_value: 44                                                                  
+calc_value: 46                                                                  
+calc_value: 48                                                                  
+calc_value: 50                                                                  
+calc_value: 52                                                                  
+calc_value: 54                                                                  
+calc_value: 56                                                                  
+calc_value: 58                                                                  
+calc_value: 60                                                                  
+calc_value: 62                                                                  
+calc_value: 64                                                                  
+calc_value: 66                                                                  
+calc_value: 68                                                                  
+calc_value: 70                                                                  
+calc_value: 72                                                                  
+calc_value: 74                                                                  
+calc_value: 76                                                                  
+calc_value: 78                                                                  
+calc_value: 80                                                                  
+calc_value: 82                                                                  
+calc_value: 84                                                                  
+calc_value: 86                                                                  
+calc_value: 88                                                                  
+calc_value: 90                                                                  
+calc_value: 92                                                                  
+calc_value: 94                                                                  
+calc_value: 96                                                                  
+calc_value: 98                                                                  
+calc_value: 100                                                                 
+---------------------                                                           
+calc_value: 2                                                                   
+calc_value: 4                                                                   
+calc_value: 6                                                                   
+calc_value: 8                                                                   
+calc_value: 10                                                                  
+calc_value: 12                                                                  
+calc_value: 14                                                                  
+calc_value: 16                                                                  
+calc_value: 18                                                                  
+calc_value: 20                                                                  
+calc_value: 22                                                                  
+calc_value: 24                                                                  
+calc_value: 26                                                                  
+calc_value: 28                                                                  
+calc_value: 30                                                                  
+calc_value: 32                                                                  
+calc_value: 34                                                                  
+calc_value: 36                                                                  
+calc_value: 38                                                                  
+calc_value: 40                                                                  
+calc_value: 42                                                                  
+calc_value: 44                                                                  
+calc_value: 46                                                                  
+calc_value: 48                                                                  
+calc_value: 50                                                                  
+calc_value: 52                                                                  
+calc_value: 54                                                                  
+calc_value: 56                                                                  
+calc_value: 58                                                                  
+calc_value: 60                                                                  
+calc_value: 62                                                                  
+calc_value: 64                                                                  
+calc_value: 66                                                                  
+calc_value: 68                                                                  
+calc_value: 70                                                                  
+calc_value: 72                                                                  
+calc_value: 74                                                                  
+calc_value: 76                                                                  
+calc_value: 78                                                                  
+calc_value: 80                                                                  
+calc_value: 82                                                                  
+calc_value: 84                                                                  
+calc_value: 86                                                                  
+calc_value: 88                                                                  
+calc_value: 90                                                                  
+calc_value: 92                                                                  
+calc_value: 94                                                                  
+calc_value: 96                                                                  
+calc_value: 98                                                                  
+calc_value: 100                                                                 
+
+PL/SQL procedure successfully completed.
+SQL>SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 21:42:46.325080 -05:00   
+SQL>  spool off

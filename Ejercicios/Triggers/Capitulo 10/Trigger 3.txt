@@ -1,0 +1,32 @@
+SQL> set echo on
+SQL> set feedback on
+SQL> Set serveroutput on
+
+SQL> BEGIN
+  2  dbms_output.put_line('Sergio Sanchez');
+  3  
+  4  END;
+  5  /
+Sergio Sanchez
+                                                       
+
+PL/SQL procedure successfully completed.
+
+SQL> CREATE OR REPLACE PACKAGE students_pkg IS
+  2    PROCEDURE add_student
+  3  	 (v_student_name   IN  students.student_name%TYPE,
+  4  	  v_college_major  IN  students.college_major%TYPE,
+  5  	  v_status	   IN  students.status%TYPE,
+  6  	  v_state	   IN  students.state%TYPE DEFAULT NULL,
+  7  	  v_license_no	   IN  students.license_no%TYPE DEFAULT NULL);
+  8  
+  9    FUNCTION NO_OF_STUDENTS
+ 10  	 (v_major  IN major_lookup.major_desc%TYPE DEFAULT NULL,
+ 11  	  v_status IN students.status%TYPE DEFAULT NULL)
+ 12    RETURN NUMBER;
+ 13  END students_pkg;
+ 14  /
+
+Warning: Package created with compilation errors.
+
+SQL> spool off

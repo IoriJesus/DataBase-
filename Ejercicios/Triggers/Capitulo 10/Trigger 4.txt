@@ -1,0 +1,49 @@
+SQL> set echo on
+SQL> set feedback on
+SQL> Set serveroutput on
+
+SQL> BEGIN
+  2  dbms_output.put_line('Sergio Sanchez');
+  3  
+  4  END;
+  5  /
+Sergio Sanchez
+                                                      
+
+PL/SQL procedure successfully completed.
+
+SQL> CREATE OR REPLACE PROCEDURE provide_data(v_data OUT INTEGER)
+  2    IS
+  3    BEGIN
+  4  	   v_data := 100;
+  5  	   FOR i IN 1..10 LOOP
+  6  	       v_data := v_data +1;
+  7  	   END LOOP;
+  8    END;
+  9  /
+
+Procedure created.
+
+SQL>  DECLARE
+  2  	   my_data INTEGER := 0;
+  3    BEGIN
+  4  	   insert into temp values (my_data);
+  5  	   provide_data(my_data);
+  6  	   insert into temp values (my_data);
+  7    END;
+  8    /
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from temp;
+
+         N                                                                      
+----------                                                                      
+         0                                                                      
+       110                                                                      
+         0                                                                      
+       110                                                                      
+
+4 rows selected.
+
+SQL> spool off

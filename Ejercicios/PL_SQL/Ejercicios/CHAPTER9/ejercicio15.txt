@@ -1,0 +1,38 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL> 
+SQL> DECLARE
+  2   b VARCHAR2(30);
+  3  BEGIN
+  4  dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER9\ejercicio11.sql 
+  5  ');
+  6  dbms_output.put_line('
+  7  Chapter 9 Numbers
+  8  ');
+  9   dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 10  dbms_output.put_line('
+      ');
+ 11   
+ 12   b := TO_CHAR(123456789.01);
+ 13   DBMS_OUTPUT.PUT_LINE(b);
+ 14  END;
+ 15  /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER9\ejercicio15.sql                                                                 
+
+  Chapter 9 NUMBERS
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+
+
+                                                                             
+123456789.01                                                                    
+
+PL/SQL procedure successfully completed.
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 23:49:06.5344000 -05:00    
+SQL>
+SQL>  spool off

@@ -1,0 +1,28 @@
+SQL> set echo on
+SQL> set feedback on
+SQL> Set serveroutput on
+
+SQL> BEGIN
+  2  dbms_output.put_line('Sergio Sanchez');
+  3  
+  4  END;
+  5  /
+Sergio Sanchez
+                                                       
+
+PL/SQL procedure successfully completed.
+
+SQL> CREATE OR REPLACE PROCEDURE hello IS
+  2  	 BEGIN
+  3  	   DBMS_OUTPUT.PUT_LINE('Hello world');
+  4  	 END;
+  5  	 /
+
+Procedure created.
+
+SQL> execute hello
+Hello world                                                          
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off

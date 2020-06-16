@@ -1,0 +1,69 @@
+SQL> set echo on
+SQL> set feedback on
+SQL> Set serveroutput on
+
+SQL> create table dept2
+  2  (
+  3  deptno number(2),
+  4  dname varchar2(20),
+  5  mgr number(3)
+  6  ) ;
+
+Table created.
+
+SQL> insert into dept2 values (11, 'a', 23) ;
+
+1 row created.
+
+SQL> insert into dept2 values (12, 'b', 24) ;
+
+1 row created.
+
+SQL> 
+SQL> select * from dept2 ;
+
+    DEPTNO DNAME                       MGR                                      
+---------- -------------------- ----------                                      
+        11 a                            23                                      
+        12 b                            24                                      
+
+2 rows selected.
+
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER trig_deptno2
+  2  BEFORE INSERT ON dept2
+  3  FOR EACH ROW
+  4  DECLARE v_deptno NUMBER(2) ;
+  5  BEGIN
+  6  	 SELECT coalesce(MAX(deptno) + 1, 1) INTO :new.deptno
+  7  	 FROM dept2 ;
+  8  END trig_deptno2 ;
+  9  /
+
+Trigger created.
+
+SQL> BEGIN
+  2  dbms_output.put_line('Sergio Sanchez');
+  3  
+  4  END;
+  5  /
+Sergio Sanchez
+                                                         
+
+PL/SQL procedure successfully completed.
+
+SQL> insert into dept2 (dname, mgr) values ('d', 24) ;
+
+1 row created.
+
+SQL> select * from dept2 ;
+
+    DEPTNO DNAME                       MGR                                      
+---------- -------------------- ----------                                      
+        11 a                            23                                      
+        12 b                            24                                      
+        13 d                            24                                      
+
+3 rows selected.
+
+SQL> spool off

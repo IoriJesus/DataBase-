@@ -1,0 +1,54 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL> 
+SQL> DECLARE
+  2   int1 PLS_INTEGER;
+  3   int2 PLS_INTEGER;
+  4   int3 PLS_INTEGER;
+  5   nbr NUMBER;
+  6  BEGIN
+  7  dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER9\ejercicio13.sql 
+  8  ');
+  9  dbms_output.put_line('
+ 10  Chapter 9 Number
+ 11  ');
+ 12  dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 13  dbms_output.put_line('
+ 14   ');
+ 15  	
+ 16   int1 := 100;
+ 17   int2 := 49;
+ 18   int3 := int2/int1;
+ 19   nbr := int2/int1;
+ 20   DBMS_OUTPUT.PUT_LINE('integer 49/100 =' || TO_CHAR(int3));
+ 21   DBMS_OUTPUT.PUT_LINE('number 49/100 =' || TO_CHAR(nbr));
+ 22   int2 := 50;
+ 23   int3 := int2/int1;
+ 24   nbr := int2/int1;
+ 25   DBMS_OUTPUT.PUT_LINE('integer 50/100 =' || TO_CHAR(int3));
+ 26   DBMS_OUTPUT.PUT_LINE('number 50/100 =' || TO_CHAR(nbr));
+ 27  END;
+ 28  /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER9\ejercicio13.sql                                                                 
+
+  Chapter 9 NUMBERS
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+    
+                                                   
+integer 49/100 =0                                                               
+number 49/100 =.49                                                              
+integer 50/100 =1                                                               
+number 50/100 =.5                                                               
+
+PL/SQL procedure successfully completed.
+SQL>SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 23:49:01.896300 -05:00    
+
+SQL>
+SQL>  spool off

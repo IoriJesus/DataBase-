@@ -1,0 +1,1 @@
+@%ORA_SCRIPTS%\cap8lanzador.sql

@@ -1,0 +1,52 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL> 
+SQL> DECLARE
+  2   low_nbr NUMBER(38,127);
+  3   high_nbr NUMBER(38,-84);
+  4  BEGIN
+  5  dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER9\ejercicio12.sql 
+  6  ');
+  7  dbms_output.put_line('
+  8  Chapter 9 Numbers
+  9  ');
+ 10  dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 11  dbms_output.put_line('
+ 12   ');
+ 13  
+ 14   /* 127 is largest scale, so begin with 1 and move
+ 15   decimal point 127 places to the left. Easy. */
+ 16   low_nbr := 1E-127;
+ 17   DBMS_OUTPUT.PUT_LINE('low_nbr = ' || low_nbr);
+ 18   /* -84 is smallest scale value. Add 37 to normalize
+ 19   the scientific notation, and we get E+121. */
+ 20   high_nbr := 9.9999999999999999999999999999999999999E+121;
+ 21   DBMS_OUTPUT.PUT_LINE('high_nbr = ' || high_nbr);
+ 22  END;
+ 23  /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER9\ejercicio12.sql                                                                 
+
+  Chapter 9 NUMBERS
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+       
+
+                                                    
+low_nbr =                                                                       
+1.000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000E-127                                                            
+high_nbr =                                                                      
+9.999999999999999999999999999999999999900000000000000000000000000000000000000000
+000000000000000E+121                                                            
+
+PL/SQL procedure successfully completed.
+SQL>SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 23:49:01.230080 -05:00   
+ 
+SQL>
+SQL>  spool off

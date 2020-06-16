@@ -1,0 +1,110 @@
+SQL> set echo on
+SQL> set feedback on
+SQL> Set serveroutput on
+SQL> CREATE OR REPLACE TRIGGER temp_biuds
+  2  BEFORE INSERT OR UPDATE OR DELETE ON TEMP
+  3  BEGIN
+  4  	 CASE
+  5  	 WHEN inserting THEN
+  6  	     INSERT into temp values (2);
+  7  	   dbms_output.put_line('Insertando...');
+  8  	 WHEN updating THEN
+  9  	 UPDATE temp set n=3 where n=2;
+ 10  	   dbms_output.put_line('Actualizando...');
+ 11  	 WHEN deleting THEN
+ 12  	 Delete from temp where n=3;
+ 13  	   dbms_output.put_line('Borrando...');
+ 14  	 END CASE;
+ 15  END;
+ 16  /
+
+Trigger created.
+
+SQL> BEGIN
+  2  dbms_output.put_line('Sergio Sanchez');
+  3  
+  4  END;
+  5  /
+Sergio Sanchez                                                                                                              
+
+PL/SQL procedure successfully completed.
+
+SQL> INSERT into temp values (4);
+INSERT into temp values (4)
+            *
+ERROR at line 1:
+ORA-00036: maximum number of recursive SQL levels (50) exceeded 
+ORA-06512: at "GALA.TEMP_BIUDS", line 4 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 4 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 4 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 4 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 4 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 4 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 4 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 4 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 4 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS",
+
+
+SQL> UPDATE temp set n=10 where n=4;
+UPDATE temp set n=10 where n=4
+       *
+ERROR at line 1:
+ORA-00036: maximum number of recursive SQL levels (50) exceeded 
+ORA-06512: at "GALA.TEMP_BIUDS", line 7 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 7 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 7 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 7 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 7 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 7 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 7 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 7 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 7 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS",
+
+
+SQL> Delete from temp where n=10;
+Delete from temp where n=10
+            *
+ERROR at line 1:
+ORA-00036: maximum number of recursive SQL levels (50) exceeded 
+ORA-06512: at "GALA.TEMP_BIUDS", line 10 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 10 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 10 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 10 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 10 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 10 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 10 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 10 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEMP_BIUDS", line 10 
+ORA-04088: error during execution of trigger 'GALA.TEMP_BIUDS' 
+ORA-06512: at "GALA.TEM
+
+
+SQL> spool off

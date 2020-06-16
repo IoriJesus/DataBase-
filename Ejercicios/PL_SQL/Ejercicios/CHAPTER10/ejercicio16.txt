@@ -1,0 +1,49 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL> 
+SQL> BEGIN
+  5  dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER10\ejercicio16.sql 
+  6  ');
+  7  dbms_output.put_line('
+  8    Chapter 10 Dates & Timestamps
+  9  ');
+ 10  dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 11  dbms_output.put_line('
+ 12   ');
+ 13  
+ 14   DBMS_OUTPUT.PUT_LINE('Session Timezone='||SESSIONTIMEZONE);
+ 15   DBMS_OUTPUT.PUT_LINE('Session Timestamp='||CURRENT_TIMESTAMP);
+ 16   DBMS_OUTPUT.PUT_LINE('DB Server Timestamp='||SYSTIMESTAMP);
+ 17   DBMS_OUTPUT.PUT_LINE('DB Timezone='||DBTIMEZONE);
+ 18   EXECUTE IMMEDIATE 'ALTER SESSION SET TIME_ZONE=DBTIMEZONE';
+ 19   DBMS_OUTPUT.PUT_LINE('DB Timestamp='||CURRENT_TIMESTAMP);
+ 20   -- Revert session time zone to local setting
+ 21   EXECUTE IMMEDIATE 'ALTER SESSION SET TIME_ZONE=LOCAL';
+ 22  END;
+ 22  /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER10\ejercicio16.sql                                                                 
+
+  Chapter 10 Dates & Timestamps
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+
+                             
+
+                                                                
+Session Timezone=-06:00                                                         
+Session Timestamp=26/05/20 20:13:44.338000000 -06:00                            
+DB Server Timestamp=26/05/20 20:13:44.338000000 -06:00                          
+DB Timezone=+00:00                                                              
+DB Timestamp=26/05/20 02:13:44.338000000 +00:00                                 
+
+PL/SQL procedure successfully completed.
+
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 00:11:04.5344000 -05:00    
+SQL>
+SQL>  spool off
+

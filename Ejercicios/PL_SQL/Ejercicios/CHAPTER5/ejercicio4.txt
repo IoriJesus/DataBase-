@@ -1,0 +1,81 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL> 
+SQL> DECLARE
+  2  
+  3    year_number PLS_INTEGER := 1992;
+  4  
+  5  BEGIN
+  6	dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER5\ejercicio4.sql'
+  7	);
+  8	dbms_output.put_line('
+  9	Chapter 5 Iterative processing with loops
+ 10	');
+ 11	dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 12	dbms_output.put_line('
+ 13	');
+ 14     
+ 15    <<year_loop>>
+ 16    WHILE year_number <= 1995
+ 17    LOOP
+ 18  
+ 19      dbms_output.put_line('year = '||year_number);
+ 20  
+ 21      <<month_loop>>
+ 22      FOR month_number IN 1 .. 12
+ 23      LOOP
+ 24        dbms_output.put_line('...and month = '||month_number);
+ 25        -- ...
+ 26      END LOOP month_loop;
+ 27  
+ 29      year_number := year_number + 2;
+ 30  
+ 31    END LOOP year_loop;
+ 32  
+ 33  END;
+ 34  /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER5\ejercicio4.sql                                                                 
+
+  Chapter 5 Iterative processing with loops
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+
+
+                                                                                        
+year = 1992                                                                     
+...and month = 1                                                                
+...and month = 2                                                                
+...and month = 3                                                                
+...and month = 4                                                                
+...and month = 5                                                                
+...and month = 6                                                                
+...and month = 7                                                                
+...and month = 8                                                                
+...and month = 9                                                                
+...and month = 10                                                               
+...and month = 11                                                               
+...and month = 12                                                               
+year = 1994                                                                     
+...and month = 1                                                                
+...and month = 2                                                                
+...and month = 3                                                                
+...and month = 4                                                                
+...and month = 5                                                                
+...and month = 6                                                                
+...and month = 7                                                                
+...and month = 8                                                                
+...and month = 9                                                                
+...and month = 10                                                               
+...and month = 11                                                               
+...and month = 12                                                               
+
+PL/SQL procedure successfully completed.
+SQL>SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 21:42:46.550000 -05:00   
+SQL>  spool off
+

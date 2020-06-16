@@ -1,0 +1,52 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL> 
+SQL> CREATE OR REPLACE PROCEDURE read_out (n OUT NUMBER)
+  2   IS
+  3   BEGIN
+  5  dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER17\ejercicio21.sql 
+  6  ');
+  7  dbms_output.put_line('
+  8    Chapter 17 Procedures,Functions and Parameters
+  9  ');
+ 10  dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 11  dbms_output.put_line('
+ 12   ');
+ 13  
+ 14   DBMS_OUTPUT.put_line ('n initial=' || n);
+ 15   n := 1;
+ 16   DBMS_OUTPUT.put_line ('n after assignment=' || n);
+ 17   END;
+ 18   /
+
+Procedure created.
+
+SQL>  DECLARE
+  2   n NUMBER;
+  3   BEGIN
+  4   read_out (n);
+  5   END;
+  6   /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER17\ejercicio21.sql                                                                 
+
+  Chapter 10 Dates & Timestamps
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+
+	
+                                                                                     
+n initial=                                                                      
+n after assignment=1                                                            
+
+PL/SQL procedure successfully completed.
+
+SQL> SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 00:20:11.8245000 -05:00    
+
+SQL>  spool off
+

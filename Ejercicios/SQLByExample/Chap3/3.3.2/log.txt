@@ -1,0 +1,58 @@
+A) The DECODE function can easily be substituted for the NVL2 function or the
+NVL function, because you can test for a NULL value. In this result, the DECODE
+function checks if the value is null. If this is true, the No phone# exists literal is
+displayed; otherwise, it shows Phone# exists.
+
+SELECT student_id, first_name||' '|| last_name name,
+ phone,
+ DECODE(phone, NULL, 'No phone# exists.', 'Phone# exists.')
+ "Get this result"
+ FROM student
+ WHERE student_id IN (111, 112);
+
+B) The solution can be achieved with either the CASE expression or the DECODE
+function.
+
+SELECT course_no, description, prerequisite "ORIGINAL",
+ CASE WHEN prerequisite = 120 THEN '200'
+ WHEN prerequisite = 130 THEN 'N/A'
+ WHEN prerequisite IS NULL THEN 'None'
+ ELSE TO_CHAR(prerequisite)
+ END "NEW"
+ FROM course
+ WHERE course_no IN (20, 120, 122, 132)
+ ORDER BY course_no DESC;
+
+C)The CASE expressions can be nested within each other to allow for the required
+logic. A more complicated way to obtain the desired result is using nested DECODE
+statements; the output from one DECODE is an input parameter in a second DECODE
+function.
+
+SELECT student_id, zip, phone,
+ CASE WHEN SUBSTR(phone, 1, 3) = '212' THEN
+ CASE WHEN zip = '10048' THEN 'North Campus'
+ ELSE 'West Campus'
+ END
+ ELSE 'Off Campus'
+ END loc
+ FROM student
+ WHERE student_id IN (150, 145, 325) ;
+
+D) The DECODE function or the CASE expression is used in the ORDER BY clause
+to substitute a number for all female salutations, thereby listing them first when
+executing the ORDER BY clause
+
+SELECT DISTINCT salutation
+ FROM instructor
+ ORDER BY DECODE(salutation, 'Ms', 1,
+ 'Mrs', 1,
+ 'Miss', 1);
+
+SALUT
+-----
+Ms
+Dr
+Hon
+Rev
+Mr
+5 rows selected.

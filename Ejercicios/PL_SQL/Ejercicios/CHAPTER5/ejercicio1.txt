@@ -1,0 +1,61 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL>
+SQL> begin
+  2    dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER5\ejercicio1.sql');
+  3    dbms_output.put_line('
+  4    Chapter 5 Iterative processing with loops
+  5    ');
+  6    dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+  7    
+  8    
+  9    	
+ 10    dbms_output.put_line('set_all_ranks...');
+ 11    set_all_ranks(5);
+ 12    dbms_output.put_line('-----------------');
+ 13    dbms_output.put_line('set_all_ranks2...');
+ 14    set_all_ranks2(3);
+ 15    dbms_output.put_line('-----------------');
+ 16    dbms_output.put_line('set_all_ranks3...');
+ 17    set_all_ranks3(4);
+ 18  
+ 19  end;
+ 20  /
+
+
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER5\ejercicio1.sql                                                                 
+
+  Chapter 5 Iterative processing with loops
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+
+
+                                                                                          
+set_all_ranks...                                                                
+Ranking level is: 1                                                             
+Ranking level is: 2                                                             
+Ranking level is: 3                                                             
+Ranking level is: 4                                                             
+Ranking level is: 5                                                             
+-----------------                                                               
+set_all_ranks2...                                                               
+Ranking level is: 1                                                             
+Ranking level is: 2                                                             
+Ranking level is: 3                                                             
+-----------------                                                               
+set_all_ranks3...                                                               
+Ranking level is: 1                                                             
+Ranking level is: 2                                                             
+Ranking level is: 3                                                             
+Ranking level is: 4                                                             
+
+PL/SQL procedure successfully completed.
+SQL>SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 21:42:45.256000 -05:00    
+
+SQL>  spool off

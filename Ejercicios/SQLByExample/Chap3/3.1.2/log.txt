@@ -1,0 +1,26 @@
+A)The instructor's last name, a comma and a space, and the instructor's first
+name are all concatenated using the || symbol.
+
+SELECT last_name||', '||first_name
+ FROM instructor;
+
+LAST_NAME||','||FIRST_NAME
+--------------------------
+Hanks, Fernand
+Wojick, Tom
+...
+Frantzen, Marilyn
+Willig, Irene
+10 rows selected.
+
+B) The RPAD function right pads the COURSE_NO column with periods, up to 10
+characters long; it is then concatenated with the DESCRIPTION column. The INSTR
+function is used in the WHERE clause to filter on descriptions starting with the string
+'Intro'. The LENGTH function is used in the ORDER BY clause to sort the result set by
+ascending (shortest to longest) description length.
+
+SELECT RPAD(course_no, 10, '.')||description
+ AS "Description"
+ FROM course
+ WHERE INSTR(description, 'Intro') = 1
+ ORDER BY LENGTH(description);

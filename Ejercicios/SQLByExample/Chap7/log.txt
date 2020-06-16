@@ -1,0 +1,36 @@
+A) The COUNT function is used to count the number of rows in the COURSE table
+where the values in the PREREQUISITE column are null.
+SELECT COUNT(*)
+ FROM course
+ WHERE prerequisite IS NULL
+COUNT(*)
+---------
+ 4
+1 row selected.
+
+B) DISTINCT is used in conjunction with the COUNT function to count distinct
+students, regardless of how many times they appear in the ENROLLMENT table.
+SELECT COUNT(DISTINCT student_id)
+ FROM enrollment
+COUNT(DISTINCTSTUDENT_ID)
+-------------------------
+ 165
+1 row selected.
+
+C)Both the NVL and the COALESCE function substitute any null value with a zero.
+The NVL or COALESCE function must be nested inside the AVG function.
+SELECT AVG(NVL(cost, 0))
+ FROM course
+AVG(NVL(COST,0))
+----------------
+ 1158.5
+1 row selected.
+
+D)The MAX function determines the most recent value in the ENROLL_DATE
+column of the ENROLLMENT table.
+SELECT MAX(enroll_date)
+ FROM enrollment
+MAX(ENROL
+---------
+21-FEB-03
+1 row selected.

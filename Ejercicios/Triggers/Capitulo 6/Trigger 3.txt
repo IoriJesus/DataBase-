@@ -1,0 +1,53 @@
+SQL> set echo on
+SQL> set feedback on
+SQL> Set serveroutput on
+SQL> CREATE TABLE temp(N NUMBER, M NUMBER DEFAULT 5);
+
+Table created.
+
+SQL> CREATE OR REPLACE TRIGGER temporal_temp
+  2  BEFORE update ON temp
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	 dbms_output.put_line('Viejo N:'||:old.n|| ' M:'||:old.M);
+  6  	 dbms_output.put_line('Nuevo N:'||:new.n|| ' M:'||:new.M);
+  7  END;
+  8  /
+
+Trigger created.
+
+SQL> CREATE OR REPLACE TRIGGER temporal2
+  2  AFTER insert ON temp
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	 dbms_output.put_line('Viejo N:'||:old.n|| ' M:'||:old.M);
+  6  	 dbms_output.put_line('Nuevo N:'||:new.n|| ' M:'||:new.M);
+  7  END;
+  8  /
+
+Trigger created.
+
+SQL> BEGIN
+  2  dbms_output.put_line('Sergio Sanchez');
+  3  
+  4  END;
+  5  /
+Sergio Sanchez
+                                                          
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> Insert into temp (n) values(1);
+Viejo N: M:                                                                     
+Nuevo N:1 M:5                                                                   
+
+1 row created.
+
+SQL> UPDATE temp set n=n+1 where n>=1;
+Viejo N:1 M:5                                                                   
+Nuevo N:2 M:5                                                                   
+
+1 row updated.
+
+SQL> spool off

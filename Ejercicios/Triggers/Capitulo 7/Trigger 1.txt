@@ -1,0 +1,46 @@
+SQL> set echo on
+SQL> set feedback on
+SQL> Set serveroutput on
+SQL> DROP TABLE TEMP;
+
+Table dropped.
+
+SQL> CREATE TABLE temp (N NUMBER);
+
+Table created.
+
+SQL> CREATE OR REPLACE TRIGGER temp_ais
+  2  AFTER INSERT ON TEMP
+  3  BEGIN
+  4  	 dbms_output.put_line('ALTER INSERT STATEMENT Trigger en ejecucion');
+  5  END;
+  6  /
+
+Trigger created.
+
+SQL> BEGIN
+  2  dbms_output.put_line('Sergio Sanchez');
+  3  
+  4  END;
+  5  /
+Sergio Sanchez
+                                                      
+
+PL/SQL procedure successfully completed.
+
+SQL> INSERT INTO temp VALUES (1);
+ALTER INSERT STATEMENT Trigger en ejecucion                                     
+
+1 row created.
+
+SQL> INSERT INTO temp VALUES (1);
+ALTER INSERT STATEMENT Trigger en ejecucion                                     
+
+1 row created.
+
+SQL> INSERT INTO temp SELECT * FROM temp;
+ALTER INSERT STATEMENT Trigger en ejecucion                                     
+
+2 rows created.
+
+SQL> spool off

@@ -1,0 +1,48 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL> 
+SQL> DECLARE
+  2   PROCEDURE proc1 (n IN PLS_INTEGER) IS
+  3   BEGIN
+  4   DBMS_OUTPUT.PUT_LINE ('pls_integer version');
+  5   END;
+  6   PROCEDURE proc1 (n IN NUMBER) IS
+  7   BEGIN
+  8   DBMS_OUTPUT.PUT_LINE ('number version');
+  9   END;
+ 10  BEGIN
+ 11  dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER17\ejercicio25.sql 
+ 12  ');
+ 13  dbms_output.put_line('
+ 14    Chapter 17 Procedures,Functions and Parameters
+ 15  ');
+ 16  dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 17  dbms_output.put_line('
+ 18   ');
+ 19  dbms_output.put_line(‘—Hector Andres Lucario Castillo');
+ 20   proc1 (1.1);
+ 21   proc1 (1);
+ 22  END;
+ 23  /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER17\ejercicio25.sql                                                                 
+
+  Chapter 10 Dates & Timestamps
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+ 
+                                                        
+number version                                                                  
+pls_integer version                                                             
+
+PL/SQL procedure successfully completed.
+
+SQL> SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 00:20:15.8246580 -05:00    
+
+SQL>  spool off
+

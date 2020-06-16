@@ -1,0 +1,48 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL> DECLARE
+  2     empty_varchar2 VARCHAR2(10) := '';
+  3     empty_char CHAR(10) := '';
+  4  BEGIN
+  5 dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER8\ejercicio7.sql 
+  6  ');
+  7  dbms_output.put_line('
+  8  Chapter 8 Strings
+  9  ');
+ 11  dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 12  dbms_output.put_line('
+ 13   ');
+ 14  
+ 15     IF empty_varchar2 IS NULL THEN
+ 16        DBMS_OUTPUT.PUT_LINE('empty_varchar2 is NULL');
+ 17     END IF;
+ 18  
+ 19     IF '' IS NULL THEN
+ 20       DBMS_OUTPUT.PUT_LINE(''''' is NULL');
+ 21     END IF;
+ 22  
+ 23     IF empty_char IS NULL THEN
+ 24        DBMS_OUTPUT.PUT_LINE('empty_char is NULL');
+ 25     END IF;
+ 26  END;
+ 27  /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER8\ejercicio7.sql                                                                 
+
+  Chapter 8 Strings
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+                                                         
+
+empty_varchar2 is NULL                                                          
+'' is NULL                                                                      
+
+PL/SQL procedure successfully completed.
+SQL>SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 21:47:21.912000 -05:00    
+SQL> 
+SQL>  spool off

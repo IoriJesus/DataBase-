@@ -1,0 +1,21 @@
+SQL>  PROMPT Sergio Gabriel Sanchez Valencia
+Aristides Ariza Martinez
+SQL> SELECT TO_CHAR (SYSDATE, 'MM/DD/YYYY') "Current Date",
+  2  TO_CHAR (TO_DATE ('14-OCT-88', 'DD-MON-RR'), 'YYYY') "Year 88",
+  3  TO_CHAR (TO_DATE ('14-OCT-18', 'DD-MON-RR'), 'YYYY') "Year 18"
+  4   FROM dual;
+
+ Sergio Gabriel Sanchez Valencia
+ Aristides Ariza Martinez
+ Hector Andres Lucario Castillo
+Current Da Year Year                                                            
+---------- ---- ----                                                            
+12/06/2016 1988 2018    
+
+                                                        
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 00:11:07.56444000 -05:00    
+SQL>
+SQL>  spool off

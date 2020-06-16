@@ -1,0 +1,45 @@
+SQL> set echo on
+SQL> set feedback on
+SQL> Set serveroutput on
+SQL> CREATE OR REPLACE TRIGGER temporal2
+  2  AFTER INSERT OR UPDATE ON temp
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	 CASE
+  6  	 WHEN inserting THEN
+  7  	     dbms_output.put_line
+  8  		 ('Ejecutando temporal2 - Insertando');
+  9  	 WHEN updating THEN
+ 10  	     dbms_output.put_line
+ 11  		 ('Ejecutando temporal2 - Actualizando');
+ 12  	 END CASE;
+ 13  END;
+ 14  /
+
+Trigger created.
+
+SQL> BEGIN
+  2  dbms_output.put_line('Sergio Sanchez');
+  3  
+  4  END;
+  5  /
+Sergio Sanchez
+
+
+PL/SQL procedure successfully completed.
+
+SQL> Insert into temp values(2);
+Ejecutando temporal2 - Insertando                                               
+Ejecutando la insercion de una fila                                             
+
+1 row created.
+
+SQL> UPDATE temp set N=3 where N=1;
+Ejecutando temporal2 - Actualizando                                             
+Ejecutando temporal2 - Actualizando                                             
+Ejecutando temporal2 - Actualizando                                             
+Ejecutando temporal2 - Actualizando                                             
+
+4 rows updated.
+
+SQL> spool off

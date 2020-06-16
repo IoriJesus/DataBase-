@@ -1,0 +1,62 @@
+SQL> set serveroutput ON;
+SQL> SET PAGESIZE 50;
+SQL> SET LINESIZE 130;
+SQL> clear screen;
+SQL> 
+SQL> DECLARE
+  2   happy_title CONSTANT VARCHAR2(30) := 'HAPPY BIRTHDAY';
+  3   changing_title VARCHAR2(30) := 'Happy Anniversary';
+  4   spc CONSTANT VARCHAR2(1) := CHR(32); -- ASCII code for a single space
+  5  BEGIN
+  6  dbms_output.put_line('Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER17\ejercicio23.sql 
+  7  ');
+  8  dbms_output.put_line('
+  9    Chapter 17 Procedures,Functions and Parameters
+ 10  ');
+ 11  dbms_output.put_line('--Sergio Gabriel Sanchez Valencia');
+ 12  dbms_output.put_line('
+ 13  ');
+ 14  
+ 15
+ 16   display_title ('Happy Birthday'); -- a literal
+ 17   display_title (happy_title); -- a constant
+ 18   changing_title := happy_title;
+ 19   display_title (changing_title); -- a variable
+ 20   display_title ('Happy' || spc || 'Birthday'); -- an expression
+ 21   display_title (INITCAP (happy_title)); -- another expression
+ 22  END;
+ 23    /
+Ruta:C:\Users\SergioS\Desktop\CS\LIBRO_DOS\CHAPTER17\ejercicio23.sql                                                                 
+
+  Chapter 10 Dates & Timestamps
+                                                                                     
+--Sergio Gabriel Sanchez Valencia                                                                                                  
+
+
+                                                                                            
+================================================================================
+Happy Birthday                                                                  
+================================================================================
+================================================================================
+HAPPY BIRTHDAY                                                                  
+================================================================================
+================================================================================
+HAPPY BIRTHDAY                                                                  
+================================================================================
+================================================================================
+Happy Birthday                                                                  
+================================================================================
+================================================================================
+Happy Birthday                                                                  
+================================================================================
+
+PL/SQL procedure successfully completed.
+
+SQL> SELECT SYSTIMESTAMP FROM dual;
+
+SYSTIMESTAMP                                                
+-----------------------------------                         
+26/05/20 00:20:12.5545000 -05:00    
+
+SQL>  spool off 
+SQL>  spool off

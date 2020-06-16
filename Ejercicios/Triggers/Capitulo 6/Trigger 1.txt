@@ -1,0 +1,44 @@
+SQL> set echo on
+SQL> set feedback on
+SQL> Set serveroutput on
+SQL> CREATE TABLE temp (N NUMBER);
+
+Table created.
+
+SQL> CREATE OR REPLACE TRIGGER temporal
+  2  AFTER INSERT ON temp
+  3  FOR EACH ROW
+  4  BEGIN
+  5  dbms_output.put_line('Ejecutando la insercion de una fila');
+  6  END;
+  7  /
+
+Trigger created.
+
+SQL> BEGIN
+  2  dbms_output.put_line('Sergio Sanchez');
+  3  
+  4  
+  5  END;
+  6  /
+Sergio Sanchez
+
+PL/SQL procedure successfully completed.
+
+SQL> INSERT INTO temp VALUES (1);
+Ejecutando la insercion de una fila                                             
+
+1 row created.
+
+SQL> INSERT INTO temp SELECT * FROM temp;
+Ejecutando la insercion de una fila                                             
+
+1 row created.
+
+SQL> INSERT INTO temp SELECT * FROM temp;
+Ejecutando la insercion de una fila                                             
+Ejecutando la insercion de una fila                                             
+
+2 rows created.
+
+SQL> spool off
