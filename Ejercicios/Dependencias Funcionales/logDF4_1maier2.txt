@@ -211,4 +211,40 @@ DF_I            DF_D
 al,c1,d1        b1                                                              
 a2,c1,d1        b2                                                              
 a1,c1,d2        b1                                                              
-a4,c2,d3        b3                  
+a4,c2,d3        b3                                                              
+
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al,c1,d1        b1                                                              
+a2,c1,d1        b2                                                              
+a1,c1,d2        b1                                                              
+a4,c2,d3        b3                                                              
+
+
+Table dropped.
+
+
+Table created.
+
+
+4 rows created.
+
+despliega la               DF  ABCD --> B
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al,b1,c1,d1     b1                                                              
+a2,b2,c1,d1     b2                                                              
+a1,b1,c1,d2     b1                                                              
+a4,b3,c2,d3     b3                                                              
+
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al,b1,c1,d1     b1                                                              
+a2,b2,c1,d1     b2                                                              
+a1,b1,c1,d2     b1                                                              
+a4,b3,c2,d3     b3                                                              
+
+SQL> spool off

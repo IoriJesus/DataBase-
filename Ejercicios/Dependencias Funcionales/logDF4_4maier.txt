@@ -1,0 +1,1443 @@
+SQL> @DF4-4maier.sq
+SP2-0310: unable to open file "DF4-4maier.sq"
+SQL> @DF4-4maier.sql
+DROP TABLE R
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+      (A) NOT NULL
+          *
+ERROR at line 2:
+ORA-01735: invalid ALTER TABLE option 
+
+
+
+Table altered.
+
+	  ALTER TABLE R  ADD CONSTRAINT UNICO_B UNIQUE (B)
+	                                *
+ERROR at line 1:
+ORA-02299: cannot validate (SERGIO.UNICO_B) - duplicate keys found 
+
+
+	  ALTER TABLE R  ADD CONSTRAINT UNICO_C UNIQUE (C)
+	                                *
+ERROR at line 1:
+ORA-02299: cannot validate (SERGIO.UNICO_C) - duplicate keys found 
+
+
+	  ALTER TABLE R  ADD CONSTRAINT UNICO_D UNIQUE (D)
+	                                *
+ERROR at line 1:
+ORA-02299: cannot validate (SERGIO.UNICO_D) - duplicate keys found 
+
+
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ TNAME                                                                               NOT NULL VARCHAR2(128)
+ COLNO                                                                               NOT NULL NUMBER
+ CNAME                                                                               NOT NULL VARCHAR2(128)
+ COLTYPE                                                                                      VARCHAR2(265)
+ WIDTH                                                                               NOT NULL NUMBER
+ SCALE                                                                                        NUMBER
+ PRECISION                                                                                    NUMBER
+ NULLS                                                                                        VARCHAR2(19)
+ DEFAULTVAL                                                                                   LONG
+ CHARACTER_SET_NAME                                                                           VARCHAR2(44)
+
+
+TNAME ||  COLNO ||  CNAME           ||  NULLS      ||  DEFAULTVAL                                                                                     
+----- ||  ----- ||  --------------- ||  ---------- ||  ----------                                                                                     
+BIN$n ||      1 ||  ESSN            ||  NULL       ||                                                                                                 
+/XSm/ ||        ||                  ||             ||                                                                                                 
+8KEHv ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$n ||      2 ||  PNO             ||  NULL       ||                                                                                                 
+/XSm/ ||        ||                  ||             ||                                                                                                 
+8KEHv ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$n ||      3 ||  HOURS           ||  NULL       ||                                                                                                 
+/XSm/ ||        ||                  ||             ||                                                                                                 
+8KEHv ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      1 ||  BOLETA          ||  NOT NULL   ||                                                                                                 
+qUdZp ||        ||                  ||             ||                                                                                                 
+6BCBr ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      2 ||  NOMBRE          ||  NULL       ||                                                                                                 
+qUdZp ||        ||                  ||             ||                                                                                                 
+6BCBr ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      3 ||  SEMESTRE        ||  NULL       ||                                                                                                 
+qUdZp ||        ||                  ||             ||                                                                                                 
+6BCBr ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      1 ||  BOLETA          ||  NOT NULL   ||                                                                                                 
+qUdZp ||        ||                  ||             ||                                                                                                 
+6HCBr ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      2 ||  NOMBRE          ||  NULL       ||                                                                                                 
+qUdZp ||        ||                  ||             ||                                                                                                 
+6HCBr ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      3 ||  SEMESTRE        ||  NULL       ||                                                                                                 
+qUdZp ||        ||                  ||             ||                                                                                                 
+6HCBr ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      4 ||  CALIFICACION    ||  NULL       ||                                                                                                 
+qUdZp ||        ||                  ||             ||                                                                                                 
+6HCBr ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      1 ||  BOLETA          ||  NOT NULL   ||                                                                                                 
+qaqjG ||        ||                  ||             ||                                                                                                 
+VUIJT ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      2 ||  NOMBRE          ||  NULL       ||                                                                                                 
+qaqjG ||        ||                  ||             ||                                                                                                 
+VUIJT ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      3 ||  SEMESTRE        ||  NULL       ||                                                                                                 
+qaqjG ||        ||                  ||             ||                                                                                                 
+VUIJT ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      4 ||  CALIFICACION    ||  NULL       ||                                                                                                 
+qaqjG ||        ||                  ||             ||                                                                                                 
+VUIJT ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+
+TNAME ||  COLNO ||  CNAME           ||  NULLS      ||  DEFAULTVAL                                                                                     
+----- ||  ----- ||  --------------- ||  ---------- ||  ----------                                                                                     
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      1 ||  BOLETA          ||  NOT NULL   ||                                                                                                 
+qaqjG ||        ||                  ||             ||                                                                                                 
+VXIJT ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      2 ||  NOMBRE          ||  NULL       ||                                                                                                 
+qaqjG ||        ||                  ||             ||                                                                                                 
+VXIJT ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      3 ||  SEMESTRE        ||  NULL       ||                                                                                                 
+qaqjG ||        ||                  ||             ||                                                                                                 
+VXIJT ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$p ||      4 ||  CALIFICACION    ||  NULL       ||                                                                                                 
+qaqjG ||        ||                  ||             ||                                                                                                 
+VXIJT ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      1 ||  FNAME           ||  NULL       ||                                                                                                 
+D0mR7 ||        ||                  ||             ||                                                                                                 
+T7DVn ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      2 ||  MINIT           ||  NULL       ||                                                                                                 
+D0mR7 ||        ||                  ||             ||                                                                                                 
+T7DVn ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      3 ||  LNAME           ||  NULL       ||                                                                                                 
+D0mR7 ||        ||                  ||             ||                                                                                                 
+T7DVn ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      4 ||  SSN             ||  NULL       ||                                                                                                 
+D0mR7 ||        ||                  ||             ||                                                                                                 
+T7DVn ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      5 ||  BDATE           ||  NULL       ||                                                                                                 
+D0mR7 ||        ||                  ||             ||                                                                                                 
+T7DVn ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      6 ||  ADDRESS         ||  NULL       ||                                                                                                 
+D0mR7 ||        ||                  ||             ||                                                                                                 
+T7DVn ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      7 ||  SEX             ||  NULL       ||                                                                                                 
+D0mR7 ||        ||                  ||             ||                                                                                                 
+T7DVn ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      8 ||  SALARY          ||  NULL       ||                                                                                                 
+D0mR7 ||        ||                  ||             ||                                                                                                 
+T7DVn ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      9 ||  SUPERSSN        ||  NULL       ||                                                                                                 
+D0mR7 ||        ||                  ||             ||                                                                                                 
+T7DVn ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||     10 ||  DNO             ||  NULL       ||                                                                                                 
+D0mR7 ||        ||                  ||             ||                                                                                                 
+T7DVn ||        ||                  ||             ||                                                                                                 
+
+TNAME ||  COLNO ||  CNAME           ||  NULLS      ||  DEFAULTVAL                                                                                     
+----- ||  ----- ||  --------------- ||  ---------- ||  ----------                                                                                     
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      1 ||  DF_I            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+VeHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      2 ||  DF_D            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+VeHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      1 ||  DF_I            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+VfHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      2 ||  DF_D            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+VfHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      1 ||  DF_I            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+VgHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      2 ||  DF_D            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+VgHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      1 ||  DF_I            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+VhHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      2 ||  DF_D            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+VhHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      1 ||  DF_I            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+ViHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      2 ||  DF_D            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+ViHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      1 ||  DF_I            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+VjHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      2 ||  DF_D            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+VjHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      1 ||  DF_I            ||  NULL       ||                                                                                                 
+D4ThK ||        ||                  ||             ||                                                                                                 
+VkHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+BIN$q ||      2 ||  DF_D            ||  NULL       ||                                                                                                 
+
+TNAME ||  COLNO ||  CNAME           ||  NULLS      ||  DEFAULTVAL                                                                                     
+----- ||  ----- ||  --------------- ||  ---------- ||  ----------                                                                                     
+D4ThK ||        ||                  ||             ||                                                                                                 
+VkHBX ||        ||                  ||             ||                                                                                                 
+gVQAA ||        ||                  ||             ||                                                                                                 
+AAAAA ||        ||                  ||             ||                                                                                                 
+Q==$0 ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+COURS ||      1 ||  COURSE_NO       ||  NOT NULL   ||                                                                                                 
+E     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+COURS ||      2 ||  DESCRIPTION     ||  NOT NULL   ||                                                                                                 
+E     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+COURS ||      3 ||  COST            ||  NULL       ||                                                                                                 
+E     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+COURS ||      4 ||  PREREQUISITE    ||  NULL       ||                                                                                                 
+E     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+COURS ||      5 ||  CREATED_BY      ||  NOT NULL   ||                                                                                                 
+E     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+COURS ||      6 ||  CREATED_DATE    ||  NOT NULL   ||                                                                                                 
+E     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+COURS ||      7 ||  MODIFIED_BY     ||  NOT NULL   ||                                                                                                 
+E     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+COURS ||      8 ||  MODIFIED_DATE   ||  NOT NULL   ||                                                                                                 
+E     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+EMPLO ||      1 ||  EMP_ID          ||  NOT NULL   ||                                                                                                 
+YEE   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+EMPLO ||      2 ||  FNAME           ||  NOT NULL   ||                                                                                                 
+YEE   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+EMPLO ||      3 ||  LNAME           ||  NOT NULL   ||                                                                                                 
+YEE   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+EMPLO ||      4 ||  DEPT_ID         ||  NOT NULL   ||                                                                                                 
+YEE   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+EMPLO ||      5 ||  MANAGER_EMP_ID  ||  NULL       ||                                                                                                 
+YEE   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+EMPLO ||      6 ||  SALARY          ||  NOT NULL   ||                                                                                                 
+YEE   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+EMPLO ||      7 ||  HIRE_DATE       ||  NOT NULL   ||                                                                                                 
+YEE   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+EMPLO ||      8 ||  JOB_ID          ||  NULL       ||                                                                                                 
+YEE   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ENROL ||      1 ||  STUDENT_ID      ||  NOT NULL   ||                                                                                                 
+LMENT ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ENROL ||      2 ||  SECTION_ID      ||  NOT NULL   ||                                                                                                 
+LMENT ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ENROL ||      3 ||  ENROLL_DATE     ||  NOT NULL   ||                                                                                                 
+LMENT ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ENROL ||      4 ||  FINAL_GRADE     ||  NULL       ||                                                                                                 
+LMENT ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ENROL ||      5 ||  CREATED_BY      ||  NOT NULL   ||                                                                                                 
+LMENT ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ENROL ||      6 ||  CREATED_DATE    ||  NOT NULL   ||                                                                                                 
+LMENT ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ENROL ||      7 ||  MODIFIED_BY     ||  NOT NULL   ||                                                                                                 
+LMENT ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ENROL ||      8 ||  MODIFIED_DATE   ||  NOT NULL   ||                                                                                                 
+LMENT ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ESTUD ||      1 ||  BOLETA          ||  NOT NULL   ||                                                                                                 
+IANTE ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ESTUD ||      2 ||  NOMBRE          ||  NULL       ||                                                                                                 
+IANTE ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ESTUD ||      3 ||  SEMESTRE        ||  NULL       ||                                                                                                 
+IANTE ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ESTUD ||      4 ||  CALIFICACION    ||  NULL       ||                                                                                                 
+IANTE ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      1 ||  STUDENT_ID      ||  NOT NULL   ||                                                                                                 
+GRADE ||      2 ||  SECTION_ID      ||  NOT NULL   ||                                                                                                 
+GRADE ||      3 ||  GRADE_TYPE_CODE ||  NOT NULL   ||                                                                                                 
+GRADE ||      4 ||  GRADE_CODE_OCCU ||  NOT NULL   ||                                                                                                 
+      ||        ||  RRENCE          ||             ||                                                                                                 
+                                                                                                                                                      
+
+TNAME ||  COLNO ||  CNAME           ||  NULLS      ||  DEFAULTVAL                                                                                     
+----- ||  ----- ||  --------------- ||  ---------- ||  ----------                                                                                     
+GRADE ||      5 ||  NUMERIC_GRADE   ||  NOT NULL   ||  0                                                                                              
+      ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      6 ||  COMMENTS        ||  NULL       ||                                                                                                 
+GRADE ||      7 ||  CREATED_BY      ||  NOT NULL   ||                                                                                                 
+GRADE ||      8 ||  CREATED_DATE    ||  NOT NULL   ||                                                                                                 
+GRADE ||      9 ||  MODIFIED_BY     ||  NOT NULL   ||                                                                                                 
+GRADE ||     10 ||  MODIFIED_DATE   ||  NOT NULL   ||                                                                                                 
+GRADE ||      1 ||  LETTER_GRADE    ||  NOT NULL   ||                                                                                                 
+_CONV ||        ||                  ||             ||                                                                                                 
+ERSIO ||        ||                  ||             ||                                                                                                 
+N     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      2 ||  GRADE_POINT     ||  NOT NULL   ||  0                                                                                              
+_CONV ||        ||                  ||             ||                                                                                                 
+ERSIO ||        ||                  ||             ||                                                                                                 
+N     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      3 ||  MAX_GRADE       ||  NOT NULL   ||                                                                                                 
+_CONV ||        ||                  ||             ||                                                                                                 
+ERSIO ||        ||                  ||             ||                                                                                                 
+N     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      4 ||  MIN_GRADE       ||  NOT NULL   ||                                                                                                 
+_CONV ||        ||                  ||             ||                                                                                                 
+ERSIO ||        ||                  ||             ||                                                                                                 
+N     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      5 ||  CREATED_BY      ||  NOT NULL   ||                                                                                                 
+_CONV ||        ||                  ||             ||                                                                                                 
+ERSIO ||        ||                  ||             ||                                                                                                 
+N     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      6 ||  CREATED_DATE    ||  NOT NULL   ||                                                                                                 
+_CONV ||        ||                  ||             ||                                                                                                 
+ERSIO ||        ||                  ||             ||                                                                                                 
+N     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      7 ||  MODIFIED_BY     ||  NOT NULL   ||                                                                                                 
+_CONV ||        ||                  ||             ||                                                                                                 
+ERSIO ||        ||                  ||             ||                                                                                                 
+N     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      8 ||  MODIFIED_DATE   ||  NOT NULL   ||                                                                                                 
+_CONV ||        ||                  ||             ||                                                                                                 
+ERSIO ||        ||                  ||             ||                                                                                                 
+N     ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      1 ||  GRADE_TYPE_CODE ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      2 ||  DESCRIPTION     ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      3 ||  CREATED_BY      ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      4 ||  CREATED_DATE    ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      5 ||  MODIFIED_BY     ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      6 ||  MODIFIED_DATE   ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      1 ||  SECTION_ID      ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+_WEIG ||        ||                  ||             ||                                                                                                 
+HT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      2 ||  GRADE_TYPE_CODE ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+_WEIG ||        ||                  ||             ||                                                                                                 
+HT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      3 ||  NUMBER_PER_SECT ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||  ION             ||             ||                                                                                                 
+_WEIG ||        ||                  ||             ||                                                                                                 
+HT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      4 ||  PERCENT_OF_FINA ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||  L_GRADE         ||             ||                                                                                                 
+_WEIG ||        ||                  ||             ||                                                                                                 
+HT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      5 ||  DROP_LOWEST     ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+_WEIG ||        ||                  ||             ||                                                                                                 
+HT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      6 ||  CREATED_BY      ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+_WEIG ||        ||                  ||             ||                                                                                                 
+HT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+
+TNAME ||  COLNO ||  CNAME           ||  NULLS      ||  DEFAULTVAL                                                                                     
+----- ||  ----- ||  --------------- ||  ---------- ||  ----------                                                                                     
+GRADE ||      7 ||  CREATED_DATE    ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+_WEIG ||        ||                  ||             ||                                                                                                 
+HT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      8 ||  MODIFIED_BY     ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+_WEIG ||        ||                  ||             ||                                                                                                 
+HT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+GRADE ||      9 ||  MODIFIED_DATE   ||  NOT NULL   ||                                                                                                 
+_TYPE ||        ||                  ||             ||                                                                                                 
+_WEIG ||        ||                  ||             ||                                                                                                 
+HT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+INSTR ||      1 ||  INSTRUCTOR_ID   ||  NOT NULL   ||                                                                                                 
+UCTOR ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+INSTR ||      2 ||  SALUTATION      ||  NULL       ||                                                                                                 
+UCTOR ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+INSTR ||      3 ||  FIRST_NAME      ||  NULL       ||                                                                                                 
+UCTOR ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+INSTR ||      4 ||  LAST_NAME       ||  NULL       ||                                                                                                 
+UCTOR ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+INSTR ||      5 ||  STREET_ADDRESS  ||  NULL       ||                                                                                                 
+UCTOR ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+INSTR ||      6 ||  ZIP             ||  NULL       ||                                                                                                 
+UCTOR ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+INSTR ||      7 ||  PHONE           ||  NULL       ||                                                                                                 
+UCTOR ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+INSTR ||      8 ||  CREATED_BY      ||  NOT NULL   ||                                                                                                 
+UCTOR ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+INSTR ||      9 ||  CREATED_DATE    ||  NOT NULL   ||                                                                                                 
+UCTOR ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+INSTR ||     10 ||  MODIFIED_BY     ||  NOT NULL   ||                                                                                                 
+UCTOR ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+INSTR ||     11 ||  MODIFIED_DATE   ||  NOT NULL   ||                                                                                                 
+UCTOR ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+PROJE ||      1 ||  PNAME           ||  NULL       ||                                                                                                 
+CT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+PROJE ||      2 ||  PNUMBER         ||  NULL       ||                                                                                                 
+CT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+PROJE ||      3 ||  PLOCATION       ||  NULL       ||                                                                                                 
+CT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+PROJE ||      4 ||  DNUM            ||  NULL       ||                                                                                                 
+CT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+R     ||      1 ||  A               ||  NULL       ||                                                                                                 
+R     ||      2 ||  B               ||  NULL       ||                                                                                                 
+R     ||      3 ||  C               ||  NULL       ||                                                                                                 
+R     ||      4 ||  D               ||  NULL       ||                                                                                                 
+R1    ||      1 ||  A               ||  NULL       ||                                                                                                 
+R1    ||      2 ||  B               ||  NULL       ||                                                                                                 
+R1    ||      3 ||  C               ||  NULL       ||                                                                                                 
+R1    ||      4 ||  D               ||  NULL       ||                                                                                                 
+SECTI ||      1 ||  SECTION_ID      ||  NOT NULL   ||                                                                                                 
+ON    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+SECTI ||      2 ||  COURSE_NO       ||  NOT NULL   ||                                                                                                 
+ON    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+SECTI ||      3 ||  SECTION_NO      ||  NOT NULL   ||                                                                                                 
+ON    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+SECTI ||      4 ||  START_DATE_TIME ||  NULL       ||                                                                                                 
+ON    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+SECTI ||      5 ||  LOCATION        ||  NULL       ||                                                                                                 
+ON    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+SECTI ||      6 ||  INSTRUCTOR_ID   ||  NOT NULL   ||                                                                                                 
+ON    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+SECTI ||      7 ||  CAPACITY        ||  NULL       ||                                                                                                 
+ON    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+SECTI ||      8 ||  CREATED_BY      ||  NOT NULL   ||                                                                                                 
+ON    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+SECTI ||      9 ||  CREATED_DATE    ||  NOT NULL   ||                                                                                                 
+ON    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+SECTI ||     10 ||  MODIFIED_BY     ||  NOT NULL   ||                                                                                                 
+
+TNAME ||  COLNO ||  CNAME           ||  NULLS      ||  DEFAULTVAL                                                                                     
+----- ||  ----- ||  --------------- ||  ---------- ||  ----------                                                                                     
+ON    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+SECTI ||     11 ||  MODIFIED_DATE   ||  NOT NULL   ||                                                                                                 
+ON    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||      9 ||  REGISTRATION_DA ||  NOT NULL   ||                                                                                                 
+NT    ||        ||  TE              ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||     10 ||  CREATED_BY      ||  NOT NULL   ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||     11 ||  CREATED_DATE    ||  NOT NULL   ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||     12 ||  MODIFIED_BY     ||  NOT NULL   ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||     13 ||  MODIFIED_DATE   ||  NOT NULL   ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||      1 ||  STUDENT_ID      ||  NOT NULL   ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||      2 ||  SALUTATION      ||  NULL       ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||      3 ||  FIRST_NAME      ||  NULL       ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||      4 ||  LAST_NAME       ||  NOT NULL   ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||      5 ||  STREET_ADDRESS  ||  NULL       ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||      6 ||  ZIP             ||  NOT NULL   ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||      7 ||  PHONE           ||  NULL       ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+STUDE ||      8 ||  EMPLOYER        ||  NULL       ||                                                                                                 
+NT    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+TEMP_ ||      1 ||  DF_I            ||  NULL       ||                                                                                                 
+DF    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+TEMP_ ||      2 ||  DF_D            ||  NULL       ||                                                                                                 
+DF    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      2 ||  MINIT           ||  NULL       ||                                                                                                 
+B0    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      3 ||  LNAME           ||  NULL       ||                                                                                                 
+B0    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      4 ||  SSN             ||  NULL       ||                                                                                                 
+B0    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      5 ||  BDATE           ||  NULL       ||                                                                                                 
+B0    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      6 ||  ADDRESS         ||  NULL       ||                                                                                                 
+B0    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      7 ||  SEX             ||  NULL       ||                                                                                                 
+B0    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      8 ||  SALARY          ||  NULL       ||                                                                                                 
+B0    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      9 ||  SUPERSSN        ||  NULL       ||                                                                                                 
+B0    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||     10 ||  DNO             ||  NULL       ||                                                                                                 
+B0    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      1 ||  FNAME           ||  NULL       ||                                                                                                 
+B0    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      1 ||  SSN             ||  NULL       ||                                                                                                 
+B1    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      2 ||  CUENTA          ||  NULL       ||                                                                                                 
+B1    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      1 ||  FNAME           ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      2 ||  MINIT           ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      3 ||  LNAME           ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      4 ||  SSN             ||  NULL       ||                                                                                                 
+
+TNAME ||  COLNO ||  CNAME           ||  NULLS      ||  DEFAULTVAL                                                                                     
+----- ||  ----- ||  --------------- ||  ---------- ||  ----------                                                                                     
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      5 ||  BDATE           ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      6 ||  ADDRESS         ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      7 ||  SEX             ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      8 ||  SALARY          ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      9 ||  SUPERSSN        ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||     10 ||  DNO             ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||     11 ||  ESSN            ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||     12 ||  PNO             ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||     13 ||  HOURS           ||  NULL       ||                                                                                                 
+B11   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      1 ||  PNAME           ||  NULL       ||                                                                                                 
+B2    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      2 ||  CUENTA          ||  NULL       ||                                                                                                 
+B3    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      3 ||  PNAME           ||  NULL       ||                                                                                                 
+B3    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+VISTA ||      1 ||  SSN             ||  NULL       ||                                                                                                 
+B3    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+WORKS ||      1 ||  ESSN            ||  NULL       ||                                                                                                 
+_ON   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+WORKS ||      2 ||  PNO             ||  NULL       ||                                                                                                 
+_ON   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+WORKS ||      3 ||  HOURS           ||  NULL       ||                                                                                                 
+_ON   ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ZIPCO ||      1 ||  ZIP             ||  NOT NULL   ||                                                                                                 
+DE    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ZIPCO ||      2 ||  CITY            ||  NULL       ||                                                                                                 
+DE    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ZIPCO ||      3 ||  STATE           ||  NULL       ||                                                                                                 
+DE    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ZIPCO ||      4 ||  CREATED_BY      ||  NOT NULL   ||                                                                                                 
+DE    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ZIPCO ||      5 ||  CREATED_DATE    ||  NOT NULL   ||                                                                                                 
+DE    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ZIPCO ||      6 ||  MODIFIED_BY     ||  NOT NULL   ||                                                                                                 
+DE    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+ZIPCO ||      7 ||  MODIFIED_DATE   ||  NOT NULL   ||                                                                                                 
+DE    ||        ||                  ||             ||                                                                                                 
+                                                                                                                                                      
+
+191 rows selected.
+
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ TABLE_NAME                                                                                   VARCHAR2(128)
+ COMMENTS                                                                                     VARCHAR2(4000)
+
+
+TABLE_NAME                ||  COMMENTS                                                                                                                
+------------------------- ||  ---------------------------------------------                                                                           
+USER_CONSTRAINTS          ||  Constraint definitions on user's own tables                                                                             
+USER_SCHEDULER_RSC_CONSTR ||  All scheduler resource constraint members in                                                                            
+AINTS                     ||  the database                                                                                                            
+                                                                                                                                                      
+USER_XS_COLUMN_CONSTRAINT ||  All the Real Application Security column cons                                                                           
+S                         ||  traints owned by the current user                                                                                       
+                                                                                                                                                      
+USER_XS_REALM_CONSTRAINTS ||  All the Real Application Security realms owne                                                                           
+                          ||  d by the current user                                                                                                   
+                                                                                                                                                      
+ALL_CONSTRAINTS           ||  Constraint definitions on accessible tables                                                                             
+ALL_SCHEDULER_RSC_CONSTRA ||  All scheduler resource constraint members in                                                                            
+INTS                      ||  the database                                                                                                            
+                                                                                                                                                      
+ALL_XS_COLUMN_CONSTRAINTS ||  All the Real Application Security column cons                                                                           
+                          ||  traints accessible to the current user                                                                                  
+                                                                                                                                                      
+ALL_XS_REALM_CONSTRAINTS  ||  All the Real Application Security realms acce                                                                           
+                          ||  ssible to the current user                                                                                              
+                                                                                                                                                      
+
+8 rows selected.
+
+
+TABLE_NAME                ||  COMMENTS                                                                                                                
+------------------------- ||  ---------------------------------------------                                                                           
+USER_CONS_COLUMNS         ||  Information about accessible columns in const                                                                           
+                          ||  raint definitions                                                                                                       
+                                                                                                                                                      
+USER_CONS_OBJ_COLUMNS     ||  List of types an object column or attribute i                                                                           
+                          ||  s constrained to in the tables owned by the u                                                                           
+                          ||  ser                                                                                                                     
+                                                                                                                                                      
+USER_XS_COLUMN_CONSTRAINT ||  All the Real Application Security column cons                                                                           
+S                         ||  traints owned by the current user                                                                                       
+                                                                                                                                                      
+ALL_CONS_COLUMNS          ||  Information about accessible columns in const                                                                           
+                          ||  raint definitions                                                                                                       
+                                                                                                                                                      
+ALL_CONS_OBJ_COLUMNS      ||  List of types an object column or attribute i                                                                           
+                          ||  s constrained to in the tables accessible to                                                                            
+                          ||  the user                                                                                                                
+                                                                                                                                                      
+ALL_XS_COLUMN_CONSTRAINTS ||  All the Real Application Security column cons                                                                           
+                          ||  traints accessible to the current user                                                                                  
+                                                                                                                                                      
+
+6 rows selected.
+
+
+OWNER      ||  CONSTRAINT_NAME    ||  TABLE ||  COLUMN_NAME                                                                                           
+---------- ||  ------------------ ||  ----- ||  ---------------                                                                                       
+SERGIO     ||  STU_REGISTRATION_D ||  STUDE ||  REGISTRATION_DA                                                                                       
+           ||  ATE_NNULL          ||  NT    ||  TE                                                                                                    
+                                                                                                                                                      
+SERGIO     ||  STU_CREATED_BY_NNU ||  STUDE ||  CREATED_BY                                                                                            
+           ||  LL                 ||  NT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  STU_CREATED_DATE_N ||  STUDE ||  CREATED_DATE                                                                                          
+           ||  NULL               ||  NT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  STU_MODIFIED_BY_NN ||  STUDE ||  MODIFIED_BY                                                                                           
+           ||  ULL                ||  NT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  STU_MODIFIED_DATE_ ||  STUDE ||  MODIFIED_DATE                                                                                         
+           ||  NNULL              ||  NT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  BIN$pqUdZp5/CBrgVQ ||  BIN$p ||  BOLETA                                                                                                
+           ||  AAAAAAAQ==$0       ||  qUdZp ||                                                                                                        
+           ||                     ||  6BCBr ||                                                                                                        
+           ||                     ||  gVQAA ||                                                                                                        
+           ||                     ||  AAAAA ||                                                                                                        
+           ||                     ||  Q==$0 ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ZIP_ZIP_NNULL      ||  ZIPCO ||  ZIP                                                                                                   
+           ||                     ||  DE    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ZIP_PK             ||  ZIPCO ||  ZIP                                                                                                   
+           ||                     ||  DE    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ZIP_CREATED_BY_NNU ||  ZIPCO ||  CREATED_BY                                                                                            
+           ||  LL                 ||  DE    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ZIP_CREATED_DATE_N ||  ZIPCO ||  CREATED_DATE                                                                                          
+           ||  NULL               ||  DE    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ZIP_MODIFIED_BY_NN ||  ZIPCO ||  MODIFIED_BY                                                                                           
+           ||  ULL                ||  DE    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ZIP_MODIFIED_DATE_ ||  ZIPCO ||  MODIFIED_DATE                                                                                         
+           ||  NNULL              ||  DE    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  INST_INSTRUCTOR_ID ||  INSTR ||  INSTRUCTOR_ID                                                                                         
+           ||  _NNULL             ||  UCTOR ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  INST_PK            ||  INSTR ||  INSTRUCTOR_ID                                                                                         
+           ||                     ||  UCTOR ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  INST_ZIP_FK        ||  INSTR ||  ZIP                                                                                                   
+           ||                     ||  UCTOR ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  INST_CREATED_BY_NN ||  INSTR ||  CREATED_BY                                                                                            
+           ||  ULL                ||  UCTOR ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  INST_CREATED_DATE_ ||  INSTR ||  CREATED_DATE                                                                                          
+           ||  NNULL              ||  UCTOR ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  INST_MODFIED_BY_NN ||  INSTR ||  MODIFIED_BY                                                                                           
+           ||  ULL                ||  UCTOR ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  INST_MODIFIED_DATE ||  INSTR ||  MODIFIED_DATE                                                                                         
+           ||  _NNULL             ||  UCTOR ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GR_STUDENT_ID_NNUL ||  GRADE ||  STUDENT_ID                                                                                            
+           ||  L                  ||        ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GR_PK              ||  GRADE ||  STUDENT_ID                                                                                            
+SERGIO     ||  GR_ENR_FK          ||  GRADE ||  STUDENT_ID                                                                                            
+SERGIO     ||  GR_SECTION_ID_NNUL ||  GRADE ||  SECTION_ID                                                                                            
+           ||  L                  ||        ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GR_PK              ||  GRADE ||  SECTION_ID                                                                                            
+SERGIO     ||  GR_ENR_FK          ||  GRADE ||  SECTION_ID                                                                                            
+SERGIO     ||  GR_GRTW_FK         ||  GRADE ||  SECTION_ID                                                                                            
+SERGIO     ||  GR_GRADE_TYPE_CODE ||  GRADE ||  GRADE_TYPE_CODE                                                                                       
+           ||  _NNULL             ||        ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GR_PK              ||  GRADE ||  GRADE_TYPE_CODE                                                                                       
+SERGIO     ||  GR_GRTW_FK         ||  GRADE ||  GRADE_TYPE_CODE                                                                                       
+SERGIO     ||  GR_GRADE_CODE_OCCU ||  GRADE ||  GRADE_CODE_OCCU                                                                                       
+           ||  RRENCE_NNULL       ||        ||  RRENCE                                                                                                
+                                                                                                                                                      
+SERGIO     ||  GR_PK              ||  GRADE ||  GRADE_CODE_OCCU                                                                                       
+           ||                     ||        ||  RRENCE                                                                                                
+                                                                                                                                                      
+SERGIO     ||  GR_NUMERIC_GRADE_N ||  GRADE ||  NUMERIC_GRADE                                                                                         
+           ||  NULL               ||        ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GR_CREATED_BY_NNUL ||  GRADE ||  CREATED_BY                                                                                            
+           ||  L                  ||        ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GR_CREATED_DATE_NN ||  GRADE ||  CREATED_DATE                                                                                          
+           ||  ULL                ||        ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GR_MODIFIED_BY_NNU ||  GRADE ||  MODIFIED_BY                                                                                           
+           ||  LL                 ||        ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GR_MODIFIED_DATE_N ||  GRADE ||  MODIFIED_DATE                                                                                         
+
+OWNER      ||  CONSTRAINT_NAME    ||  TABLE ||  COLUMN_NAME                                                                                           
+---------- ||  ------------------ ||  ----- ||  ---------------                                                                                       
+           ||  NULL               ||        ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTYP_GRADE_TYPE_C ||  GRADE ||  GRADE_TYPE_CODE                                                                                       
+           ||  ODE_NNULL          ||  _TYPE ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTYP_GRADE_TYPE_C ||  GRADE ||  GRADE_TYPE_CODE                                                                                       
+           ||  ODE_LENGTH         ||  _TYPE ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTYP_PK           ||  GRADE ||  GRADE_TYPE_CODE                                                                                       
+           ||                     ||  _TYPE ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTYP_DESCRIPTION_ ||  GRADE ||  DESCRIPTION                                                                                           
+           ||  NNULL              ||  _TYPE ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTYP_CREATED_BY_N ||  GRADE ||  CREATED_BY                                                                                            
+           ||  NULL               ||  _TYPE ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTYP_CREATED_DATE ||  GRADE ||  CREATED_DATE                                                                                          
+           ||  _NNULL             ||  _TYPE ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTYP_MODIFIED_BY_ ||  GRADE ||  MODIFIED_BY                                                                                           
+           ||  NNULL              ||  _TYPE ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTYP_MODIFIED_DAT ||  GRADE ||  MODIFIED_DATE                                                                                         
+           ||  E_NNULL            ||  _TYPE ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRCON_LETTER_GRADE ||  GRADE ||  LETTER_GRADE                                                                                          
+           ||  _NNULL             ||  _CONV ||                                                                                                        
+           ||                     ||  ERSIO ||                                                                                                        
+           ||                     ||  N     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRCON_PK           ||  GRADE ||  LETTER_GRADE                                                                                          
+           ||                     ||  _CONV ||                                                                                                        
+           ||                     ||  ERSIO ||                                                                                                        
+           ||                     ||  N     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRCON_GRADE_POINT_ ||  GRADE ||  GRADE_POINT                                                                                           
+           ||  NNULL              ||  _CONV ||                                                                                                        
+           ||                     ||  ERSIO ||                                                                                                        
+           ||                     ||  N     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRCON_MAX_GRADE_NN ||  GRADE ||  MAX_GRADE                                                                                             
+           ||  ULL                ||  _CONV ||                                                                                                        
+           ||                     ||  ERSIO ||                                                                                                        
+           ||                     ||  N     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRCON_MIN_GRADE_NN ||  GRADE ||  MIN_GRADE                                                                                             
+           ||  ULL                ||  _CONV ||                                                                                                        
+           ||                     ||  ERSIO ||                                                                                                        
+           ||                     ||  N     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRCON_CREATED_BY_N ||  GRADE ||  CREATED_BY                                                                                            
+           ||  NULL               ||  _CONV ||                                                                                                        
+           ||                     ||  ERSIO ||                                                                                                        
+           ||                     ||  N     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRCON_CREATED_DATE ||  GRADE ||  CREATED_DATE                                                                                          
+           ||  _NNULL             ||  _CONV ||                                                                                                        
+           ||                     ||  ERSIO ||                                                                                                        
+           ||                     ||  N     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRCON_MODIFIED_BY_ ||  GRADE ||  MODIFIED_BY                                                                                           
+           ||  NNULL              ||  _CONV ||                                                                                                        
+           ||                     ||  ERSIO ||                                                                                                        
+           ||                     ||  N     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRCON_MODIFIED_DAT ||  GRADE ||  MODIFIED_DATE                                                                                         
+           ||  E_NNULL            ||  _CONV ||                                                                                                        
+           ||                     ||  ERSIO ||                                                                                                        
+           ||                     ||  N     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_SECTION_ID_NN ||  GRADE ||  SECTION_ID                                                                                            
+           ||  ULL                ||  _TYPE ||                                                                                                        
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_PK            ||  GRADE ||  SECTION_ID                                                                                            
+           ||                     ||  _TYPE ||                                                                                                        
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_SECT_FK       ||  GRADE ||  SECTION_ID                                                                                            
+           ||                     ||  _TYPE ||                                                                                                        
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_GRADE_TYPE_CO ||  GRADE ||  GRADE_TYPE_CODE                                                                                       
+           ||  DE_NNULL           ||  _TYPE ||                                                                                                        
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_PK            ||  GRADE ||  GRADE_TYPE_CODE                                                                                       
+           ||                     ||  _TYPE ||                                                                                                        
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+
+OWNER      ||  CONSTRAINT_NAME    ||  TABLE ||  COLUMN_NAME                                                                                           
+---------- ||  ------------------ ||  ----- ||  ---------------                                                                                       
+SERGIO     ||  GRTW_GRTYP_FK      ||  GRADE ||  GRADE_TYPE_CODE                                                                                       
+           ||                     ||  _TYPE ||                                                                                                        
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_NUMBER_PER_SE ||  GRADE ||  NUMBER_PER_SECT                                                                                       
+           ||  CTION_NNULL        ||  _TYPE ||  ION                                                                                                   
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_PCT_OF_FINAL_ ||  GRADE ||  PERCENT_OF_FINA                                                                                       
+           ||  GRADE_NNULL        ||  _TYPE ||  L_GRADE                                                                                               
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_DROP_LOWEST_N ||  GRADE ||  DROP_LOWEST                                                                                           
+           ||  NULL               ||  _TYPE ||                                                                                                        
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_CREATED_BY_NN ||  GRADE ||  CREATED_BY                                                                                            
+           ||  ULL                ||  _TYPE ||                                                                                                        
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_CREATED_DATE_ ||  GRADE ||  CREATED_DATE                                                                                          
+           ||  NNULL              ||  _TYPE ||                                                                                                        
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_MODIFIED_BY_N ||  GRADE ||  MODIFIED_BY                                                                                           
+           ||  NULL               ||  _TYPE ||                                                                                                        
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  GRTW_MODIFIED_DATE ||  GRADE ||  MODIFIED_DATE                                                                                         
+           ||  _NNULL             ||  _TYPE ||                                                                                                        
+           ||                     ||  _WEIG ||                                                                                                        
+           ||                     ||  HT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_SECTION_ID_NN ||  SECTI ||  SECTION_ID                                                                                            
+           ||  ULL                ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_PK            ||  SECTI ||  SECTION_ID                                                                                            
+           ||                     ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_COURSE_NO_NNU ||  SECTI ||  COURSE_NO                                                                                             
+           ||  LL                 ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_SECT2_UK      ||  SECTI ||  COURSE_NO                                                                                             
+           ||                     ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_CRSE_FK       ||  SECTI ||  COURSE_NO                                                                                             
+           ||                     ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_SECTION_NO_NN ||  SECTI ||  SECTION_NO                                                                                            
+           ||  ULL                ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_SECT2_UK      ||  SECTI ||  SECTION_NO                                                                                            
+           ||                     ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_INSTRUCTOR_ID ||  SECTI ||  INSTRUCTOR_ID                                                                                         
+           ||  _NNULL             ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_INST_FK       ||  SECTI ||  INSTRUCTOR_ID                                                                                         
+           ||                     ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_CREATED_BY_NN ||  SECTI ||  CREATED_BY                                                                                            
+           ||  ULL                ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_CREATED_DATE_ ||  SECTI ||  CREATED_DATE                                                                                          
+           ||  NNULL              ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_MODIFIED_BY_N ||  SECTI ||  MODIFIED_BY                                                                                           
+           ||  NULL               ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SECT_MODIFIED_DATE ||  SECTI ||  MODIFIED_DATE                                                                                         
+           ||  _NNULL             ||  ON    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  CRSE_COURSE_NO_NNU ||  COURS ||  COURSE_NO                                                                                             
+           ||  LL                 ||  E     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  CRSE_PK            ||  COURS ||  COURSE_NO                                                                                             
+           ||                     ||  E     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  CRSE_DESCRIPTION_N ||  COURS ||  DESCRIPTION                                                                                           
+           ||  NULL               ||  E     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  CRSE_CRSE_FK       ||  COURS ||  PREREQUISITE                                                                                          
+           ||                     ||  E     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  CRSE_CREATED_BY_NN ||  COURS ||  CREATED_BY                                                                                            
+           ||  ULL                ||  E     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  CRSE_CREATED_DATE_ ||  COURS ||  CREATED_DATE                                                                                          
+           ||  NNULL              ||  E     ||                                                                                                        
+
+OWNER      ||  CONSTRAINT_NAME    ||  TABLE ||  COLUMN_NAME                                                                                           
+---------- ||  ------------------ ||  ----- ||  ---------------                                                                                       
+                                                                                                                                                      
+SERGIO     ||  CRSE_MODIFIED_BY_N ||  COURS ||  MODIFIED_BY                                                                                           
+           ||  NULL               ||  E     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  CRSE_MODIFIED_DATE ||  COURS ||  MODIFIED_DATE                                                                                         
+           ||  _NNULL             ||  E     ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ENR_STUDENT_ID_NNU ||  ENROL ||  STUDENT_ID                                                                                            
+           ||  LL                 ||  LMENT ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ENR_PK             ||  ENROL ||  STUDENT_ID                                                                                            
+           ||                     ||  LMENT ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ENR_STU_FK         ||  ENROL ||  STUDENT_ID                                                                                            
+           ||                     ||  LMENT ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ENR_SECTION_ID_NNU ||  ENROL ||  SECTION_ID                                                                                            
+           ||  LL                 ||  LMENT ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ENR_PK             ||  ENROL ||  SECTION_ID                                                                                            
+           ||                     ||  LMENT ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ENR_SECT_FK        ||  ENROL ||  SECTION_ID                                                                                            
+           ||                     ||  LMENT ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ENR_ENROLL_DATE_NN ||  ENROL ||  ENROLL_DATE                                                                                           
+           ||  ULL                ||  LMENT ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ENR_CREATED_BY_NNU ||  ENROL ||  CREATED_BY                                                                                            
+           ||  LL                 ||  LMENT ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ENR_CREATED_DATE_N ||  ENROL ||  CREATED_DATE                                                                                          
+           ||  NULL               ||  LMENT ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ENR_MODIFIED_BY_NN ||  ENROL ||  MODIFIED_BY                                                                                           
+           ||  ULL                ||  LMENT ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  ENR_MODIFIED_DATE_ ||  ENROL ||  MODIFIED_DATE                                                                                         
+           ||  NNULL              ||  LMENT ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  STU_STUDENT_ID_NNU ||  STUDE ||  STUDENT_ID                                                                                            
+           ||  LL                 ||  NT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  STU_PK             ||  STUDE ||  STUDENT_ID                                                                                            
+           ||                     ||  NT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  STU_LAST_NAME_NNUL ||  STUDE ||  LAST_NAME                                                                                             
+           ||  L                  ||  NT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  STU_ZIP_NNULL      ||  STUDE ||  ZIP                                                                                                   
+           ||                     ||  NT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  STU_ZIP_FK         ||  STUDE ||  ZIP                                                                                                   
+           ||                     ||  NT    ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  BIN$pqUdZp6FCBrgVQ ||  BIN$p ||  BOLETA                                                                                                
+           ||  AAAAAAAQ==$0       ||  qUdZp ||                                                                                                        
+           ||                     ||  6HCBr ||                                                                                                        
+           ||                     ||  gVQAA ||                                                                                                        
+           ||                     ||  AAAAA ||                                                                                                        
+           ||                     ||  Q==$0 ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  BIN$pqaqjGVSIJTgVQ ||  BIN$p ||  BOLETA                                                                                                
+           ||  AAAAAAAQ==$0       ||  qaqjG ||                                                                                                        
+           ||                     ||  VUIJT ||                                                                                                        
+           ||                     ||  gVQAA ||                                                                                                        
+           ||                     ||  AAAAA ||                                                                                                        
+           ||                     ||  Q==$0 ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  BIN$pqaqjGVVIJTgVQ ||  BIN$p ||  BOLETA                                                                                                
+           ||  AAAAAAAQ==$0       ||  qaqjG ||                                                                                                        
+           ||                     ||  VXIJT ||                                                                                                        
+           ||                     ||  gVQAA ||                                                                                                        
+           ||                     ||  AAAAA ||                                                                                                        
+           ||                     ||  Q==$0 ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SYS_C007860        ||  ESTUD ||  BOLETA                                                                                                
+           ||                     ||  IANTE ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  EMP_PK             ||  EMPLO ||  EMP_ID                                                                                                
+           ||                     ||  YEE   ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SYS_C007861        ||  EMPLO ||  FNAME                                                                                                 
+           ||                     ||  YEE   ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SYS_C007862        ||  EMPLO ||  LNAME                                                                                                 
+           ||                     ||  YEE   ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SYS_C007863        ||  EMPLO ||  DEPT_ID                                                                                               
+           ||                     ||  YEE   ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  EMP_FK             ||  EMPLO ||  MANAGER_EMP_ID                                                                                        
+           ||                     ||  YEE   ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  SYS_C007864        ||  EMPLO ||  SALARY                                                                                                
+           ||                     ||  YEE   ||                                                                                                        
+
+OWNER      ||  CONSTRAINT_NAME    ||  TABLE ||  COLUMN_NAME                                                                                           
+---------- ||  ------------------ ||  ----- ||  ---------------                                                                                       
+                                                                                                                                                      
+SERGIO     ||  SYS_C007865        ||  EMPLO ||  HIRE_DATE                                                                                             
+           ||                     ||  YEE   ||                                                                                                        
+                                                                                                                                                      
+SERGIO     ||  UNICO_A            ||  R     ||  A                                                                                                     
+
+115 rows selected.
+
+ALTER TABLE R DROP CONSTRAINT UNICO_1
+                              *
+ERROR at line 1:
+ORA-02443: Cannot drop constraint  - nonexistent constraint 
+
+
+
+A                                                                                                                                                     
+--                                                                                                                                                    
+a2                                                                                                                                                    
+a3                                                                                                                                                    
+al                                                                                                                                                    
+a4                                                                                                                                                    
+
+
+B                                                                                                                                                     
+--                                                                                                                                                    
+b2                                                                                                                                                    
+b1                                                                                                                                                    
+
+
+C                                                                                                                                                     
+--                                                                                                                                                    
+c1                                                                                                                                                    
+c2                                                                                                                                                    
+
+
+D                                                                                                                                                     
+--                                                                                                                                                    
+d1                                                                                                                                                    
+d3                                                                                                                                                    
+d2                                                                                                                                                    
+
+
+COUNT(DISTINCTA)                                                                                                                                      
+----------------                                                                                                                                      
+               4                                                                                                                                      
+
+
+A                                                                                                                                                     
+--                                                                                                                                                    
+al                                                                                                                                                    
+a2                                                                                                                                                    
+a3                                                                                                                                                    
+a4                                                                                                                                                    
+
+
+A  ||  B                                                                                                                                              
+-- ||  --                                                                                                                                             
+al ||  b1                                                                                                                                             
+a2 ||  b2                                                                                                                                             
+a3 ||  b1                                                                                                                                             
+a4 ||  b1                                                                                                                                             
+
+
+A  ||  C                                                                                                                                              
+-- ||  --                                                                                                                                             
+al ||  c2                                                                                                                                             
+a2 ||  c1                                                                                                                                             
+a3 ||  c2                                                                                                                                             
+a4 ||  c2                                                                                                                                             
+
+
+A  ||  D                                                                                                                                              
+-- ||  --                                                                                                                                             
+al ||  d1                                                                                                                                             
+a2 ||  d2                                                                                                                                             
+a3 ||  d1                                                                                                                                             
+a4 ||  d3                                                                                                                                             
+
+
+CONC                                                                                                                                                  
+----                                                                                                                                                  
+alb1                                                                                                                                                  
+a2b2                                                                                                                                                  
+a3b1                                                                                                                                                  
+a4b1                                                                                                                                                  
+
+
+A,    B                                                                                                                                               
+-------                                                                                                                                               
+al , b1                                                                                                                                               
+a2 , b2                                                                                                                                               
+a3 , b1                                                                                                                                               
+a4 , b1                                                                                                                                               
+
+
+A  ||  B  ||  C                                                                                                                                       
+-- ||  -- ||  --                                                                                                                                      
+al ||  b1 ||  c2                                                                                                                                      
+a2 ||  b2 ||  c1                                                                                                                                      
+a3 ||  b1 ||  c2                                                                                                                                      
+a4 ||  b1 ||  c2                                                                                                                                      
+
+
+A  ||  B  ||  D                                                                                                                                       
+-- ||  -- ||  --                                                                                                                                      
+al ||  b1 ||  d1                                                                                                                                      
+a2 ||  b2 ||  d2                                                                                                                                      
+a3 ||  b1 ||  d1                                                                                                                                      
+a4 ||  b1 ||  d3                                                                                                                                      
+
+
+A  ||  B  ||  C  ||  D                                                                                                                                
+-- ||  -- ||  -- ||  --                                                                                                                               
+al ||  b1 ||  c2 ||  d1                                                                                                                               
+a2 ||  b2 ||  c1 ||  d2                                                                                                                               
+a3 ||  b1 ||  c2 ||  d1                                                                                                                               
+a4 ||  b1 ||  c2 ||  d3                                                                                                                               
+
+
+B  ||  C  ||  D                                                                                                                                       
+-- ||  -- ||  --                                                                                                                                      
+b1 ||  c2 ||  d1                                                                                                                                      
+b2 ||  c1 ||  d2                                                                                                                                      
+b1 ||  c2 ||  d1                                                                                                                                      
+b1 ||  c2 ||  d3                                                                                                                                      
+
+
+C  ||  D                                                                                                                                              
+-- ||  --                                                                                                                                             
+c2 ||  d1                                                                                                                                             
+c1 ||  d2                                                                                                                                             
+c2 ||  d1                                                                                                                                             
+c2 ||  d3                                                                                                                                             
+
+ CREATE  TABLE TEMP_DF (DF VARCHAR2(15))
+               *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+ INSERT INTO TEMP_DF (DF)
+                      *
+ERROR at line 1:
+ORA-00904: "DF": invalid identifier 
+
+
+ SELECT DISTINCT (DF) " A,   B" FROM TEMP_DF
+                  *
+ERROR at line 1:
+ORA-00904: "DF": invalid identifier 
+
+
+SQL> spool off
