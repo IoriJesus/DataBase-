@@ -1,0 +1,214 @@
+SQL> @DF4_1maier2.sql
+DROP TABLE R1
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+A  B  C  D                                                                      
+-- -- -- --                                                                     
+al b1 c1 d1                                                                     
+a2 b2 c1 d1                                                                     
+a1 b1 c1 d2                                                                     
+a4 b3 c2 d3                                                                     
+
+
+A  '-->'  B                                                                     
+-- ------ --                                                                    
+al  -->   b1                                                                    
+a2  -->   b2                                                                    
+a1  -->   b1                                                                    
+a4  -->   b3                                                                    
+
+ drop table TEMP_DF
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+4 rows created.
+
+despliega la               DF  AB --> B
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al , b1         b1                                                              
+a2 , b2         b2                                                              
+a1 , b1         b1                                                              
+a4 , b3         b3                                                              
+
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al , b1         b1                                                              
+a2 , b2         b2                                                              
+a1 , b1         b1                                                              
+a4 , b3         b3                                                              
+
+
+Table dropped.
+
+
+Table created.
+
+
+4 rows created.
+
+despliega la               DF  AC --> B
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al , c1         b1                                                              
+a2 , c1         b2                                                              
+a1 , c1         b1                                                              
+a4 , c2         b3                                                              
+
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al , c1         b1                                                              
+a2 , c1         b2                                                              
+a1 , c1         b1                                                              
+a4 , c2         b3                                                              
+
+
+Table dropped.
+
+
+Table created.
+
+
+4 rows created.
+
+despliega la               DF  AD --> B
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al , d1         b1                                                              
+a2 , d1         b2                                                              
+a1 , d2         b1                                                              
+a4 , d3         b3                                                              
+
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al , d1         b1                                                              
+a2 , d1         b2                                                              
+a1 , d2         b1                                                              
+a4 , d3         b3                                                              
+
+
+Table dropped.
+
+
+Table created.
+
+
+4 rows created.
+
+despliega la               DF  AD --> B
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al , d1         b1                                                              
+a2 , d1         b2                                                              
+a1 , d2         b1                                                              
+a4 , d3         b3                                                              
+
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al , d1         b1                                                              
+a2 , d1         b2                                                              
+a1 , d2         b1                                                              
+a4 , d3         b3                                                              
+
+
+Table dropped.
+
+
+Table created.
+
+
+4 rows created.
+
+despliega la               DF  ABC --> B
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al,b1,c1        b1                                                              
+a2,b2,c1        b2                                                              
+a1,b1,c1        b1                                                              
+a4,b3,c2        b3                                                              
+
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al,b1,c1        b1                                                              
+a2,b2,c1        b2                                                              
+a1,b1,c1        b1                                                              
+a4,b3,c2        b3                                                              
+
+
+Table dropped.
+
+
+Table created.
+
+
+4 rows created.
+
+despliega la               DF  ABD --> B
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al,b1,d1        b1                                                              
+a2,b2,d1        b2                                                              
+a1,b1,d2        b1                                                              
+a4,b3,d3        b3                                                              
+
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al,b1,d1        b1                                                              
+a2,b2,d1        b2                                                              
+a1,b1,d2        b1                                                              
+a4,b3,d3        b3                                                              
+
+
+Table dropped.
+
+
+Table created.
+
+
+4 rows created.
+
+despliega la               DF  ACD --> B
+
+DF_I            DF_D                                                            
+--------------- ---------------                                                 
+al,c1,d1        b1                                                              
+a2,c1,d1        b2                                                              
+a1,c1,d2        b1                                                              
+a4,c2,d3        b3                  
