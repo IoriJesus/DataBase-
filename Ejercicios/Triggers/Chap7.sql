@@ -7,7 +7,6 @@ BEGIN
 dbms_output.put_line('executing temp_ais');
 END;
 
-set feedback off
 
 INSERT INTO temp VALUES (1);
 
