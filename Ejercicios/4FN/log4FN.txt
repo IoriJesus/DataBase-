@@ -1,0 +1,381 @@
+SQL> drop table carro;
+
+Table dropped.
+
+SQL> drop table modelo_motor;
+
+Table dropped.
+
+SQL> drop table modelo_marca;
+
+Table dropped.
+
+SQL> drop table modelo_color;
+
+Table dropped.
+
+SQL> drop table modelo_color_adorno;
+
+Table dropped.
+
+SQL> drop table modelo_color_toldo;
+
+Table dropped.
+
+SQL> 
+SQL> create table carro (
+  2  modelo varchar2 (10),
+  3  color varchar2 (10),
+  4  motor varchar2 (10),
+  5  adorno varchar2 (10),
+  6  toldo varchar2 (10),
+  7  marca varchar2 (10)
+  8  );
+
+Table created.
+
+SQL> 
+SQL> insert into carro values ('Mustang','Red','F3.2L','white','black','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Red','F3.2L','white','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Red','F3.2L','blue','black','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Red','F3.2L','blue','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Red','F4.5L','white','black','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Red','F4.5L','white','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Red','F4.5L','blue','black','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Red','F4.5L','blue','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','white','F3.2L','red','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','white','F3.2L','red','red','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','white','F3.2L','black','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','white','F3.2L','black','red','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','white','F4.5L','red','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','white','F4.5L','red','red','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','white','F4.5L','black','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','white','F4.5L','black','red','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Blue','F3.2L','white','black','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Blue','F3.2L','white','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Blue','F3.2L','yellow','black','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Blue','F3.2L','yellow','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Blue','F4.5L','white','black','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Blue','F4.5L','white','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Blue','F4.5L','yellow','black','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Mustang','Blue','F4.5L','yellow','white','Ford');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Red','C2.1L','white','black','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Red','C2.1L','white','blue','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Red','C2.1L','black','black','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Red','C2.1L','black','blue','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Red','C3.0L','white','black','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Red','C3.0L','white','blue','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Red','C3.0L','black','black','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Red','C3.0L','black','blue','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Green','C2.1L','white','brown','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Green','C2.1L','white','white','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Green','C2.1L','brown','brown','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Green','C2.1L','brown','white','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Green','C3.0L','white','brown','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Green','C3.0L','white','white','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Green','C3.0L','brown','brown','Chrysler');
+
+1 row created.
+
+SQL> insert into carro values ('Cirrus','Green','C3.0L','brown','white','Chrysler');
+
+1 row created.
+
+SQL> 
+SQL> create table modelo_motor (
+  2  modelo varchar2 (10),
+  3  motor varchar2 (10)
+  4  );
+
+Table created.
+
+SQL> insert into modelo_motor select distinct(modelo), motor from carro;
+
+4 rows created.
+
+SQL> select * from modelo_motor;
+
+MODELO     MOTOR                                                                
+---------- ----------                                                           
+Mustang    F4.5L                                                                
+Cirrus     C3.0L                                                                
+Mustang    F3.2L                                                                
+Cirrus     C2.1L                                                                
+
+SQL> 
+SQL> create table modelo_marca(
+  2  modelo varchar2 (10),
+  3  marca varchar2 (10)
+  4  );
+
+Table created.
+
+SQL> insert into modelo_marca select distinct(modelo), marca from carro;
+
+2 rows created.
+
+SQL> select * from modelo_marca;
+
+MODELO     MARCA                                                                
+---------- ----------                                                           
+Cirrus     Chrysler                                                             
+Mustang    Ford                                                                 
+
+SQL> 
+SQL> create table modelo_color(
+  2  modelo varchar2 (10),
+  3  color varchar2 (10)
+  4  );
+
+Table created.
+
+SQL> insert into modelo_color select distinct(modelo), color from carro;
+
+5 rows created.
+
+SQL> select * from modelo_color;
+
+MODELO     COLOR                                                                
+---------- ----------                                                           
+Mustang    white                                                                
+Cirrus     Green                                                                
+Mustang    Red                                                                  
+Mustang    Blue                                                                 
+Cirrus     Red                                                                  
+
+SQL> 
+SQL> create table  modelo_color_adorno (
+  2  modelo varchar2 (10),
+  3  color varchar2 (10),
+  4  adorno varchar2 (10)
+  5  );
+
+Table created.
+
+SQL> insert into modelo_color_adorno select distinct(modelo), color, adorno from carro;
+
+10 rows created.
+
+SQL> select * from modelo_color_adorno;
+
+MODELO     COLOR      ADORNO                                                    
+---------- ---------- ----------                                                
+Mustang    white      red                                                       
+Mustang    Blue       white                                                     
+Mustang    Red        blue                                                      
+Cirrus     Red        white                                                     
+Mustang    Red        white                                                     
+Mustang    white      black                                                     
+Cirrus     Red        black                                                     
+Cirrus     Green      brown                                                     
+Mustang    Blue       yellow                                                    
+Cirrus     Green      white                                                     
+
+10 rows selected.
+
+SQL> 
+SQL> create table modelo_color_toldo (
+  2  modelo varchar2 (10),
+  3  color varchar2 (10),
+  4  toldo varchar2 (10)
+  5  );
+
+Table created.
+
+SQL> insert into modelo_color_toldo select distinct(modelo), color, toldo from carro;
+
+10 rows created.
+
+SQL> select * from modelo_color_toldo;
+
+MODELO     COLOR      TOLDO                                                     
+---------- ---------- ----------                                                
+Mustang    white      red                                                       
+Mustang    Blue       white                                                     
+Mustang    Red        black                                                     
+Mustang    Blue       black                                                     
+Mustang    white      white                                                     
+Mustang    Red        white                                                     
+Cirrus     Red        black                                                     
+Cirrus     Red        blue                                                      
+Cirrus     Green      brown                                                     
+Cirrus     Green      white                                                     
+
+10 rows selected.
+
+SQL> 
+SQL> select * from modelo_motor order by 1,2;
+
+MODELO     MOTOR                                                                
+---------- ----------                                                           
+Cirrus     C2.1L                                                                
+Cirrus     C3.0L                                                                
+Mustang    F3.2L                                                                
+Mustang    F4.5L                                                                
+
+SQL> select * from modelo_marca order by 1,2;
+
+MODELO     MARCA                                                                
+---------- ----------                                                           
+Cirrus     Chrysler                                                             
+Mustang    Ford                                                                 
+
+SQL> select * from modelo_color order by 1,2;
+
+MODELO     COLOR                                                                
+---------- ----------                                                           
+Cirrus     Green                                                                
+Cirrus     Red                                                                  
+Mustang    Blue                                                                 
+Mustang    Red                                                                  
+Mustang    white                                                                
+
+SQL> select * from modelo_color_adorno order by 1,2;
+
+MODELO     COLOR      ADORNO                                                    
+---------- ---------- ----------                                                
+Cirrus     Green      white                                                     
+Cirrus     Green      brown                                                     
+Cirrus     Red        black                                                     
+Cirrus     Red        white                                                     
+Mustang    Blue       white                                                     
+Mustang    Blue       yellow                                                    
+Mustang    Red        blue                                                      
+Mustang    Red        white                                                     
+Mustang    white      red                                                       
+Mustang    white      black                                                     
+
+10 rows selected.
+
+SQL> select * from modelo_color_toldo order by 1,2;
+
+MODELO     COLOR      TOLDO                                                     
+---------- ---------- ----------                                                
+Cirrus     Green      brown                                                     
+Cirrus     Green      white                                                     
+Cirrus     Red        black                                                     
+Cirrus     Red        blue                                                      
+Mustang    Blue       white                                                     
+Mustang    Blue       black                                                     
+Mustang    Red        black                                                     
+Mustang    Red        white                                                     
+Mustang    white      red                                                       
+Mustang    white      white                                                     
+
+10 rows selected.
+
+SQL> spool off

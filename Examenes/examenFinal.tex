@@ -1,0 +1,203 @@
+% run the command ' lualatex -shell-escape Reference.tex ' twice in the terminal to visualize table of contents
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{minted}
+\usepackage{python}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{needspace}
+\usepackage{sectsty}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{afterpage}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[inline]{enumitem}
+\usepackage{fontspec}
+
+\geometry{letterpaper, portrait, left=1.5cm, right=1.5cm, top=2.5cm, bottom=2.5cm}
+
+\setminted{
+    style=tango,
+    breaklines=true
+}
+
+\setlength{\headsep}{0.5cm}
+\setlength{\columnsep}{0.5cm}
+\setlength{\columnseprule}{0.01cm}
+\renewcommand{\columnseprulecolor}{\color{gray}}
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LO,RE]{\textsf{Autor: Sergio Gabriel Sanchez Valencia}}
+\fancyhead[LE,RO]{\textsf{\leftmark}}
+\fancyfoot[LE,RO]{\textbf{\textsf{\thepage}}}
+
+\renewcommand{\headrulewidth}{0.01cm}
+\renewcommand{\footrulewidth}{0.01cm}
+
+\setlength{\parindent}{0em}
+% column space
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+% upper and lower padding
+\renewcommand{\arraystretch}{1.5} % Default value: 1
+
+\definecolor{prussianblue}{rgb}{0.0, 0.19, 0.33}
+\definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
+\definecolor{lapislazuli}{rgb}{0.15, 0.38, 0.61}
+\definecolor{mediumelectricblue}{rgb}{0.01, 0.31, 0.59}
+\definecolor{smalt(darkpowderblue)}{rgb}{0.0, 0.2, 0.6}
+\definecolor{yaleblue}{rgb}{0.06, 0.3, 0.57}
+\definecolor{skobeloff}{rgb}{0.0, 0.48, 0.45}
+\definecolor{pinegreen}{rgb}{0.0, 0.47, 0.44}
+
+\begin{document}
+\section*{Respuestas a Examen}
+\begin{enumerate}
+      \item
+            \begin{itemize}
+                  \item \textbf{Referencia DBA:} ''El DBA es responsable de autorizar el acceso a la base de datos, coordinando y monitoreando su uso,
+                        y adquiriendo recursos necesarios de software y hardware.'' (Elmasri, Navathe, 2011, pp. 15)
+                  \item \textbf{Respuesta DBA:} Basicamente el DBA es el encargado de otorgar los accesos correspondientes a la base de datos, ademas de coordinar y monitorear
+                        el uso de la misma. Adem\'as, este se encarga de adquirir el software y hardware necesario para mantener el funcionamiento adecuado de la base de datos.
+                  \item \textbf{Referencia DBD:} ''Los diseñadores de bases de datos son responsables de identificar los datos que deben ser almacenados en una base de datos
+                        y de elegir las estruturas apropiadas para representar y guardar estos datos'' (Elmasri, Navathe, 2011, pp. 15)
+                  \item \textbf{Respuesta DBD:} Los diseñadores de bases de datos tienen la responsabilidad de analizar los datos y deducir cuales de estos deben ser almacenados
+                        en la base de datos, adem\'as de esto, deben de proporcionar la forma en la que estos datos se almacenaran.
+            \end{itemize}
+      \item
+            \begin{itemize}
+                  \item \textbf{Referencia integridad de entidad:} ''La restricci\'on de integridad de entidad establece que ninguna llave primaria puede ser NULA.'' (Elmasri, Navathe, 2011, pp. 73)
+                  \item \textbf{Referencia integridad referencial:} ''La restricci\'on de integridad referencial esta especificada entre dos realciones y es utilizada
+                        para mantener la consistencia entre tuplas en las dos relaciones.'' (Elmasri, Navathe, 2011, pp. 73)
+                  \item \textbf{Respuesta:} Considero que el uso de la restricci\'on de integridad de entidad es muy importante ya que nos ayuda a identificar de manera \'unica a cada tupla en la enidad.
+                        Y en el mismo nivel de importancia se encuentra la restriccion de integridad referencial ya que con esta se establece que ambas tuplas relacionadas deben existir en las dos entidades.
+                        Finalmente, el aplicar estas dos restricciones es muy importante ya que garantizan que las conexiones entre entidades se mantengan su integridad.
+            \end{itemize}
+      \item
+            \textbf{Operaciones Unarias:}
+            \begin{itemize}
+                  \item \textbf{Referencia SELECT:} ''La operaci\'on SELECT es usada para elegir un subconjunto de tuplas the una relaci\'on que satisfaga una condici\'on de selecci\'on.''
+                        (Elmasri, Navathe, 2011, pp. 147)
+                  \item \textbf{Respuesta SELECT:} Considero que la operaci\'on SELECT es un filtro que mantiene solo aquellas tuplas que cumplen con ciertas condiciones.
+                  \item \textbf{Referencia PROJECT:} ''La operaci\'on PROJECT selecciona ciertas columnas de una tabla y descarta las demas columnas'' (Elmasri, Navathe, 2011, pp. 149)
+                  \item \textbf{Respuesta PROJECT:} La operaci\'on PROJECT se utiliza cuando solo queremos conocer el valor de ciertos atributos en una relaci\'on ya que con esta le indicamos que atributos proyectar.
+                  \item \textbf{Referencia RENAME:} ''Puede renombrar ya sea el nombre de la relaci\'on \'o los nombres de los atributos, \'o ambos como un operador unario''
+                        (Elmasri, Navathe, 2011, pp. 152)
+                  \item \textbf{Respuesta RENAME:} La operaci\'on de renombramiento nos ayuda para que nuestras consultas puedan ser entendidas de manera mas simple y adem\'as simplificar las mismas.
+            \end{itemize}
+            \textbf{Operaciones Binarias:}
+            \begin{itemize}
+                  \item \textbf{Referencia UNI\'ON:} ''El resultado de esta operaci\'on, denotado por $R \cup S$, es una relaci\'on que incluye todas las tuplas que est\'an
+                        \'o en $R$ \'o en $S$ \'o en ambas $R$ y $S$. Tuplas duplicadas son eliminadas.'' (Elmasri, Navathe, 2011, pp. 153)
+                  \item \textbf{Respuesta UNI\'ON:} La operaci\'on UNI\'ON nos ayuda a unir las tuplas de dos o mas relaciones.
+                  \item \textbf{Referencia INTERSECCI\'ON:} ''El resultado de esta operacio\'on, denotado por $R \cap S$, es una relaci\'on que incluye todas las tuplas
+                        que est\'an en ambas $R$ y $S$.'' (Elmasri, Navathe, 2011, pp. 153)
+                  \item \textbf{Respuesta INTERSECCI\'ON:} La operaci\'on INTERSECCI\'ON selecciona solo aquellas tuplas que aparecen en ambas relaciones.
+                  \item \textbf{Referencia DIFERENCIA:} ''El resultado de esta operaci\'on, denotado por $R - S$, es una relaci\'on que incluye todas las tuplas que est\'an
+                        en $R$ pero no en $S$.'' (Elmasri, Navathe, 2011, pp. 153)
+                  \item \textbf{Respuesta DIFERENCIA:} La operaci\'on DIFERENCIA elimina de $R$ todas las tuplas que comparta con $S$.
+            \end{itemize}
+            \textbf{Referencia Compatibilidad a la uni\'on:} ''Dos relaciones $R(A_1, A_2, \cdots, A_n)$ y $S(B_1, B_2, \cdots, B_n)$ se dicen compatibles a la uni\'on si
+            tienen el mismo grado $n$ y si $dom(A_i) = dom(B_i)$ para $1 \leq i \leq n$.'' (Elmasri, Navathe, 2011, pp. 153)\\
+            \textbf{Respuesta Compatibilidad a la uni\'on:} Basicamente esto significa que las dos relaciones deben tener el mismo n\'umero de atributos y cada par correspondiente
+            tiene el mismo dominio.
+      \item
+            \textbf{Anomal\'ias:}
+            \begin{itemize}
+                  \item \textbf{Referencia Anomal\'ia 1:} ''Desperdicio de espacio debido a NULOS y la dificultad de ejecutar operaciones de selecci\'on, agregaci\'on y uniones debido a los valores NULOS.''
+                        (Elmasri, Navathe, 2011, pp. 513)
+                  \item \textbf{Referencia Anomal\'ia 2:} ''Generaci\'on the datos invalidos y falsos durante las uniones en relaciones con atributos correspondientes que puede que no representen una relaci\'on apropiada.''
+                        (Elmasri, Navathe, 2011, pp. 513)
+                  \item \textbf{Ejemplo Anomal\'ia 1:} Si tenemos una relaci\'on en la cual su identificador es NULO entonces al hacer la uni\'on con otra relaci\'on considerando los identificadores entonces se realizarian
+                        uniones que no tendr\'ian sentido.
+                  \item \textbf{Ejemplo Anomal\'ia 2:} Si tenemos alguna relaci\'on con alg\'un atributo con posibles valores nulos esto significa que una tupla puede tener o no tener cierto atributo.
+                        Lo que nos lleva a tener una columna que desperdicia espacios para las tuplas que no tienen dicho atributo. Se podr\'ia crear una nueva relaci\'on en su lugar para evitar esto.
+            \end{itemize}
+      \item \textbf{Referencia de Dependencia Funcional:} ''Una dependencia funcional es una restricci\'on entre dos conjuntos de atributos de la base de datos.'' (Elmasri, Navathe, 2011, pp. 513)\\
+            \textbf{Respuesta:} Basicamente una dependencia funcional nos indica que cierto atributo $Y$ es determinado por otro atributo $X$ y se denota como $X \rightarrow Y$,
+            lo que significa que en todas las tuplas que exista $X_i$ entonces aparecera $Y_j$.
+      \item
+            \begin{itemize}
+                  \item \textbf{Referencia 1NF:} ''Establece que el dominio de un atributo debe incluir solo valores at\'omicos y que el valor de cada atributo en una tupla
+                        debe ser un solo valor del dominio de ese atributo'' (Elmasri, Navathe, 2011, pp. 519)
+                  \item \textbf{Respuesta 1NF:} Un esquema esta en 1FN si no contiene atributos multivalor, es decir todos los atributos deben ser atómicos (indivisibles).
+                  \item \textbf{Referencia 2NF:} ''Un esquema relacional $R$ se encuentra en 2NF si todo atributo no primario $A$ en $R$ es funcionalemente dependiente en su totalidad de la
+                        llave primaria de $R$.'' (Elmasri, Navathe, 2011, pp. 523)
+                  \item \textbf{Respuesta 2NF:}  Un esquema esta en 2FN si todos los atributos son completamente dependientes de la llave primaria.
+                  \item \textbf{Referencia 3NF:} ''Seg\'un la definici\'on original de Codd, un esquema relacional $R$ se encuentra en 3NF is satisface la 2NF y ningun atributo no primario de $R$
+                        es transitivamente dependiente de la llave primaria'' (Elmasri, Navathe, 2011, pp. 524)
+                  \item \textbf{Respuesta 3NF:} Un esquema esta en 3FN si satisface 2FN y además ningún atributo no primario depende de manera transitiva de la llave primaria. Es decir todos
+                        los atributos de la relaci\'on dependen solo de la llave primaria de manera directa y no atraves de otro atributos.
+            \end{itemize}
+      \item
+            \begin{itemize}
+                  \item \textbf{Referencia BCNF:} ''Un esquema relacional $R$ se encuentra en BCNF si para cada dependencia funcional no trivial $X \rightarrow A$ que existe en $R$,
+                        entonces $X$ es una superllave de $R$'' (Elmasri, Navathe, 2011, pp. 529)
+                  \item \textbf{Respuesta BCNF:} Un esquema esta en BCNF si para todas las dependencias no triviales ''X \rightarrow A'', ''X'' es una superllave de la relación.
+            \end{itemize}
+      \item
+            \begin{itemize}
+                  \item \textbf{Referencia DF Multivaluada:} ''Una dependencia multivaluada $X \rightarrow \rightarrow Y$ especificada en el esquema $R$, donde $X$ y $Y$ son ambos
+                        subconjuntos de $R$, especifica la siguiente restricci\'on en todos los estados $r$ de la relaci\'on $R$: Si dos tuplas $t_1$ y $t_2$ existen en $r$ tal que
+                        $t_1[X] = t_2[X]$, entonces dos tuplas $t_3$ y $t_4$ tambi\'en deben existir en $r$ con las siguientes propiedades, donde usamos $Z$ para denotar $(R - (X \cup Y))$:
+                        $t_3[X] = t_4[X] = t_1[X] = t_2[X]$, $t_3[Y] = t_1[Y]$ y $t_4[Y] = t_2[Y]$, $t_3[Z] = t_2[Z]$ y $t_4[Z] = t_1[Z]$.'' (Elmasri, Navathe, 2011, pp. 533)
+                  \item \textbf{Respuesta DF Multivaluada:}  Las dependencias multivaluadas se generan cuando un atributo $A$ determina a otro, pero este no siempre tiene los mismos valores
+                        debido a $A$.
+            \end{itemize}
+      \item
+            \begin{itemize}
+                  \item \textbf{Referencia a dependencia reuni\'on:} ''Denotado por $JD(R_1, R_2, \cdots, R_n)$, especificado en el esquema de relaci\'on $R$, especifica una restricci\'on
+                        en el esquema relacional $R$. La restricci\'on establece que para todos los estados legales $r$ de $R$ deben tener una descomposici\'on a la uni\'on no aditiva en
+                        $R_1, R_2, \cdots, R_n$. Por lo tanto, para cada $r$ tenemos $*(\pi_{R_1}(r), \pi_{R_2}(r), \cdots , \pi_{R_n}(r) = r$.'' (Elmasri, Navathe, 2011, pp. 535)
+                  \item \textbf{Respuesta a dependencia reuni\'on:} Basicamente nos indica que al hacer una descomposici\'on esta no debe tener perdidas al hacer la reuni\'on.
+                  \item \textbf{Referencia a Quinta Forma Normal:} ''Un esquema relacional $R$ se encuentra en quinta forma normal (5NF) con respecto al conjunto $F$ de dependencias
+                        funcionales, multivaluadas y de uni\'on si, para toda dependencia de uni\'on no trivial $JD(R_1, R_2, \cdots , R_n)$ en $F^+$, cada $R_i$ es una superllave de $R$.''
+                        (Elmasri, Navathe, 2011, pp. 535)
+                  \item \textbf{Respuesta a Quinta Forma Normal:} Una relación esta en quinta forma normal (5FN) si esta se encuentra en 4FN y las únicas dependencias que existen
+                        son las denominadas dependencias de Join de una tabla con sus proyecciones, relacionándose entre sí mediante la clave primaria, o cualquier clave alternativa.
+            \end{itemize}
+      \item
+            \begin{itemize}
+                  \item \textbf{Referencia propiedad cerradura:} ''Formalmente, el conjunto de todas las dependencias que incluyen $F$ asi como a las dependencias que pueden ser inferidas
+                        the $F$ es llamada la cerradura de $F$; se denota como $F^+$.'' (Elmasri, Navathe, 2011, pp. 545)
+                  \item \textbf{Respuesta propiedad cerradura:} Siendo $F$ un conjunto de dependencias funcionales, entonces la cerradura de $F$ ($F^+$) es igual a $F$ m\'as las dependencias
+                        funcionales que se puedan derivar de $F$.
+                  \item \textbf{Ejemplo:} 
+            \end{itemize}
+      \item
+            \begin{itemize}
+                  \item \textbf{Referencia de conjuntos equivalentes:} ''Dos conjuntos de dependencias funcionales $E$ y $F$ son equivalentes si $E+ = F+$.'' (Elmasri, Navathe, 2011, pp. 549)
+                  \item \textbf{Respuesta de conjuntos esquivalentes:} Esto significa que todas las DF en $E$ pueden ser inferidas de $F$ y que todas las dependencias en $F$ pueden ser
+                        inferidas de $E$. y podemos calcular esto calculando que $E$ cubre $F$ y que $F$ cubre a $E$.
+            \end{itemize}
+      \item
+            \begin{itemize}
+                  \item \textbf{Referencia de cubierta minima:} ''Una cubierta minima de un conjunto de dependencias funcionales $E$ es un conjunto minimo de dependencias (en
+                        la forma can\'onica estandar y sin redundancia) que es equivalente a $E$.'' (Elmasri, Navathe, 2011, pp. 550)
+                  \item \textbf{Resputesta de cubierta minima:} Dado un conjunto de dependencias funcionales que tiene redundancia y no esta en su forma canonica entonces su cubierta minima
+                        es el mismo conjunto eliminando redundancias y transformandolo a su forma can\'onica.
+            \end{itemize}
+      \item \textbf{Respuesta de preservaci\'on de atributos en la descomposici\'on:} Esta condici\'on establece que al descomponer una relaci\'on $R$ en $R' = R_1, R_2, \cdots, R_n$ entonces
+            al efectuar la reuni\'on se deben de poder recuperar los mismos atributos que fueron descompuestos.
+      \item
+            \begin{itemize}
+                  \item \textbf{Referencia de insuficiencia de las formas normales:} ''Debemos de considerar la descomposici\'on de la relaci\'on universal como un todo, adem\'as de analizar las
+                        relaciones individuales.'' (Elmasri, Navathe, 2011, pp. 552)
+                  \item \textbf{Respuesta de insuficiencia de las formas normales:} No es suficiente transformar las relaciones individuales en su forma normal, por que existe la posibilidad
+                        de que al hacer la reuni\'on de las relaciones descompuestas se generen tuplas espurias. Y es por esto que debemos analizar todas las descomposiciones como un todo. Para
+                        asi garantizar la integridad en las consultas.
+            \end{itemize}
+\end{enumerate}
+\includepdf{"Examen_final_bases.pdf"}
+\end{document}
+
